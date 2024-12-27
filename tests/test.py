@@ -10,6 +10,11 @@ from dotenv import load_dotenv
 import os
 from utils.locators import get_emotion_xpath, get_slider_dict, get_mood_dict  # Import the function
 from utils.audio import select_audio_emotions
+from utils.responsible_decison_making import select_responsible_decision_making
+from utils.self_management import handle_self_management
+from utils.social_awareness import select_social_awareness_option
+from utils.emotions_function import perform_actions
+
 load_dotenv()
 
 
@@ -45,8 +50,12 @@ login_button.click()
 # Wait for a successful login (you can adjust this part to wait for specific elements on the dashboard or homepage)
 time.sleep(5)
 
-# Optionally, take a screenshot after login
-driver.save_screenshot("login_success.png")
+# Select the 'COMPASS DASHBOARD'
+compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
+
+# Locate and click on the 'COMPASS DASHBOARD' audio
+compass_dashboard_audio_element = driver.find_element(By.XPATH, compass_dashboard_audio_xpath)
+compass_dashboard_audio_element.click()
 
 # List of possible emotions to click
 emotion_names = ["happy", "angry", "meh", "sad", "excited", "fearful"]
@@ -138,39 +147,8 @@ audio_first_next_element.click()
 
 time.sleep(2)
 
-responsible_decison_making = {
-    "1": '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[1]/div[1]/input[1]',
-    "2": '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[2]/div[1]/input[1]',
-    "3": '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[3]/div[1]/input[1]',
-        
-}
-
-responsible_decison_making_audio = {
-    "audio1": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[1]/i[1]",
-    "audio2": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[2]/i[1]",
-    "audio3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[3]/i[1]",
-}
-
-# Select a random emotion
-random_responsible_decison_making = random.choice(list(responsible_decison_making.values()))
-
-# Locate and click on the randomly selected emotion
-responsible_decison_making_element = driver.find_element(By.XPATH, random_responsible_decison_making)
-responsible_decison_making_element.click()
-
-time.sleep(2)
-
-# Check which option was selected and trigger the corresponding audio
-if random_responsible_decison_making == responsible_decison_making["1"]:
-    audio_element = driver.find_element(By.XPATH, responsible_decison_making_audio["audio1"])
-    audio_element.click()
-elif random_responsible_decison_making == responsible_decison_making["2"]:
-    audio_element = driver.find_element(By.XPATH, responsible_decison_making_audio["audio2"])
-    audio_element.click()
-elif random_responsible_decison_making == responsible_decison_making["3"]:
-    audio_element = driver.find_element(By.XPATH, responsible_decison_making_audio["audio3"])
-    audio_element.click()
-time.sleep(2)
+# Call the function
+select_responsible_decision_making(driver)
 
 # Select the 'second_next' emotion
 audio_second_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
@@ -180,71 +158,8 @@ audio_second_next_element = driver.find_element(By.XPATH, audio_second_next_xpat
 audio_second_next_element.click()
 time.sleep(2)
 
-self_management = {
-    "1": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][1]/*[name()='g'][1]/*[name()='path'][1]",
-    "2": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][2]/*[name()='g'][1]/*[name()='path'][1]",
-    "3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][3]/*[name()='g'][1]/*[name()='path'][1]",
-    "4": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][4]/*[name()='g'][1]/*[name()='path'][1]",
-    "5": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][5]/*[name()='g'][1]/*[name()='path'][1]",
-        
-}
-
-self_management_audio = {
-    "audio1": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[1]",
-    "audio2": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[2]",
-    "audio3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[3]",
-    "audio4": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[4]",
-    "audio5": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[5]",
-        
-}
-
-
-# Select a random emotion
-random_self_management = random.choice(list(self_management.values()))
-
-# Wait for the element to be clickable
-self_management_element = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, random_self_management))
-)
-
-# Create an instance of ActionChains
-actions = ActionChains(driver)
-
-# Hover over the element
-actions.move_to_element(self_management_element).perform()
-
-# Wait for 1 second after hover
-time.sleep(2)
-
-# Attempt to click the element
-try:
-    self_management_element.click()
-except Exception as e:
-    print(f"Error clicking element: {str(e)}")
-    # Fallback to JavaScript click if normal click fails
-    driver.execute_script("arguments[0].click();", self_management_element)
-
-# Wait for 1 second after clicking
-time.sleep(1)
-
-
-# Check which option was selected and trigger the corresponding audio
-if random_self_management == self_management["1"]:
-    audio_element = driver.find_element(By.XPATH, self_management_audio["audio1"])
-    audio_element.click()
-elif random_self_management == self_management["2"]:
-    audio_element = driver.find_element(By.XPATH, self_management_audio["audio2"])
-    audio_element.click()
-elif random_self_management == self_management["3"]:
-    audio_element = driver.find_element(By.XPATH, self_management_audio["audio3"])
-    audio_element.click()
-elif random_self_management == self_management["4"]:
-    audio_element = driver.find_element(By.XPATH, self_management_audio["audio4"])
-    audio_element.click()
-elif random_self_management == self_management["5"]:
-    audio_element = driver.find_element(By.XPATH, self_management_audio["audio5"])
-    audio_element.click()
-time.sleep(2)
+# Call the function
+handle_self_management(driver)
 
 # Select the 'third_next' emotion
 audio_third_next_xpath = "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[2]/button[2]"
@@ -253,71 +168,8 @@ audio_third_next_xpath = "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1
 audio_third_next_element = driver.find_element(By.XPATH, audio_third_next_xpath)
 audio_third_next_element.click()
 
-
-social_awareness = {
-    "1": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/ngx-slider[1]/span[12]/span[1]",
-    "2": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/ngx-slider[1]/span[12]/span[2]",
-    "3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/ngx-slider[1]/span[12]/span[3]",
-    "4": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/ngx-slider[1]/span[12]/span[4]",
-    "5": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/ngx-slider[1]/span[12]/span[5]",
-        
-}
-
-
-social_awareness_audio = {
-    "audio1": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[1]/button[1]",
-    "audio2": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[2]/button[1]",
-    "audio3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[3]/button[1]",
-    "audio4": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[4]/button[1]",
-    "audio5": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[5]/button[1]",
-        
-}
-
-# Select a random emotion
-random_social_awareness = random.choice(list(social_awareness.values()))
-
-# Wait for the element to be clickable
-social_awareness_element = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, random_social_awareness))
-)
-
-# Create an instance of ActionChains
-actions = ActionChains(driver)
-
-# Hover over the element
-actions.move_to_element(social_awareness_element).perform()
-
-# Wait for 1 second after hover
-time.sleep(2)
-
-# Attempt to click the element
-try:
-    social_awareness_element.click()
-except Exception as e:
-    print(f"Error clicking element: {str(e)}")
-    # Fallback to JavaScript click if normal click fails
-    driver.execute_script("arguments[0].click();", social_awareness_element)
-
-# Wait for 1 second after clicking
-time.sleep(1)
-
-# Check which option was selected and trigger the corresponding audio
-if random_social_awareness == social_awareness["1"]:
-    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio1"])
-    audio_element.click()
-elif random_social_awareness == social_awareness["2"]:
-    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio2"])
-    audio_element.click()
-elif random_social_awareness == social_awareness["3"]:
-    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio3"])
-    audio_element.click()
-elif random_social_awareness == social_awareness["4"]:
-    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio4"])
-    audio_element.click()
-elif random_social_awareness == social_awareness["5"]:
-    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio5"])
-    audio_element.click()
-time.sleep(2)
+# Call the function
+select_social_awareness_option(driver)
 
 # Select the 'fourth_next' emotion
 audio_fourth_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
@@ -327,101 +179,8 @@ audio_fourth_next_element = driver.find_element(By.XPATH, audio_fourth_next_xpat
 audio_fourth_next_element.click()
 time.sleep(2)
 
-
-time.sleep(2)
-communicate = {
-    "1": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",
-    "2": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",
-    "3": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",
-    "4": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",
-        
-}
-
-# Select a random emotion
-random_communicate = random.choice(list(communicate.values()))
-
-# Locate and click on the randomly selected emotion
-communicate_element = driver.find_element(By.XPATH, random_communicate)
-communicate_element.click()
-
-#Communicate audio
-communicate_audio = '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/button[1]'
-
-# Locate and click on the 'fourth_next' emotion
-communicate_audio_element = driver.find_element(By.XPATH, communicate_audio)
-communicate_audio_element.click()
-time.sleep(2)
-
-works_together = {
-    "1": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[2]/div/ngx-slider/span[5]",
-    "2": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[2]/div/ngx-slider/span[5]",
-    "3": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[2]/div/ngx-slider/span[5]",
-    "4": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[2]/div/ngx-slider/span[5]",
-    
-        
-}
-
-# Select a random emotion
-random_works_together = random.choice(list(works_together.values()))
-
-# Locate and click on the randomly selected emotion
-works_together_element = driver.find_element(By.XPATH, random_works_together)
-works_together_element.click()
-
-#work_together audio
-work_together_audio = '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[2]/button[1]'
-
-# Locate and click on the 'fourth_next' emotion
-work_together_audio_element = driver.find_element(By.XPATH, work_together_audio)
-work_together_audio_element.click()
-time.sleep(2)
-
-ask_for_help = {
-    "1": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[3]/div/ngx-slider/span[5]",
-    "2": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[3]/div/ngx-slider/span[5]",
-    "3": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[3]/div/ngx-slider/span[5]",
-    "4": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[3]/div/ngx-slider/span[5]",
-        
-}
-
-# Select a random emotion
-random_ask_for_help = random.choice(list(ask_for_help.values()))
-
-# Locate and click on the randomly selected emotion
-ask_for_help_element = driver.find_element(By.XPATH, random_ask_for_help)
-ask_for_help_element.click()
-
-#ask_for_help audio
-ask_for_help_audio = '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[3]/button[1]'
-
-# Locate and click on the 'fourth_next' emotion
-ask_for_help_audio_element = driver.find_element(By.XPATH, ask_for_help_audio)
-ask_for_help_audio_element.click()
-time.sleep(2)
-
-ignore_peer_pressure = {
-    "1": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[4]/div/ngx-slider/span[5]",
-    "2": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[4]/div/ngx-slider/span[5]",
-    "3": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[4]/div/ngx-slider/span[5]",
-    "4": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[4]/div/ngx-slider/span[5]",
-        
-}
-
-# Select a random emotion
-random_ignore_peer_pressure = random.choice(list(ignore_peer_pressure.values()))
-
-# Locate and click on the randomly selected emotion
-ignore_peer_pressure_element = driver.find_element(By.XPATH, random_ignore_peer_pressure)
-ignore_peer_pressure_element.click()
-
-#ignore_peer_pressure audio
-ignore_peer_pressure_audio = '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[4]/button[1]'
-
-# Locate and click on the 'fourth_next' emotion
-ignore_peer_pressure_audio_element = driver.find_element(By.XPATH, ignore_peer_pressure_audio)
-ignore_peer_pressure_audio_element.click()
-
-time.sleep(2)
+# Call the function that performs all actions
+perform_actions(driver)
 
 # Select the 'submit' emotion
 audio_submit_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[2]/button[2]'

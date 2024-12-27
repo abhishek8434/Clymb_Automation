@@ -1,3 +1,4 @@
 /.env
 /emotion_selected.png
 /login_success.png
+/utils/__pycache__
