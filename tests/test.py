@@ -6,12 +6,24 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import random
+from dotenv import load_dotenv
+import os
+from utils.locators import get_emotion_xpath, get_slider_dict, get_mood_dict  # Import the function
+from utils.audio import select_audio_emotions
+load_dotenv()
+
+
+# Get login details
+url = os.getenv("BASE_URL")
+username = os.getenv("EMAIL")
+password = os.getenv("PASSWORD")
 
 # Initialize WebDriver using Chrome
 driver = webdriver.Chrome()  # No need to specify executable_path; it's handled by chromedriver-py
 driver.maximize_window()
+
 # Open a webpage
-driver.get("https://clymbstudent.evdpl.com/account/login")
+driver.get(url)
 
 # Wait for the page to load completely
 time.sleep(2)
@@ -24,8 +36,8 @@ password_field = driver.find_element(By.ID, "password")  # Change to correct loc
 login_button = driver.find_element(By.XPATH, "//button[@type='submit']")  # Adjust if needed
 
 # Enter the login credentials
-email_field.send_keys("bonney12@yopmail.com")  # Replace with the actual email
-password_field.send_keys("Test@123")  # Replace with the actual password
+email_field.send_keys(username)  # Replace with the actual email
+password_field.send_keys(password)  # Replace with the actual password
 
 # Submit the form
 login_button.click()
@@ -36,52 +48,42 @@ time.sleep(5)
 # Optionally, take a screenshot after login
 driver.save_screenshot("login_success.png")
 
-# # Select the 'happy' emotion
-# happy_emotion_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[1]/div/label/img'
-
-# # Locate and click on the 'happy' emotion
-# happy_emotion_element = driver.find_element(By.XPATH, happy_emotion_xpath)
-# happy_emotion_element.click()
-
-
 # List of possible emotions to click
-emotions = {
-    "happy": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[1]/div/label/img',
-    "angry": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[2]/div/label/img',
-    "meh": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[2]/div/label/img',
-    "sad": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[4]/div/label/img',
-    "excited": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[5]/div/label/img',
-    "fearful": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[6]/div/label/img'
-}
+emotion_names = ["happy", "angry", "meh", "sad", "excited", "fearful"]
 
-# Select a random emotion
-random_emotion = random.choice(list(emotions.values()))
+# Select a random emotion from the list
+random_emotion = random.choice(emotion_names)
+
+# Get the XPath for the randomly selected emotion using the function
+emotion_xpath = get_emotion_xpath(random_emotion)
 
 # Locate and click on the randomly selected emotion
-emotion_element = driver.find_element(By.XPATH, random_emotion)
-emotion_element.click()
+if emotion_xpath != "Emotion not found!":
+    emotion_element = driver.find_element(By.XPATH, emotion_xpath)
+    emotion_element.click()
 
 # Wait for a moment after clicking
 time.sleep(2)
 
-# Optionally, take a screenshot after the emotion is selected
-driver.save_screenshot("emotion_selected.png")
 
-slider = {
-    "1": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[1]/ngx-slider-tooltip-wrapper[2]/div',
-    "2": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[2]/ngx-slider-tooltip-wrapper[2]/div',
-    "3": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[3]/ngx-slider-tooltip-wrapper[2]/div',
-    "4": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[4]/ngx-slider-tooltip-wrapper[2]/div',
-    "5": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[5]/ngx-slider-tooltip-wrapper[2]/div',
-    
-}
+# List of possible emotions to click
+slider_names = ["1", "2", "3", "4", "5"]
 
-# Select a random emotion
-random_slider = random.choice(list(slider.values()))
+# Select a random slider from the list
+random_slider = random.choice(slider_names)
 
-# Locate and click on the randomly selected emotion
-slider_element = driver.find_element(By.XPATH, random_slider)
-slider_element.click()
+# Get the XPath for the randomly selected slider using the function
+slider_dict = get_slider_dict()
+slider_xpath = slider_dict.get(random_slider, "slider not found!")
+
+# Locate and click on the randomly selected slider
+if slider_xpath != "slider not found!":
+    slider_element = driver.find_element(By.XPATH, slider_xpath)
+    slider_element.click()
+
+# Wait for a moment after clicking
+time.sleep(2)
+
 
 first_next_xpath = "//button[normalize-space()='Next']"
 
@@ -91,23 +93,11 @@ first_next_button.click()
 # Wait for a moment after clicking
 time.sleep(2)
 
+# Get the mood dictionary using the function
+mood_dict = get_mood_dict()
 
-mood = {
-    "mood1": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][1]/*[name()='path'][3]",
-    "mood2": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][1]/*[name()='path'][4]",
-    "mood3": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][2]/*[name()='path'][3]",
-    "mood4": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][2]/*[name()='path'][4]",
-    "mood5": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][3]/*[name()='path'][3]",
-    "mood6": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][3]/*[name()='path'][4]",
-    "mood7": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][4]/*[name()='path'][3]",
-    "mood8": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][4]/*[name()='path'][4]",
-    
-}
-
-
-# Select a random emotion
-random_mood = random.choice(list(mood.values()))
-
+# Select a random mood
+random_mood = random.choice(list(mood_dict.values()))
 
 # Wait for the element to be clickable
 random_mood_element = WebDriverWait(driver, 10).until(
@@ -131,87 +121,11 @@ except Exception as e:
     # Fallback to JavaScript click if normal click fails
     driver.execute_script("arguments[0].click();", random_mood_element)
 
-
-time.sleep(1)
-
-# Select the 'tile audio' emotion
-audio_title_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/h4[1]/i[1]'
-
-# Locate and click on the 'audio_title' emotion
-audio_title_element = driver.find_element(By.XPATH, audio_title_xpath)
-audio_title_element.click()
-
+# Wait a bit before closing
 time.sleep(2)
 
-# Select the 'look like' emotion
-audio_look_like_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h5[1]/i[1]'
-
-# Locate and click on the 'look_like' emotion
-audio_look_like_element = driver.find_element(By.XPATH, audio_look_like_xpath)
-audio_look_like_element.click()
-
-time.sleep(2)
-
-# Select the 'first_description' emotion
-audio_first_description_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[1]/i[1]'
-
-# Locate and click on the 'first_description' emotion
-audio_first_description_element = driver.find_element(By.XPATH, audio_first_description_xpath)
-audio_first_description_element.click()
-
-time.sleep(2)
-
-# Select the 'second_description' emotion
-audio_second_description_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[2]/i[1]'
-
-# Locate and click on the 'second_description' emotion
-audio_second_description_element = driver.find_element(By.XPATH, audio_second_description_xpath)
-audio_second_description_element.click()
-
-time.sleep(2)
-
-# Select the 'third_description' emotion
-audio_third_description_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[3]/i[1]'
-
-# Locate and click on the 'third_description' emotion
-audio_third_description_element = driver.find_element(By.XPATH, audio_third_description_xpath)
-audio_third_description_element.click()
-
-time.sleep(2)
-
-# Select the 'feel_like' emotion
-audio_feel_like_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h5[2]/i[1]'
-
-# Locate and click on the 'feel_like' emotion
-audio_feel_like_element = driver.find_element(By.XPATH, audio_feel_like_xpath)
-audio_feel_like_element.click()
-
-time.sleep(2)
-
-# Select the 'first_description_feels' emotion
-audio_first_description_feels_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[2]/li[1]/i[1]'
-
-# Locate and click on the 'first_description_feels' emotion
-audio_first_description_feels_element = driver.find_element(By.XPATH, audio_first_description_feels_xpath)
-audio_first_description_feels_element.click()
-
-time.sleep(2)
-
-# Select the 'second_description_feels' emotion
-audio_second_description_feels_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[2]/li[2]/i[1]'
-
-# Locate and click on the 'second_description_feels' emotion
-audio_second_description_feels_element = driver.find_element(By.XPATH, audio_second_description_feels_xpath)
-audio_second_description_feels_element.click()
-
-time.sleep(2)
-
-# Select the 'third_description_feels' emotion
-audio_third_description_feels_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/ul[2]/li[3]/i[1]'
-
-# Locate and click on the 'third_description_feels' emotion
-audio_third_description_feels_element = driver.find_element(By.XPATH, audio_third_description_feels_xpath)
-audio_third_description_feels_element.click()
+# # Select the 'tile audio
+select_audio_emotions(driver)
 
 time.sleep(2)
 
@@ -231,6 +145,12 @@ responsible_decison_making = {
         
 }
 
+responsible_decison_making_audio = {
+    "audio1": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[1]/i[1]",
+    "audio2": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[2]/i[1]",
+    "audio3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/ul[1]/li[3]/i[1]",
+}
+
 # Select a random emotion
 random_responsible_decison_making = random.choice(list(responsible_decison_making.values()))
 
@@ -239,6 +159,19 @@ responsible_decison_making_element = driver.find_element(By.XPATH, random_respon
 responsible_decison_making_element.click()
 
 time.sleep(2)
+
+# Check which option was selected and trigger the corresponding audio
+if random_responsible_decison_making == responsible_decison_making["1"]:
+    audio_element = driver.find_element(By.XPATH, responsible_decison_making_audio["audio1"])
+    audio_element.click()
+elif random_responsible_decison_making == responsible_decison_making["2"]:
+    audio_element = driver.find_element(By.XPATH, responsible_decison_making_audio["audio2"])
+    audio_element.click()
+elif random_responsible_decison_making == responsible_decison_making["3"]:
+    audio_element = driver.find_element(By.XPATH, responsible_decison_making_audio["audio3"])
+    audio_element.click()
+time.sleep(2)
+
 # Select the 'second_next' emotion
 audio_second_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
 
@@ -255,6 +188,17 @@ self_management = {
     "5": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][5]/*[name()='g'][1]/*[name()='path'][1]",
         
 }
+
+self_management_audio = {
+    "audio1": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[1]",
+    "audio2": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[2]",
+    "audio3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[3]",
+    "audio4": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[4]",
+    "audio5": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/div[1]/button[5]",
+        
+}
+
+
 # Select a random emotion
 random_self_management = random.choice(list(self_management.values()))
 
@@ -284,6 +228,24 @@ except Exception as e:
 time.sleep(1)
 
 
+# Check which option was selected and trigger the corresponding audio
+if random_self_management == self_management["1"]:
+    audio_element = driver.find_element(By.XPATH, self_management_audio["audio1"])
+    audio_element.click()
+elif random_self_management == self_management["2"]:
+    audio_element = driver.find_element(By.XPATH, self_management_audio["audio2"])
+    audio_element.click()
+elif random_self_management == self_management["3"]:
+    audio_element = driver.find_element(By.XPATH, self_management_audio["audio3"])
+    audio_element.click()
+elif random_self_management == self_management["4"]:
+    audio_element = driver.find_element(By.XPATH, self_management_audio["audio4"])
+    audio_element.click()
+elif random_self_management == self_management["5"]:
+    audio_element = driver.find_element(By.XPATH, self_management_audio["audio5"])
+    audio_element.click()
+time.sleep(2)
+
 # Select the 'third_next' emotion
 audio_third_next_xpath = "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[2]/button[2]"
 
@@ -298,6 +260,16 @@ social_awareness = {
     "3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/ngx-slider[1]/span[12]/span[3]",
     "4": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/ngx-slider[1]/span[12]/span[4]",
     "5": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/ngx-slider[1]/span[12]/span[5]",
+        
+}
+
+
+social_awareness_audio = {
+    "audio1": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[1]/button[1]",
+    "audio2": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[2]/button[1]",
+    "audio3": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[3]/button[1]",
+    "audio4": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[4]/button[1]",
+    "audio5": "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/ul[1]/li[5]/button[1]",
         
 }
 
@@ -329,6 +301,23 @@ except Exception as e:
 # Wait for 1 second after clicking
 time.sleep(1)
 
+# Check which option was selected and trigger the corresponding audio
+if random_social_awareness == social_awareness["1"]:
+    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio1"])
+    audio_element.click()
+elif random_social_awareness == social_awareness["2"]:
+    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio2"])
+    audio_element.click()
+elif random_social_awareness == social_awareness["3"]:
+    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio3"])
+    audio_element.click()
+elif random_social_awareness == social_awareness["4"]:
+    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio4"])
+    audio_element.click()
+elif random_social_awareness == social_awareness["5"]:
+    audio_element = driver.find_element(By.XPATH, social_awareness_audio["audio5"])
+    audio_element.click()
+time.sleep(2)
 
 # Select the 'fourth_next' emotion
 audio_fourth_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
@@ -345,7 +334,6 @@ communicate = {
     "2": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",
     "3": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",
     "4": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",
-
         
 }
 
@@ -356,6 +344,13 @@ random_communicate = random.choice(list(communicate.values()))
 communicate_element = driver.find_element(By.XPATH, random_communicate)
 communicate_element.click()
 
+#Communicate audio
+communicate_audio = '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[1]/button[1]'
+
+# Locate and click on the 'fourth_next' emotion
+communicate_audio_element = driver.find_element(By.XPATH, communicate_audio)
+communicate_audio_element.click()
+time.sleep(2)
 
 works_together = {
     "1": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[2]/div/ngx-slider/span[5]",
@@ -373,6 +368,14 @@ random_works_together = random.choice(list(works_together.values()))
 works_together_element = driver.find_element(By.XPATH, random_works_together)
 works_together_element.click()
 
+#work_together audio
+work_together_audio = '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[2]/button[1]'
+
+# Locate and click on the 'fourth_next' emotion
+work_together_audio_element = driver.find_element(By.XPATH, work_together_audio)
+work_together_audio_element.click()
+time.sleep(2)
+
 ask_for_help = {
     "1": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[3]/div/ngx-slider/span[5]",
     "2": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[3]/div/ngx-slider/span[5]",
@@ -388,6 +391,13 @@ random_ask_for_help = random.choice(list(ask_for_help.values()))
 ask_for_help_element = driver.find_element(By.XPATH, random_ask_for_help)
 ask_for_help_element.click()
 
+#ask_for_help audio
+ask_for_help_audio = '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[3]/button[1]'
+
+# Locate and click on the 'fourth_next' emotion
+ask_for_help_audio_element = driver.find_element(By.XPATH, ask_for_help_audio)
+ask_for_help_audio_element.click()
+time.sleep(2)
 
 ignore_peer_pressure = {
     "1": "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[4]/div/ngx-slider/span[5]",
@@ -404,6 +414,14 @@ random_ignore_peer_pressure = random.choice(list(ignore_peer_pressure.values()))
 ignore_peer_pressure_element = driver.find_element(By.XPATH, random_ignore_peer_pressure)
 ignore_peer_pressure_element.click()
 
+#ignore_peer_pressure audio
+ignore_peer_pressure_audio = '/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[1]/div[4]/button[1]'
+
+# Locate and click on the 'fourth_next' emotion
+ignore_peer_pressure_audio_element = driver.find_element(By.XPATH, ignore_peer_pressure_audio)
+ignore_peer_pressure_audio_element.click()
+
+time.sleep(2)
 
 # Select the 'submit' emotion
 audio_submit_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[2]/button[2]'
@@ -412,18 +430,15 @@ audio_submit_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/
 audio_submit_element = driver.find_element(By.XPATH, audio_submit_xpath)
 audio_submit_element.click()
 
-
-
 time.sleep(4)
-
 
 # Select the 'close' emotion
 audio_close_xpath = '/html/body/ngb-modal-window/div/div/app-resources-picked-just-for-you/div/div/div/div[1]/div/span'
 
 # Locate and click on the 'close' emotion
 audio_close_element = driver.find_element(By.XPATH, audio_close_xpath)
-audio_close_element.click()
 
+audio_close_element.click()
 
 time.sleep(4)
 
