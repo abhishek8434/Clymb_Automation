@@ -27,4 +27,3 @@ def select_audio_emotions(driver):
             print(f"Clicked on {key}")
         except Exception as e:
             print(f"Failed to click on {key}: {e}")
-
