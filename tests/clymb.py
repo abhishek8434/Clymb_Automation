@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 import os
 from utils.locators import get_emotion_xpath, get_slider_dict, get_mood_dict
 from utils.locators import first_next_button, second_next_button, third_next_button, fourth_next_button, fifth_next_button, submit_button, close_button
-from utils.locators import ask_for_help_close
+from utils.locators import ask_for_help
 from utils.audio import select_audio_emotions
 from utils.responsible_decison_making import select_responsible_decision_making
 from utils.self_management import handle_self_management
@@ -92,7 +92,7 @@ def test_workflow(driver):
     second_next_button(driver)
 
     # Step 9: Check For Ask For Help Popup and will close
-    ask_for_help_close(driver)
+    ask_for_help(driver)
 
     # Step 10: Select Responsible Decision Making
     select_responsible_decision_making(driver)
@@ -101,11 +101,11 @@ def test_workflow(driver):
     third_next_button(driver)
 
     # Step 12: Handle Self-Management Actions
-    # handle_self_management(driver)
+    handle_self_management(driver)
 
-    def test_handle_self_management(driver):
-    # # Ensure the driver is loaded properly and then call the function
-         handle_self_management(driver)
+    # def test_handle_self_management(driver):
+    # # # Ensure the driver is loaded properly and then call the function
+    #      handle_self_management(driver)
 
     # Step 13: Click Fourth 'Next' Button
     fourth_next_button(driver)

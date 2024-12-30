@@ -3,6 +3,7 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+import random
 
 def get_emotion_xpath(emotion_name):
     emotions = {
@@ -57,7 +58,7 @@ def second_next_button(driver):
     # Locate and click on the 'first_next' emotion
     second_next_element = driver.find_element(By.XPATH, second_next_xpath)
     second_next_element.click()
-    time.sleep(2)
+    time.sleep(1)
 
 
 def third_next_button(driver):
@@ -100,35 +101,79 @@ def close_button(driver):
     close_element.click()
     time.sleep(4)
 
-def ask_for_help_close(driver):
-    # ask_for_help_xapth_audio= "//h2[normalize-space()='Ask For Help']"
-    # ask_for_help_audio_element = driver.find_element(By.XPATH, ask_for_help_xapth_audio)
-    # ask_for_help_audio_element.click()
-    # time.sleep(2)
-
-    # ask_for_help_xapth_close = "//span[@aria-label='Close']"
-    # ask_for_help_close_element = driver.find_element(By.XPATH, ask_for_help_xapth_close)
-    # ask_for_help_close_element.click()
-    # time.sleep(2)
+def ask_for_help(driver):
+    # Define the XPaths for the "Ask For Help" section and buttons
     ask_for_help_xpath_audio = "//h2[normalize-space()='Ask For Help']"
-    
+    ask_for_help_xpath_close = "//span[@aria-label='Close']"
+    ask_for_help_talk_button = "//button[normalize-space()='I need to talk']"
+
+    # Select randomly between "Close" and "Talk" options
+    action_to_perform = random.choice(['close', 'talk'])
+
     try:
-        # Wait for the element to be visible
-            ask_for_help_audio_element = WebDriverWait(driver, 10).until(
+        # Wait for the "Ask For Help" section to be visible
+        ask_for_help_audio_element = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located((By.XPATH, ask_for_help_xpath_audio))
         )
 
-            # Only proceed if the element is visible
-            if ask_for_help_audio_element.is_displayed():
+        # Only proceed if the element is visible
+        if ask_for_help_audio_element.is_displayed():
+            if action_to_perform == 'close':
+                # Click on the "Ask For Help" section to open it
                 ask_for_help_audio_element.click()
                 time.sleep(3)
 
-                ask_for_help_xpath_close = "//span[@aria-label='Close']"
+                # Close the "Ask For Help" section
                 ask_for_help_close_element = driver.find_element(By.XPATH, ask_for_help_xpath_close)
                 ask_for_help_close_element.click()
                 time.sleep(2)
+                print("Closed the 'Ask For Help' section.")
+
+            elif action_to_perform == 'talk':
+                # Click on the "Talk" button if selected
+                ask_for_help_talk_button_element = driver.find_element(By.XPATH, ask_for_help_talk_button)
+                ask_for_help_talk_button_element.click()
+                time.sleep(2)
+
+                # Define and randomly select checkboxes and emotions
+                question_first_yes_checkbox = "//label[normalize-space()='Yes']"
+                question_first_no_checkbox = "//label[normalize-space()='No']"
+                checkbox_to_select = random.choice([question_first_yes_checkbox, question_first_no_checkbox])
+
+                question_sad = "//label[@for='ans-3']"
+                question_angry = "//label[@for='ans-4']"
+                question_happy = "//label[@for='ans-5']"
+                selected_emotion = random.choice([question_sad, question_angry, question_happy])
+
+                # Select and click the randomly chosen checkbox
+                checkbox_element = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, checkbox_to_select))
+                )
+                checkbox_element.click()
+                time.sleep(1)
+
+                # Select and click the randomly chosen emotion
+                emotion_element = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, selected_emotion))
+                )
+                emotion_element.click()
+                time.sleep(1)
+
+                # Click the "Next" button (if needed)
+                question_next = "//button[@class='btn btn-next btn-dark']"
+                next_button = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, question_next))
+                )
+                next_button.click()
+                time.sleep(2)
+
+                print("Selected options and moved to next.")
+            
             else:
-                print("Ask For Help section is not visible.")
+                print("No valid action performed.")
+        else:
+            print("Ask For Help section is not visible.")
+
     except Exception as e:
         print(f"Error: {str(e)}")
 
