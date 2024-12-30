@@ -178,34 +178,6 @@ def ask_for_help(driver):
         print(f"Error: {str(e)}")
 
 
-def aftermood(driver):
-    resource1 = "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-resources-picked-just-for-you[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]"
-    resource2 = "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-resources-picked-just-for-you[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]"
-    resource3 = "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-resources-picked-just-for-you[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/span[1]"
-
-    random_resource = random.choice([resource1, resource2, resource3])
-
-    # Select and click the randomly chosen resource
-    resource_element = WebDriverWait(driver, 10).until(
-    EC.element_to_be_clickable((By.XPATH, random_resource))
-        )
-    resource_element.click()
-    time.sleep(1)
-
-    resource_close = "//span[@aria-label='Close']"
-    resource_close_element = driver.find_element(By.XPATH, resource_close)
-    resource_close_element.click()
-    time.sleep(4)
 
 
-# Main function to execute one of the above functions randomly
-def execute_random_action(driver):
-    # List of functions
-    actions = [close_button, aftermood]
-    
-    # Select a function randomly
-    selected_action = random.choice(actions)
-    
-    # Execute the randomly selected function
-    selected_action(driver)
 
