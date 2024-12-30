@@ -49,8 +49,18 @@ def handle_self_management(driver):
     for key, value in self_management.items():
         if random_self_management == value:
             audio_key = f"audio{key}"
-            audio_element = driver.find_element(By.XPATH, self_management_audio[audio_key])
-            audio_element.click()
+            try:
+                # Wait for audio button to be clickable
+                audio_element = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, self_management_audio[audio_key]))
+                )
+                # Click the audio button
+                audio_element.click()
+            except Exception as e:
+                print(f"Error clicking audio element: {str(e)}")
+                # If regular click fails, use JavaScript click
+                audio_element = driver.find_element(By.XPATH, self_management_audio[audio_key])
+                driver.execute_script("arguments[0].click();", audio_element)
             break
 
     time.sleep(4)

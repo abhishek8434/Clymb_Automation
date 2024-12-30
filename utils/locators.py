@@ -1,4 +1,8 @@
 # utils/locators.py
+import time
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 def get_emotion_xpath(emotion_name):
     emotions = {
@@ -37,5 +41,95 @@ def get_mood_dict():
     }
     return mood
 
+
+def first_next_button(driver):
+    """
+    Locates and clicks the 'Next' button using XPath.
+    """
+    first_next_xpath = "//button[normalize-space()='Next']"
+    first_next_button = driver.find_element(By.XPATH, first_next_xpath)
+    first_next_button.click()
+
+
+def second_next_button(driver):
+    second_next_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/button[1]'
+
+    # Locate and click on the 'first_next' emotion
+    second_next_element = driver.find_element(By.XPATH, second_next_xpath)
+    second_next_element.click()
+    time.sleep(2)
+
+
+def third_next_button(driver):
+    audio_second_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
+
+    # Locate and click on the 'second_next' emotion
+    audio_second_next_element = driver.find_element(By.XPATH, audio_second_next_xpath)
+    audio_second_next_element.click()
+    time.sleep(2)
+
+def fourth_next_button(driver):
+    fourth_next_xpath = "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[2]/button[2]"
+
+    # Locate and click on the 'third_next' emotion
+    fourth_next_element = driver.find_element(By.XPATH, fourth_next_xpath)
+    fourth_next_element.click()
+    time.sleep(2)
+
+def fifth_next_button(driver):
+    fifth_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
+
+    # Locate and click on the 'fourth_next' emotion
+    fifth_next_element = driver.find_element(By.XPATH, fifth_next_xpath)
+    fifth_next_element.click()
+    time.sleep(2)
+
+def submit_button(driver):
+    submit_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[2]/button[2]'
+
+    # Locate and click on the 'submit' emotion
+    submit_element = driver.find_element(By.XPATH, submit_xpath)
+    submit_element.click()
+    time.sleep(4)
+
+
+def close_button(driver):
+    close_xpath = '/html/body/ngb-modal-window/div/div/app-resources-picked-just-for-you/div/div/div/div[1]/div/span'
+    # Locate and click on the 'close' emotion
+    close_element = driver.find_element(By.XPATH, close_xpath)
+    close_element.click()
+    time.sleep(4)
+
+def ask_for_help_close(driver):
+    # ask_for_help_xapth_audio= "//h2[normalize-space()='Ask For Help']"
+    # ask_for_help_audio_element = driver.find_element(By.XPATH, ask_for_help_xapth_audio)
+    # ask_for_help_audio_element.click()
+    # time.sleep(2)
+
+    # ask_for_help_xapth_close = "//span[@aria-label='Close']"
+    # ask_for_help_close_element = driver.find_element(By.XPATH, ask_for_help_xapth_close)
+    # ask_for_help_close_element.click()
+    # time.sleep(2)
+    ask_for_help_xpath_audio = "//h2[normalize-space()='Ask For Help']"
+    
+    try:
+        # Wait for the element to be visible
+            ask_for_help_audio_element = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.XPATH, ask_for_help_xpath_audio))
+        )
+
+            # Only proceed if the element is visible
+            if ask_for_help_audio_element.is_displayed():
+                ask_for_help_audio_element.click()
+                time.sleep(3)
+
+                ask_for_help_xpath_close = "//span[@aria-label='Close']"
+                ask_for_help_close_element = driver.find_element(By.XPATH, ask_for_help_xpath_close)
+                ask_for_help_close_element.click()
+                time.sleep(2)
+            else:
+                print("Ask For Help section is not visible.")
+    except Exception as e:
+        print(f"Error: {str(e)}")
 
 
