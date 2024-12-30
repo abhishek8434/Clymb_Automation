@@ -9,8 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
 import os
 from utils.locators import get_emotion_xpath, get_slider_dict, get_mood_dict
-from utils.locators import first_next_button, second_next_button, third_next_button, fourth_next_button, fifth_next_button, submit_button, close_button
-from utils.locators import ask_for_help
+from utils.locators import first_next_button, second_next_button, third_next_button, fourth_next_button, fifth_next_button, submit_button
+from utils.locators import ask_for_help, execute_random_action
 from utils.audio import select_audio_emotions
 from utils.responsible_decison_making import select_responsible_decision_making
 from utils.self_management import handle_self_management
@@ -122,6 +122,6 @@ def test_workflow(driver):
     # Step 17: Submit the Form
     submit_button(driver)
 
-    # Step 18: Close the Final Modal
-    close_button(driver)
+    # Step 18: Close the Final Modal or open resource popup
+    execute_random_action(driver)
     time.sleep(2)
