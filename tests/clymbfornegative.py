@@ -19,6 +19,7 @@ from pages.logout import logout_to_application
 @pytest.fixture(scope="module")
 def driver():
     """Initialize and quit the WebDriver."""
+    # Initialize Chrome WebDriver and maximize the window for the session
     driver = webdriver.Chrome()
     driver.maximize_window()
     yield driver
@@ -28,9 +29,9 @@ def driver():
 def test_workflow(driver):
     """Execute the full workflow in sequence."""
 
-    # Step 1: Login
+    # Step 1: Login to the application
     login_to_application(driver)
-    time.sleep(5)
+    time.sleep(5)  # Allowing time for the application to load
 
     # Step 2: Interact with Compass Dashboard Audio
     compass_dashboard_audio(driver)
@@ -41,7 +42,7 @@ def test_workflow(driver):
     # Step 4: Interact with a Random Slider
     click_random_slider(driver)
 
-    # Step 5: Click First 'Next' Button
+    # Step 5: Click the First 'Next' Button
     first_next_button(driver)
 
     # Step 6: Select a Random Mood
@@ -50,73 +51,67 @@ def test_workflow(driver):
     # Step 7: Select Audio Emotions
     select_audio_emotions(driver)
 
-    # Step 8: Click Second 'Next' Button
+    # Step 8: Click the Second 'Next' Button
     second_next_button(driver)
 
-    # Step 9: Check For Ask For Help Popup 
+    # Step 9: Check for "Ask for Help" Popup
     ask_for_help(driver)
 
-    #Check for heading check after page refresh
+    # Step 10: Refresh the page and check for the "Responsible Decision Making" section
     driver.refresh()
-
     reload_check_responsible_decision_making(driver)
 
+    # Step 11: Logout and Login Again to simulate session refresh
     logout_to_application(driver)
-
     login_to_application(driver)
-
-    driver.refresh()
-
+    driver.refresh()  # Refreshing the page after re-login
     reload_check_responsible_decision_making(driver)
 
-    # Step 10: Select Responsible Decision Making
+    # Step 12: Select Responsible Decision Making
     select_responsible_decision_making(driver)
 
-    # Step 11: Click Third 'Next' Button
+    # Step 13: Click the Third 'Next' Button
     third_next_button(driver)
 
+    # Step 14: Logout and login to refresh session for Self-Management
     logout_to_application(driver)
     login_to_application(driver)
-
-    #Check for heading check after page refresh
-    driver.refresh()
+    driver.refresh()  # Refreshing the page after re-login
     reload_check_self_management(driver)
 
-    # Step 12: Handle Self-Management Actions
+    # Step 15: Handle Self-Management Actions
     handle_self_management(driver)
 
-    # Step 13: Click Fourth 'Next' Button
+    # Step 16: Click the Fourth 'Next' Button
     fourth_next_button(driver)
 
+    # Step 17: Logout and login to refresh session for Social Awareness
     logout_to_application(driver)
     login_to_application(driver)
-
-    #Check for heading check after page refresh
-    driver.refresh()
+    driver.refresh()  # Refreshing the page after re-login
     reload_check_social_awareness(driver)
 
-    # Step 14: Select Social Awareness Option
+    # Step 18: Select Social Awareness Option
     select_social_awareness_option(driver)
 
-    # Step 15: Click Fifth 'Next' Button
+    # Step 19: Click the Fifth 'Next' Button
     fifth_next_button(driver)
 
+    # Step 20: Logout and login to refresh session for Relationship Skills
     logout_to_application(driver)
     login_to_application(driver)
-
-    #Check for heading check after page refresh
-    driver.refresh()
+    driver.refresh()  # Refreshing the page after re-login
     reload_check_relationship_skills(driver)
 
-    # Step 16: Select Relationship Skills Options
+    # Step 21: Select Relationship Skills Options
     relationship_skills(driver)
 
-    # Step 17: Submit the Form
+    # Step 22: Submit the Form
     submit_button(driver)
 
-    # Step 18: Close the Final Modal or open resource popup
+    # Step 23: Close the Final Modal or open resource popup
     aftermood(driver)
-    time.sleep(2)
+    time.sleep(2)  # Allowing time for the final modal to close
 
 
 if __name__ == "__main__":

@@ -21,7 +21,6 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
-
 @pytest.fixture(scope="module")
 def driver():
     """Initialize and quit the WebDriver."""
@@ -34,11 +33,11 @@ def driver():
 def test_workflow(driver):
     """Execute the full workflow in sequence."""
 
-    # Step 1: Login
+    # Step 1: Login to the application
     login_to_application(driver)
     time.sleep(5)
 
-    # Fetch heading text using the helper functions
+    # Fetch heading text using the helper functions to check which section is active
     heading_text_self_awareness = reload_check_self_awareness(driver)
     heading_text_responsible_decision_making = reload_check_responsible_decision_making(driver)
     heading_text_self_management = reload_check_self_management(driver)
@@ -48,13 +47,14 @@ def test_workflow(driver):
     # Step 2: Compare headings and ensure only the correct one runs
     if heading_text_self_awareness == "Self-Awareness":
         print("Heading is correct for Self-Awareness.")
+
         # Step 3: Select a Random Emotion
         click_random_emotion(driver)
 
         # Step 4: Interact with a Random Slider
         click_random_slider(driver)
 
-        # Step 5: Click First 'Next' Button
+        # Step 5: Click the First 'Next' Button
         first_next_button(driver)
 
         # Step 6: Select a Random Mood
@@ -63,28 +63,28 @@ def test_workflow(driver):
         # Step 7: Select Audio Emotions
         select_audio_emotions(driver)
 
-        # Step 8: Click Second 'Next' Button
+        # Step 8: Click the Second 'Next' Button
         second_next_button(driver)
 
-        # Step 9: Check For Ask For Help Popup 
+        # Step 9: Check for Ask For Help Popup
         ask_for_help(driver)
 
         # Step 10: Select Responsible Decision Making
         select_responsible_decision_making(driver)
 
-        # Step 11: Click Third 'Next' Button
+        # Step 11: Click the Third 'Next' Button
         third_next_button(driver)
 
         # Step 12: Handle Self-Management Actions
         handle_self_management(driver)
 
-        # Step 13: Click Fourth 'Next' Button
+        # Step 13: Click the Fourth 'Next' Button
         fourth_next_button(driver)
 
         # Step 14: Select Social Awareness Option
         select_social_awareness_option(driver)
 
-        # Step 15: Click Fifth 'Next' Button
+        # Step 15: Click the Fifth 'Next' Button
         fifth_next_button(driver)
 
         # Step 16: Select Relationship Skills Options
@@ -96,71 +96,75 @@ def test_workflow(driver):
         # Step 18: Close the Final Modal or open resource popup
         aftermood(driver)
         time.sleep(2)
+
     elif heading_text_responsible_decision_making == "Responsible Decision-Making Skill":
         print("Heading is correct for Responsible Decision-Making.")
         
         # Step 10: Select Responsible Decision Making
         select_responsible_decision_making(driver)
 
-        # Step 11: Click Third 'Next' Button
+        # Step 11: Click the Third 'Next' Button
         third_next_button(driver)
 
+        # Step 12: Log out and log back in to refresh page
         logout_to_application(driver)
         login_to_application(driver)
 
-        #Check for heading check after page refresh
+        # Step 13: Check for the Self-Management Heading after page refresh
         driver.refresh()
         reload_check_self_management(driver)
 
-        # Step 12: Handle Self-Management Actions
+        # Step 14: Handle Self-Management Actions
         handle_self_management(driver)
 
-        # Step 13: Click Fourth 'Next' Button
+        # Step 15: Click the Fourth 'Next' Button
         fourth_next_button(driver)
 
+        # Step 16: Log out and log back in to refresh page
         logout_to_application(driver)
         login_to_application(driver)
 
-        #Check for heading check after page refresh
+        # Step 17: Check for the Social Awareness Heading after page refresh
         driver.refresh()
         reload_check_social_awareness(driver)
 
-        # Step 14: Select Social Awareness Option
+        # Step 18: Select Social Awareness Option
         select_social_awareness_option(driver)
 
-        # Step 15: Click Fifth 'Next' Button
+        # Step 19: Click the Fifth 'Next' Button
         fifth_next_button(driver)
 
+        # Step 20: Log out and log back in to refresh page
         logout_to_application(driver)
         login_to_application(driver)
         
-        #Check for heading check after page refresh
+        # Step 21: Check for the Relationship Skills Heading after page refresh
         driver.refresh()
         reload_check_relationship_skills(driver)
 
-        # Step 16: Select Relationship Skills Options
+        # Step 22: Select Relationship Skills Options
         relationship_skills(driver)
 
-        # Step 17: Submit the Form
+        # Step 23: Submit the Form
         submit_button(driver)
 
-        # Step 18: Close the Final Modal or open resource popup
+        # Step 24: Close the Final Modal or open resource popup
         aftermood(driver)
         time.sleep(2)
 
-        
     elif heading_text_self_management == "Self-Management":
         print("Heading is correct for Self-Management.")
+
         # Step 12: Handle Self-Management Actions
         handle_self_management(driver)
 
-        # Step 13: Click Fourth 'Next' Button
+        # Step 13: Click the Fourth 'Next' Button
         fourth_next_button(driver)
 
         # Step 14: Select Social Awareness Option
         select_social_awareness_option(driver)
 
-        # Step 15: Click Fifth 'Next' Button
+        # Step 15: Click the Fifth 'Next' Button
         fifth_next_button(driver)
 
         # Step 16: Select Relationship Skills Options
@@ -172,12 +176,14 @@ def test_workflow(driver):
         # Step 18: Close the Final Modal or open resource popup
         aftermood(driver)
         time.sleep(2)
+
     elif heading_text_social_awareness == "Social Awareness":
         print("Heading is correct for Social Awareness.")
+
         # Step 14: Select Social Awareness Option
         select_social_awareness_option(driver)
 
-        # Step 15: Click Fifth 'Next' Button
+        # Step 15: Click the Fifth 'Next' Button
         fifth_next_button(driver)
 
         # Step 16: Select Relationship Skills Options
@@ -189,8 +195,10 @@ def test_workflow(driver):
         # Step 18: Close the Final Modal or open resource popup
         aftermood(driver)
         time.sleep(2)
+
     elif heading_text_relationship_skills == "Relationship Skills":
         print("Heading is correct for Relationship Skills.")
+
         # Step 16: Select Relationship Skills Options
         relationship_skills(driver)
 
@@ -202,4 +210,3 @@ def test_workflow(driver):
         time.sleep(2)
     else:
         print("No heading matched the expected values.")
-
