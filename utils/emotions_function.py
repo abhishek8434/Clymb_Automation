@@ -40,7 +40,7 @@ def move_slider_and_click_audio(driver, slider_xpath, audio_button_xpath):
     # Sleep for a brief moment to ensure the actions are completed
     time.sleep(2)
 
-def perform_actions(driver):
+def relationship_skills(driver):
     # Define XPaths for different actions
     communicate_xpaths = [
         "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",

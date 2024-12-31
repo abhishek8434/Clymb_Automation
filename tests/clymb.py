@@ -1,13 +1,6 @@
 import pytest
-import random
 import time
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from dotenv import load_dotenv
-import os
 from utils.locators import click_random_emotion, click_random_slider, select_random_mood, compass_dashboard_audio
 from utils.locators import first_next_button, second_next_button, third_next_button, fourth_next_button, fifth_next_button, submit_button
 from utils.locators import ask_for_help
@@ -15,17 +8,10 @@ from utils.audio import select_audio_emotions
 from utils.responsible_decison_making import select_responsible_decision_making
 from utils.self_management import handle_self_management
 from utils.social_awareness import select_social_awareness_option
-from utils.emotions_function import perform_actions
+from utils.emotions_function import relationship_skills
 from utils.self_management import handle_self_management
 from utils.aftermood import aftermood
 from utils.login import login_to_application      
-# Load environment variables
-load_dotenv()
-
-# Get login details
-url = os.getenv("BASE_URL")
-username = os.getenv("EMAIL")
-password = os.getenv("PASSWORD")
 
 
 @pytest.fixture(scope="module")
@@ -65,7 +51,7 @@ def test_workflow(driver):
     # Step 8: Click Second 'Next' Button
     second_next_button(driver)
 
-    # Step 9: Check For Ask For Help Popup and will close
+    # Step 9: Check For Ask For Help Popup 
     ask_for_help(driver)
 
     # Step 10: Select Responsible Decision Making
@@ -77,10 +63,6 @@ def test_workflow(driver):
     # Step 12: Handle Self-Management Actions
     handle_self_management(driver)
 
-    # def test_handle_self_management(driver):
-    # # # Ensure the driver is loaded properly and then call the function
-    #      handle_self_management(driver)
-
     # Step 13: Click Fourth 'Next' Button
     fourth_next_button(driver)
 
@@ -90,8 +72,8 @@ def test_workflow(driver):
     # Step 15: Click Fifth 'Next' Button
     fifth_next_button(driver)
 
-    # Step 16: Perform Custom Actions
-    perform_actions(driver)
+    # Step 16: Select Relationship Skills Options
+    relationship_skills(driver)
 
     # Step 17: Submit the Form
     submit_button(driver)
