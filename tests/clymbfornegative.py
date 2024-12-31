@@ -12,7 +12,8 @@ from utils.emotions_function import relationship_skills
 from utils.self_management import handle_self_management
 from utils.aftermood import aftermood
 from pages.login import login_to_application     
-from utils.conditionfornegative import reload_check_responsible_decision_making, reload_check_relationship_skills, reload_check_self_management, reload_check_social_awareness
+from utils.conditionfornegative import (reload_check_responsible_decision_making, reload_check_relationship_skills, 
+                                        reload_check_self_management, reload_check_social_awareness)
 from pages.logout import logout_to_application
 
 
