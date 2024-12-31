@@ -1,7 +1,7 @@
 import pytest
 import time
 from selenium import webdriver
-from utils.login import login_to_application        
+from pages.login import login_to_application        
 from utils.appreciation import randomly_select_appreciation, submit, appreciation_audio, scrollPage
 
 

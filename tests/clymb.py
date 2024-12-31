@@ -11,7 +11,7 @@ from utils.social_awareness import select_social_awareness_option
 from utils.emotions_function import relationship_skills
 from utils.self_management import handle_self_management
 from utils.aftermood import aftermood
-from utils.login import login_to_application      
+from pages.login import login_to_application      
 
 
 @pytest.fixture(scope="module")
