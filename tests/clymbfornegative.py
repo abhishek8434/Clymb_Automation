@@ -103,7 +103,7 @@ def test_workflow(driver):
 
     logout_to_application(driver)
     login_to_application(driver)
-    
+
     #Check for heading check after page refresh
     driver.refresh()
     reload_check_relationship_skills(driver)
