@@ -3,9 +3,20 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 import random
 
-def get_emotion_xpath(emotion_name):
+
+def compass_dashboard_audio(driver):
+   
+    compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
+    compass_dashboard_element = driver.find_element(By.XPATH, compass_dashboard_audio_xpath)
+    compass_dashboard_element.click()
+    time.sleep(1)
+
+
+
+def click_random_emotion(driver):
     emotions = {
         "happy": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[1]/div/label/img',
         "angry": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[2]/div/label/img',
@@ -14,22 +25,39 @@ def get_emotion_xpath(emotion_name):
         "excited": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[5]/div/label/img',
         "fearful": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/fieldset/ul/li[6]/div/label/img',
     }
-    return emotions.get(emotion_name, "Emotion not found!")
+
+    random_emotion = random.choice(list(emotions.keys()))
+    emotion_xpath = emotions.get(random_emotion)
+
+    if emotion_xpath:
+        driver.find_element(By.XPATH, emotion_xpath).click()
+        time.sleep(2)
+        print(f"Clicked on the '{random_emotion}' emotion.")
+    else:
+        print("Emotion not found!")
 
 
-def get_slider_dict():
-    slider = {
+def click_random_slider(driver):
+    slider_dict = {
         "1": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[1]/ngx-slider-tooltip-wrapper[2]/div',
         "2": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[2]/ngx-slider-tooltip-wrapper[2]/div',
         "3": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[3]/ngx-slider-tooltip-wrapper[2]/div',
         "4": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[4]/ngx-slider-tooltip-wrapper[2]/div',
         "5": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[5]/ngx-slider-tooltip-wrapper[2]/div',
     }
-    return slider
+    
+    random_slider = random.choice(["1", "2", "3", "4", "5"])
+    slider_xpath = slider_dict.get(random_slider, None)
+    
+    if slider_xpath:
+        driver.find_element(By.XPATH, slider_xpath).click()
+        time.sleep(2)
+    else:
+        print("Slider not found!")
 
-# mood_utils.py
 
-def get_mood_dict():
+
+def select_random_mood(driver):
     mood = {
         "mood1": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][1]/*[name()='path'][3]",
         "mood2": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][1]/*[name()='path'][4]",
@@ -40,7 +68,25 @@ def get_mood_dict():
         "mood7": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][4]/*[name()='path'][3]",
         "mood8": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][4]/*[name()='path'][4]",
     }
-    return mood
+    
+    # Randomly select a mood from the dictionary
+    random_mood = random.choice(list(mood.values()))
+    
+    # Wait for the mood element to be clickable
+    random_mood_element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, random_mood))
+    )
+    
+    # Move to the element and click it
+    ActionChains(driver).move_to_element(random_mood_element).perform()
+    time.sleep(2)
+    
+    try:
+        random_mood_element.click()
+    except Exception:
+        driver.execute_script("arguments[0].click();", random_mood_element)
+    
+    time.sleep(2)
 
 
 def first_next_button(driver):
