@@ -1,5 +1,7 @@
 import random
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 def select_responsible_decision_making(driver):
@@ -19,7 +21,7 @@ def select_responsible_decision_making(driver):
     random_responsible_decision_making = random.choice(list(responsible_decision_making.values()))
 
     # Locate and click on the randomly selected emotion
-    responsible_decision_making_element = driver.find_element(By.XPATH, random_responsible_decision_making)
+    responsible_decision_making_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, random_responsible_decision_making)))
     responsible_decision_making_element.click()
 
     time.sleep(2)
