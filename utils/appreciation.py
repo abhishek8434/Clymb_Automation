@@ -108,7 +108,7 @@ def check_appreciation_log(driver, test_appreciation):
         # Check if the found text matches or is a part of the expected text
         if found_text in expected_text:
             print("Log verification successful. The found text is part of the expected text.")
-            time.sleep(2)
+            time.sleep(5)
         else:
             print(f"Log verification failed. Found: {repr(found_text)}, Expected: {repr(expected_text)}")
     except TimeoutException as e:
