@@ -7,6 +7,7 @@ from selenium.common.exceptions import TimeoutException
 import re
 
 def appreciation_audio(driver):
+    time.sleep(1)
     audio = "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/h2[1]/i[1]"
     driver.find_element(By.XPATH, audio).click()
     
@@ -25,7 +26,7 @@ def randomly_select_appreciation(driver):
     ]
 
     selected_appreciation = random.choice(appreciation)
-    
+   
 
     try:
         selected_element = WebDriverWait(driver, 10).until(
@@ -107,7 +108,7 @@ def check_appreciation_log(driver, test_appreciation):
         # Check if the found text matches or is a part of the expected text
         if found_text in expected_text:
             print("Log verification successful. The found text is part of the expected text.")
-            time.sleep(1)
+            time.sleep(2)
         else:
             print(f"Log verification failed. Found: {repr(found_text)}, Expected: {repr(expected_text)}")
     except TimeoutException as e:
