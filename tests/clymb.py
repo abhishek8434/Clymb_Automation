@@ -11,7 +11,8 @@ from utils.social_awareness import select_social_awareness_option
 from utils.emotions_function import relationship_skills
 from utils.self_management import handle_self_management
 from utils.aftermood import aftermood
-from pages.login import login_to_application      
+from pages.login import login_to_application   
+from utils.audio import first_audio_homepage   
 
 
 @pytest.fixture(scope="module")
@@ -32,53 +33,56 @@ def test_workflow(driver):
 
     # Step 2: Interact with Compass Dashboard Audio
     compass_dashboard_audio(driver)
+    
+    #Step 3 : Click on Audio Button 
+    first_audio_homepage(driver)
 
-    # Step 3: Select a Random Emotion
+    # Step 4: Select a Random Emotion
     click_random_emotion(driver)
 
-    # Step 4: Interact with a Random Slider
+    # Step 5: Interact with a Random Slider
     click_random_slider(driver)
 
-    # Step 5: Click First 'Next' Button
+    # Step 6: Click First 'Next' Button
     first_next_button(driver)
 
-    # Step 6: Select a Random Mood
+    # Step 7: Select a Random Mood
     select_random_mood(driver)
 
-    # Step 7: Select Audio Emotions
+    # Step 8: Select Audio Emotions
     select_audio_emotions(driver)
 
-    # Step 8: Click Second 'Next' Button
+    # Step 9: Click Second 'Next' Button
     second_next_button(driver)
 
-    # Step 9: Check For Ask For Help Popup 
+    # Step 10: Check For Ask For Help Popup 
     ask_for_help(driver)
 
-    # Step 10: Select Responsible Decision Making
+    # Step 11: Select Responsible Decision Making
     select_responsible_decision_making(driver)
 
-    # Step 11: Click Third 'Next' Button
+    # Step 12: Click Third 'Next' Button
     third_next_button(driver)
 
-    # Step 12: Handle Self-Management Actions
+    # Step 13: Handle Self-Management Actions
     handle_self_management(driver)
 
-    # Step 13: Click Fourth 'Next' Button
+    # Step 14: Click Fourth 'Next' Button
     fourth_next_button(driver)
 
-    # Step 14: Select Social Awareness Option
+    # Step 15: Select Social Awareness Option
     select_social_awareness_option(driver)
 
-    # Step 15: Click Fifth 'Next' Button
+    # Step 16: Click Fifth 'Next' Button
     fifth_next_button(driver)
 
-    # Step 16: Select Relationship Skills Options
+    # Step 17: Select Relationship Skills Options
     relationship_skills(driver)
 
-    # Step 17: Submit the Form
+    # Step 18: Submit the Form
     submit_button(driver)
 
-    # Step 18: Close the Final Modal or open resource popup
+    # Step 19: Close the Final Modal or open resource popup
     aftermood(driver)
     time.sleep(2)
 

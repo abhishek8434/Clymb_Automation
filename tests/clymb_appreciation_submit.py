@@ -3,6 +3,7 @@ import time
 from selenium import webdriver
 from pages.login import login_to_application        
 from utils.appreciation import randomly_select_appreciation, submit, appreciation_audio, scrollPage
+from utils.audio import second_audio_homepage
 
 
 @pytest.fixture(scope="module")
@@ -27,10 +28,13 @@ def test_workflow(driver):
     #Step 3: Click on audio button
     appreciation_audio(driver)
 
-    #Step 4: Select Appreciation randomly
+    #Step 4 : Click on Appreciation Log Audio Button 
+    second_audio_homepage(driver)
+        
+    #Step 5: Select Appreciation randomly
     randomly_select_appreciation(driver)
 
-    #Step 5: Click on Done button
+    #Step 6: Click on Done button
     submit(driver)
 
 

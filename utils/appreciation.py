@@ -71,7 +71,7 @@ def scrollPage(driver):
 
 
 def your_journey(driver):
-    time.sleep(5)
+    time.sleep(2)
     your_journey_xpath = "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-sidebar[1]/aside[1]/div[1]/div[1]/div[1]/nav[1]/ul[1]/li[5]/a[1]"
     select_your_journey = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, your_journey_xpath))

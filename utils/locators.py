@@ -197,14 +197,7 @@ def ask_for_help(driver):
                 )
                 checkbox_element.click()
                 time.sleep(1)
-
-                # Select and click the randomly chosen emotion
-                emotion_element = WebDriverWait(driver, 10).until(
-                    EC.element_to_be_clickable((By.XPATH, selected_emotion))
-                )
-                emotion_element.click()
-                time.sleep(1)
-
+                
                 # Click the "Next" button (if needed)
                 question_next = "//button[@class='btn btn-next btn-dark']"
                 next_button = WebDriverWait(driver, 10).until(
@@ -212,9 +205,24 @@ def ask_for_help(driver):
                 )
                 next_button.click()
                 time.sleep(2)
-
                 print("Selected options and moved to next.")
-            
+                
+                # Select and click the randomly chosen emotion
+                emotion_element = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, selected_emotion))
+                )
+                emotion_element.click()
+                time.sleep(1)
+                
+                 # Click the "Next" button (if needed)
+                question_submit = "//button[normalize-space()='Submit']"
+                submit_button = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, question_submit))
+                )
+                submit_button.click()
+                time.sleep(2)
+                print("Selected options and moved to next.")
+
             else:
                 print("No valid action performed.")
         else:

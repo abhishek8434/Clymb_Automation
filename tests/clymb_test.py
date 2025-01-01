@@ -14,6 +14,7 @@ from utils.responsible_decison_making import select_responsible_decision_making
 from utils.self_management import handle_self_management
 from utils.social_awareness import select_social_awareness_option
 from utils.emotions_function import perform_actions
+from utils.audio import first_audio_homepage
 
 load_dotenv()
 
@@ -56,6 +57,9 @@ compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-ho
 # Locate and click on the 'COMPASS DASHBOARD' audio
 compass_dashboard_audio_element = driver.find_element(By.XPATH, compass_dashboard_audio_xpath)
 compass_dashboard_audio_element.click()
+
+#Click on Audio Button 
+first_audio_homepage(driver)
 
 # List of possible emotions to click
 emotion_names = ["happy", "angry", "meh", "sad", "excited", "fearful"]

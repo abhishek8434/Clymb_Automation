@@ -4,6 +4,7 @@ from selenium import webdriver
 from pages.login import login_to_application        
 from utils.appreciation import randomly_select_appreciation, submit, appreciation_audio, scrollPage, your_journey, check_appreciation_log
 from utils.condition_for_negative_flow import  reload_check_self_awareness
+from utils.audio import second_audio_homepage
 
 
 @pytest.fixture(scope="module")
@@ -31,21 +32,26 @@ def test_workflow(driver):
         #Step 2: Scroll Page to end of page
         scrollPage(driver)
     
-        #Step 3: Click on audio button
+        #Step 3: Click on Appreciation audio button
         appreciation_audio(driver)
-
+        
+        #Step 4 : Click on Appreciation Log Audio Button 
+        second_audio_homepage(driver)
+        
+        #Step 6 : Select Appreciation Log and fetching selected appreciation log
         selected_appreciation, test_appreciation = randomly_select_appreciation(driver)
 
-        #Step 5: Click on Done button
+        #Step 7: Click on Done button
         submit(driver)
         
+        #Step 8: Click on Your Journey Tab
         your_journey(driver)
         
-        # Step 6: Check appreciation log
-        # Call the check_appreciation_log function
+        # Step 7: Check appreciation log and Call the check_appreciation_log function    
         check_appreciation_log(driver, test_appreciation)
+        
     else:
-        print("Please complete the form you are in middle of form so you can't select Appreciation Station")
+        print("Please complete the form you are in middle of one form so you can't select Appreciation Station")
         
     
     
