@@ -1,7 +1,9 @@
-# communicate_helper.py
+
 import random
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 # Define constants for slider positions and audio buttons
@@ -34,13 +36,13 @@ def move_slider_and_click_audio(driver, slider_xpath, audio_button_xpath):
     actions.click_and_hold(slider_element).move_by_offset(move_by, 0).release().perform()
 
     # Click the audio button
-    audio_button = driver.find_element(By.XPATH, audio_button_xpath)
+    audio_button = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, audio_button_xpath)))
     audio_button.click()
 
     # Sleep for a brief moment to ensure the actions are completed
     time.sleep(2)
 
-def perform_actions(driver):
+def relationship_skills(driver):
     # Define XPaths for different actions
     communicate_xpaths = [
         "/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[1]/div[1]/div/ngx-slider/span[5]",
