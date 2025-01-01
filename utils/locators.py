@@ -221,7 +221,7 @@ def ask_for_help(driver):
                 )
                 submit_button.click()
                 time.sleep(2)
-                print("Selected options and moved to next.")
+                print("Selected options and Submit.")
 
             else:
                 print("No valid action performed.")
