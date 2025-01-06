@@ -6,8 +6,9 @@ from pages.login import login_to_application
 from utils.locators import click_random_emotion, click_random_slider, compass_dashboard_audio
 from pages.login import login_to_application   
 from utils.audio import first_audio_homepage   
-from utils.locators_for_grade_5 import select_audio_emotions, select_random_mood, grade_5_submit, sub_mood_submit , execute_random_action
-
+from utils.locators_for_grade_5 import select_audio_emotions, select_random_mood, grade_5_submit, sub_mood_submit, execute_random_action
+# from utils.aftermoodchanges import execute_random_action
+from utils.locators import ask_for_help
 
 
 @pytest.fixture(scope="module")
@@ -40,7 +41,7 @@ def test_workflow(driver):
     
     # Step 6: Click on Submit Button
     grade_5_submit(driver)
-    
+        
     # Step 7: Select Sub mood
     select_random_mood(driver)
     
@@ -49,6 +50,8 @@ def test_workflow(driver):
     
     # Step 9: Click on submood submit button
     sub_mood_submit(driver)
+    
+    ask_for_help(driver)
     
     # Step 10: Aftermood and resources
     execute_random_action(driver)

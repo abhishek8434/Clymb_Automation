@@ -1,7 +1,7 @@
 import pytest
 import time
 from selenium import webdriver
-from pages.admin_login import login_to_application        
+from pages.admin_login import login_to_application_admin        
 
 
 
@@ -18,5 +18,5 @@ def test_workflow(driver):
     """Execute the full workflow in sequence."""
    
     # Step 1: Login
-    login_to_application(driver)
+    login_to_application_admin(driver)
     time.sleep(5)

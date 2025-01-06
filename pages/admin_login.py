@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 import os
 import time
 
-def login_to_application(driver):
+def login_to_application_admin(driver):
     """
     Logs into the application using credentials from environment variables.
 

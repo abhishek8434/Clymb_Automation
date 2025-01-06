@@ -215,7 +215,7 @@ def ask_for_help(driver):
                 time.sleep(1)
                 
                  # Click the "Next" button (if needed)
-                question_submit = "//button[normalize-space()='Submit']"
+                question_submit = "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-ask-for-help[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[2]/button[1]"
                 submit_button = WebDriverWait(driver, 10).until(
                     EC.element_to_be_clickable((By.XPATH, question_submit))
                 )
