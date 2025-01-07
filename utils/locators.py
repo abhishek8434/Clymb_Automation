@@ -1,4 +1,3 @@
-# utils/locators.py
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
@@ -6,15 +5,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 import random
 
-
 def compass_dashboard_audio(driver):
-   
     compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
-    compass_dashboard_element = driver.find_element(By.XPATH, compass_dashboard_audio_xpath)
+    compass_dashboard_element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, compass_dashboard_audio_xpath))
+    )
     compass_dashboard_element.click()
-    time.sleep(1)
-
-
 
 def click_random_emotion(driver):
     emotions = {
@@ -30,12 +26,13 @@ def click_random_emotion(driver):
     emotion_xpath = emotions.get(random_emotion)
 
     if emotion_xpath:
-        driver.find_element(By.XPATH, emotion_xpath).click()
-        time.sleep(2)
+        emotion_element = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, emotion_xpath))
+        )
+        emotion_element.click()
         print(f"Clicked on the '{random_emotion}' emotion.")
     else:
         print("Emotion not found!")
-
 
 def click_random_slider(driver):
     slider_dict = {
@@ -45,17 +42,17 @@ def click_random_slider(driver):
         "4": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[4]/ngx-slider-tooltip-wrapper[2]/div',
         "5": '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/div[1]/ngx-slider/span[12]/span[5]/ngx-slider-tooltip-wrapper[2]/div',
     }
-    
+
     random_slider = random.choice(["1", "2", "3", "4", "5"])
     slider_xpath = slider_dict.get(random_slider, None)
-    
+
     if slider_xpath:
-        driver.find_element(By.XPATH, slider_xpath).click()
-        time.sleep(2)
+        slider_element = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, slider_xpath))
+        )
+        slider_element.click()
     else:
         print("Slider not found!")
-
-
 
 def select_random_mood(driver):
     mood = {
@@ -68,84 +65,66 @@ def select_random_mood(driver):
         "mood7": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][4]/*[name()='path'][3]",
         "mood8": "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='g'][4]/*[name()='path'][4]",
     }
-    
-    # Randomly select a mood from the dictionary
+
     random_mood = random.choice(list(mood.values()))
-    
-    # Wait for the mood element to be clickable
     random_mood_element = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, random_mood))
     )
-    
-    # Move to the element and click it
     ActionChains(driver).move_to_element(random_mood_element).perform()
-    time.sleep(2)
-    
+
     try:
         random_mood_element.click()
     except Exception:
         driver.execute_script("arguments[0].click();", random_mood_element)
-    
-    time.sleep(2)
-
 
 def first_next_button(driver):
-    """
-    Locates and clicks the 'Next' button using XPath.
-    """
     first_next_xpath = "//button[normalize-space()='Next']"
-    first_next_button = driver.find_element(By.XPATH, first_next_xpath)
+    first_next_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, first_next_xpath))
+    )
     first_next_button.click()
-
 
 def second_next_button(driver):
     second_next_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/button[1]'
-
-    # Locate and click on the 'first_next' emotion
-    second_next_element = driver.find_element(By.XPATH, second_next_xpath)
+    second_next_element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, second_next_xpath))
+    )
     second_next_element.click()
-    time.sleep(1)
-
 
 def third_next_button(driver):
     audio_second_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
-
-    # Locate and click on the 'second_next' emotion
-    audio_second_next_element = driver.find_element(By.XPATH, audio_second_next_xpath)
+    audio_second_next_element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, audio_second_next_xpath))
+    )
     audio_second_next_element.click()
-    time.sleep(2)
 
 def fourth_next_button(driver):
     fourth_next_xpath = "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[2]/button[2]"
-
-    # Locate and click on the 'third_next' emotion
-    fourth_next_element = driver.find_element(By.XPATH, fourth_next_xpath)
+    fourth_next_element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, fourth_next_xpath))
+    )
     fourth_next_element.click()
-    time.sleep(2)
 
 def fifth_next_button(driver):
     fifth_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
-
-    # Locate and click on the 'fourth_next' emotion
-    fifth_next_element = driver.find_element(By.XPATH, fifth_next_xpath)
+    fifth_next_element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, fifth_next_xpath))
+    )
     fifth_next_element.click()
-    time.sleep(2)
 
 def submit_button(driver):
     submit_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[2]/button[2]'
-
-    # Locate and click on the 'submit' emotion
-    submit_element = driver.find_element(By.XPATH, submit_xpath)
+    submit_element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, submit_xpath))
+    )
     submit_element.click()
-    time.sleep(4)
-
 
 def close_button(driver):
     close_xpath = '/html/body/ngb-modal-window/div/div/app-resources-picked-just-for-you/div/div/div/div[1]/div/span'
-    # Locate and click on the 'close' emotion
-    close_element = driver.find_element(By.XPATH, close_xpath)
+    close_element = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, close_xpath))
+    )
     close_element.click()
-    time.sleep(4)
 
 def ask_for_help(driver):
     # Define the XPaths for the "Ask For Help" section and buttons
