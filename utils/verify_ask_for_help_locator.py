@@ -42,7 +42,7 @@ def verify_name_admin_notification(driver, extracted_name):
         # Check if the extracted name is in the admin notification name
         if extracted_name and extracted_name in user_name_on_admin:
             print("Extracted name is found in the admin notification.")
-
+            time.sleep(2)
             # Click on 'View' button
             click_on_view_xpath = "//mat-dialog-container//button/span[contains(text(),'View')]"
             click_on_view_fetch = WebDriverWait(driver, 10).until(
