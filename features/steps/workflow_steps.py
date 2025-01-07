@@ -20,6 +20,7 @@ def step_login_to_application(context):
     context.driver.maximize_window()
     login_to_application(context.driver)
     time.sleep(5)
+    
 
 @when('the user interacts with the Compass Dashboard Audio')
 def step_compass_dashboard_audio(context):
