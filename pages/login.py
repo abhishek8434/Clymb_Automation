@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium import webdriver
 from dotenv import load_dotenv
 import os
@@ -28,12 +31,24 @@ def login_to_application(driver):
 
     # Step 1: Login
     try:
-        email_field = driver.find_element(By.ID, "email")
-        password_field = driver.find_element(By.ID, "password")
-        login_button = driver.find_element(By.XPATH, "//button[@type='submit']")
-
+        email_field = 'email'
+        email_field = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.ID, email_field))
+        )
         email_field.send_keys(username)
+        
+        # Password field xpath fetch and fill password
+        password_field= 'password'
+        password_field = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.ID, password_field))
+        )  
         password_field.send_keys(password)
+
+        # Submit button xpath fetch and click on button
+        login_button = "//button[@type='submit']"
+        login_button = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, login_button))
+        )
         login_button.click()
 
         # Wait for login process to complete
