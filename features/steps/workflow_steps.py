@@ -32,7 +32,7 @@ def get_driver(browser):
     """
     if browser == 'chrome':
         chrome_options = ChromeOptions()
-        chrome_options.add_argument('--headless')  # Run in headless mode
+        chrome_options.add_argument('--headless')  # Run in headless mode 
         chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
         chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
         chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
