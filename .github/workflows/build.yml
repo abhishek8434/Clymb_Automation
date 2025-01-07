@@ -34,5 +34,7 @@ jobs:
       - name: Run Selenium tests
         env:
           BROWSER: ${{ matrix.browser }}
+          BASE_URL: ${{ secrets.BASE_URL }} # Securely fetch the URL from GitHub Secrets
         run: |
+          echo "Running tests on URL: $BASE_URL" # Debugging output to ensure the URL is fetched
           behave
