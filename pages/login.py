@@ -50,6 +50,11 @@ def login_to_application(driver):
             EC.element_to_be_clickable((By.XPATH, login_button))
         )
         login_button.click()
+        
+        compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
+        compass_dashboard_element = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, compass_dashboard_audio_xpath))
+        )
 
         # Wait for login process to complete
         time.sleep(5)
