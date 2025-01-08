@@ -32,6 +32,9 @@ def get_driver():
     chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
     chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
     chrome_options.add_argument('--remote-debugging-port=9222')  # Fix DevToolsActivePort issue
+    chrome_options.add_argument('--disable-software-rasterizer')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--use-gl=swiftshader')
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     
