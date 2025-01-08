@@ -50,8 +50,10 @@ jobs:
           BROWSER: ${{ matrix.browser }}
           BASE_URL: ${{ secrets.BASE_URL }} # Securely fetch the URL from GitHub Secrets
 
+
           EMAIL: ${{ secrets.EMAIL }} # Securely fetch the email from GitHub Secrets
           PASSWORD: ${{ secrets.PASSWORD }} # Securely fetch the password from GitHub Secrets
+
 
 
         run: |
