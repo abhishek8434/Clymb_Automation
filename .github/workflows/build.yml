@@ -33,11 +33,11 @@ jobs:
 
       - name: Install Chrome and Firefox dependencies
         run: |
-          sudo sed -i 's|http://archive.ubuntu.com/ubuntu/|http://mirrors.kernel.org/ubuntu/|g' /etc/apt/sources.list
           sudo apt-get update
           sudo apt-get install -y libnss3 libxss1 libx11-xcb1 libxcomposite1 \
           libxcursor1 libxi6 libxtst6 libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 \
-          libgbm1 libgtk-3-0 libasound2
+          libgbm1 libgtk-3-0 libasound2t64
+
 
 
 
