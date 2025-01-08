@@ -7,6 +7,7 @@ from selenium import webdriver
 from dotenv import load_dotenv
 import os
 import time
+import logging
 
 def login_to_application(driver):
     """
@@ -55,6 +56,10 @@ def login_to_application(driver):
         compass_dashboard_element = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, compass_dashboard_audio_xpath))
         )
+        
+        logging.info("Performing login...")
+        # Code for login
+        logging.info(f"Login state: {context.driver.current_url}")
 
         # Wait for login process to complete
         time.sleep(5)
