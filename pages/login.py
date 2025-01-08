@@ -49,7 +49,7 @@ def login_to_application(driver):
 
         # Step 4: Wait for compass dashboard to load and become clickable
         compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
-        WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, 40).until(
             EC.element_to_be_clickable((By.XPATH, compass_dashboard_audio_xpath))
         )
 
