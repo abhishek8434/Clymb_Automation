@@ -38,6 +38,7 @@ jobs:
           libxi6 libxtst6 libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libgbm1 \
           libasound2 libgtk-3-0
 
+
       - name: Verify installation and environment
         run: |
           python --version
