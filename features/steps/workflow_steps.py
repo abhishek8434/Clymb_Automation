@@ -58,6 +58,7 @@ def step_login_to_application(context):
     context.browser = 'chrome'  # Specify the browser (can be configurable)
     context.driver = get_driver(context.browser)
     context.driver.maximize_window()
+    time.sleep(5)
     login_to_application(context.driver)
     time.sleep(5)
     logging.info("Login successful.")
