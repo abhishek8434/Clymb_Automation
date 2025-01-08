@@ -3,14 +3,21 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import TimeoutException
+
 import random
 
 def compass_dashboard_audio(driver):
-    compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
-    compass_dashboard_element = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, compass_dashboard_audio_xpath))
-    )
-    compass_dashboard_element.click()
+    try:
+        compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
+        compass_dashboard_element = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, compass_dashboard_audio_xpath))
+        )
+        compass_dashboard_element.click()
+    except TimeoutException:
+        print("Compass Dashboard Audio element not found.")
+        driver.save_screenshot("error_screenshot.png")  # Capture a screenshot for debugging
+        raise
 
 def click_random_emotion(driver):
     emotions = {
