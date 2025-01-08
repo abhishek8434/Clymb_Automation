@@ -51,7 +51,9 @@ jobs:
       - name: Run Selenium tests
         env:
           BROWSER: ${{ matrix.browser }}
-          BASE_URL: ${{ secrets.BASE_URL }} # Securely fetch the URL from GitHub Secrets
+          BASE_URL: ${{ secrets.BASE_URL }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
           echo "Running tests on URL: $BASE_URL with browser: $BROWSER"
           if [ "$BROWSER" == "chrome" ]; then
