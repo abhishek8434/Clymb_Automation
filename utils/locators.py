@@ -7,7 +7,7 @@ import random
 
 def compass_dashboard_audio(driver):
     compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
-    compass_dashboard_element = WebDriverWait(driver, 10).until(
+    compass_dashboard_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, compass_dashboard_audio_xpath))
     )
     compass_dashboard_element.click()
@@ -26,7 +26,7 @@ def click_random_emotion(driver):
     emotion_xpath = emotions.get(random_emotion)
 
     if emotion_xpath:
-        emotion_element = WebDriverWait(driver, 10).until(
+        emotion_element = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, emotion_xpath))
         )
         emotion_element.click()
@@ -47,7 +47,7 @@ def click_random_slider(driver):
     slider_xpath = slider_dict.get(random_slider, None)
 
     if slider_xpath:
-        slider_element = WebDriverWait(driver, 10).until(
+        slider_element = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, slider_xpath))
         )
         slider_element.click()
@@ -67,7 +67,7 @@ def select_random_mood(driver):
     }
 
     random_mood = random.choice(list(mood.values()))
-    random_mood_element = WebDriverWait(driver, 10).until(
+    random_mood_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, random_mood))
     )
     ActionChains(driver).move_to_element(random_mood_element).perform()
@@ -79,49 +79,49 @@ def select_random_mood(driver):
 
 def first_next_button(driver):
     first_next_xpath = "//button[normalize-space()='Next']"
-    first_next_button = WebDriverWait(driver, 10).until(
+    first_next_button = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, first_next_xpath))
     )
     first_next_button.click()
 
 def second_next_button(driver):
     second_next_xpath = '/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-emotion-wheel[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/button[1]'
-    second_next_element = WebDriverWait(driver, 10).until(
+    second_next_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, second_next_xpath))
     )
     second_next_element.click()
 
 def third_next_button(driver):
     audio_second_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
-    audio_second_next_element = WebDriverWait(driver, 10).until(
+    audio_second_next_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, audio_second_next_xpath))
     )
     audio_second_next_element.click()
 
 def fourth_next_button(driver):
     fourth_next_xpath = "/html[1]/body[1]/app-root[1]/app-main-layout[1]/main[1]/app-home[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[1]/div[2]/button[2]"
-    fourth_next_element = WebDriverWait(driver, 10).until(
+    fourth_next_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, fourth_next_xpath))
     )
     fourth_next_element.click()
 
 def fifth_next_button(driver):
     fifth_next_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div/button[2]'
-    fifth_next_element = WebDriverWait(driver, 10).until(
+    fifth_next_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, fifth_next_xpath))
     )
     fifth_next_element.click()
 
 def submit_button(driver):
     submit_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[2]/div[2]/form/div[1]/div[2]/button[2]'
-    submit_element = WebDriverWait(driver, 10).until(
+    submit_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, submit_xpath))
     )
     submit_element.click()
 
 def close_button(driver):
     close_xpath = '/html/body/ngb-modal-window/div/div/app-resources-picked-just-for-you/div/div/div/div[1]/div/span'
-    close_element = WebDriverWait(driver, 10).until(
+    close_element = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, close_xpath))
     )
     close_element.click()
@@ -137,7 +137,7 @@ def ask_for_help(driver):
 
     try:
         # Wait for the "Ask For Help" section to be visible
-        ask_for_help_audio_element = WebDriverWait(driver, 10).until(
+        ask_for_help_audio_element = WebDriverWait(driver, 20).until(
             EC.visibility_of_element_located((By.XPATH, ask_for_help_xpath_audio))
         )
 
@@ -171,7 +171,7 @@ def ask_for_help(driver):
                 selected_emotion = random.choice([question_sad, question_angry, question_happy])
 
                 # Select and click the randomly chosen checkbox
-                checkbox_element = WebDriverWait(driver, 10).until(
+                checkbox_element = WebDriverWait(driver, 20).until(
                     EC.element_to_be_clickable((By.XPATH, checkbox_to_select))
                 )
                 checkbox_element.click()
@@ -179,7 +179,7 @@ def ask_for_help(driver):
                 
                 # Click the "Next" button (if needed)
                 question_next = "//button[@class='btn btn-next btn-dark']"
-                next_button = WebDriverWait(driver, 10).until(
+                next_button = WebDriverWait(driver, 20).until(
                     EC.element_to_be_clickable((By.XPATH, question_next))
                 )
                 next_button.click()
@@ -187,7 +187,7 @@ def ask_for_help(driver):
                 print("Selected options and moved to next.")
                 
                 # Select and click the randomly chosen emotion
-                emotion_element = WebDriverWait(driver, 10).until(
+                emotion_element = WebDriverWait(driver, 20).until(
                     EC.element_to_be_clickable((By.XPATH, selected_emotion))
                 )
                 emotion_element.click()
@@ -195,7 +195,7 @@ def ask_for_help(driver):
                 
                  # Click the "Next" button (if needed)
                 question_submit = "/html[1]/body[1]/ngb-modal-window[1]/div[1]/div[1]/app-ask-for-help[1]/div[1]/div[1]/div[1]/div[2]/ul[1]/li[4]/div[2]/button[1]"
-                submit_button = WebDriverWait(driver, 10).until(
+                submit_button = WebDriverWait(driver, 20).until(
                     EC.element_to_be_clickable((By.XPATH, question_submit))
                 )
                 submit_button.click()
