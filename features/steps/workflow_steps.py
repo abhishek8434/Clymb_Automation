@@ -1,10 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
 
 import time
 import logging
@@ -25,29 +22,18 @@ from pages.login import login_to_application
 logging.basicConfig(level=logging.INFO)
 
 
-def get_driver(browser):
+def get_driver():
     """
-    Returns a WebDriver instance for the specified browser.
-    Supports 'chrome' and 'firefox'.
+    Returns a WebDriver instance for Chrome.
     """
-    if browser == 'chrome':
-        chrome_options = ChromeOptions()
-        chrome_options.add_argument('--headless')  # Run in headless mode 
-        chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
-        chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
-        chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
-        chrome_options.add_argument('--remote-debugging-port=9222')  # Fix DevToolsActivePort issue
+    chrome_options = ChromeOptions()
+    chrome_options.add_argument('--headless')  # Run in headless mode
+    chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
+    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
+    chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
+    chrome_options.add_argument('--remote-debugging-port=9222')  # Fix DevToolsActivePort issue
 
-        driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-
-    elif browser == 'firefox':
-        firefox_options = FirefoxOptions()
-        firefox_options.add_argument('--headless')  # Run in headless mode
-        
-        driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()), options=firefox_options)
-    
-    else:
-        raise ValueError(f"Unsupported browser: {browser}")
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     
     return driver
 
@@ -55,8 +41,7 @@ def get_driver(browser):
 @given('the user logs into the application')
 def step_login_to_application(context):
     logging.info("Initializing the driver and logging into the application...")
-    context.browser = 'chrome'  # Specify the browser (can be configurable)
-    context.driver = get_driver(context.browser)
+    context.driver = get_driver()
     context.driver.maximize_window()
     login_to_application(context.driver)
     time.sleep(5)
