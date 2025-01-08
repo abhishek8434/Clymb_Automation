@@ -58,15 +58,14 @@ def step_login_to_application(context):
     context.browser = 'chrome'  # Specify the browser (can be configurable)
     context.driver = get_driver(context.browser)
     context.driver.maximize_window()
-    time.sleep(5)
     login_to_application(context.driver)
     time.sleep(5)
     logging.info("Login successful.")
 
 
-@when('the user interacts with the Compass Dashboard Audio')
-def step_compass_dashboard_audio(context):
-    compass_dashboard_audio(context.driver)
+# @when('the user interacts with the Compass Dashboard Audio')
+# def step_compass_dashboard_audio(context):
+#     compass_dashboard_audio(context.driver)
 
 
 @when('the user clicks on the audio button')
