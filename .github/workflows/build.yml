@@ -1,4 +1,4 @@
-name: Run Behave Tests with Selenium
+name: Clymb Automation
 
 on:
   push:
@@ -9,22 +9,50 @@ on:
       - main
 
 jobs:
-  selenium:
+  selenium-tests:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browser: [chrome, firefox]
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.x
+          python-version: "3.9"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install pytest selenium webdriver-manager
+          pip install behave
 
-      - name: Run Behave tests
+      - name: Install Chrome and Firefox dependencies
         run: |
-          python -m behave tests/  # Adjust based on your test directory structure
+          sudo apt-get update
+          sudo apt-get install -y libnss3 libxss1 libx11-xcb1 libxcomposite1 \
+          libxcursor1 libxi6 libxtst6 libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 \
+          libgbm1 libgtk-3-0 libasound2t64
+
+
+
+
+
+      - name: Verify installation and environment
+        run: |
+          python --version
+          pip list
+          google-chrome --version || echo "Chrome not found"
+          firefox --version || echo "Firefox not found"
+
+      - name: Run Selenium tests
+        env:
+          BROWSER: ${{ matrix.browser }}
+          BASE_URL: ${{ secrets.BASE_URL }} # Securely fetch the URL from GitHub Secrets
+        run: |
+          echo "Running tests on URL: $BASE_URL"
+          behave --no-capture --no-capture-stderr --format=pretty
