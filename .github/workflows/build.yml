@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        browser: [chrome]  # Only Chrome is specified here
+        browser: [chrome, firefox]
 
     steps:
       - name: Checkout code
@@ -31,33 +31,26 @@ jobs:
           pip install pytest selenium webdriver-manager
           pip install behave
 
-      - name: Install Chrome dependencies
+      - name: Install Chrome and Firefox dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            libnss3 libxss1 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxtst6 \
-            libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libgbm1 libgtk-3-0 \
-            libasound2t64 ttf-mscorefonts-installer
-          # Install Google Chrome (latest stable version)
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get install -f
+          sudo apt-get install -y libnss3 libxss1 libx11-xcb1 libxcomposite1 \
+          libxcursor1 libxi6 libxtst6 libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 \
+          libgbm1 libgtk-3-0 libasound2t64
 
       - name: Verify installation and environment
         run: |
           python --version
           pip list
           google-chrome --version || echo "Chrome not found"
+          firefox --version || echo "Firefox not found"
 
       - name: Run Selenium tests
         env:
           BROWSER: ${{ matrix.browser }}
-          BASE_URL: ${{ secrets.BASE_URL }}
-          EMAIL: ${{ secrets.EMAIL }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          BASE_URL: ${{ secrets.BASE_URL }} # Securely fetch the URL from GitHub Secrets
+          EMAIL: ${{ secrets.EMAIL }} # Securely fetch the email from GitHub Secrets
+          PASSWORD: ${{ secrets.PASSWORD }} # Securely fetch the password from GitHub Secrets
         run: |
-          echo "Running tests on URL: $BASE_URL with browser: $BROWSER"
-          if [ "$BROWSER" == "chrome" ]; then
-            export DISPLAY=:99.0
-            google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
-          fi
+          echo "Running tests on URL: $BASE_URL"
           behave --no-capture --no-capture-stderr --format=pretty
