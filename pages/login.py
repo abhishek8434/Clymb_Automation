@@ -7,9 +7,6 @@ import os
 import time
 import logging
 
-# Load environment variables
-load_dotenv()
-
 def login_to_application(driver):
     """
     Logs into the application using credentials from environment variables.
@@ -20,22 +17,18 @@ def login_to_application(driver):
     Returns:
         None
     """
+    # Load environment variables from .env file
+    load_dotenv()
+
     # Get login details from environment variables
     url = os.getenv("BASE_URL")
     username = os.getenv("EMAIL")
     password = os.getenv("PASSWORD")
 
-    # Ensure the required environment variables are available
-    if not url or not username or not password:
-        logging.error("Missing environment variables. Please check .env file.")
-        raise ValueError("Required environment variables are missing.")
-
     # Navigate to the URL
     driver.get(url)
 
     try:
-        logging.info(f"Starting login to {url} with username: {username}")
-
         # Step 1: Enter email
         email_field = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.ID, 'email'))
