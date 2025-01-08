@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium import webdriver
@@ -19,10 +17,10 @@ def login_to_application(driver):
     Returns:
         None
     """
-    # Load environment variables
+    # Load environment variables from .env file
     load_dotenv()
 
-    # Get login details
+    # Get login details from environment variables
     url = os.getenv("BASE_URL")
     username = os.getenv("EMAIL")
     password = os.getenv("PASSWORD")
@@ -30,38 +28,37 @@ def login_to_application(driver):
     # Navigate to the URL
     driver.get(url)
 
-    # Step 1: Login
     try:
-        email_field = 'email'
+        # Step 1: Enter email
         email_field = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.ID, email_field))
+            EC.element_to_be_clickable((By.ID, 'email'))
         )
         email_field.send_keys(username)
-        
-        # Password field xpath fetch and fill password
-        password_field= 'password'
+
+        # Step 2: Enter password
         password_field = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.ID, password_field))
+            EC.element_to_be_clickable((By.ID, 'password'))
         )  
         password_field.send_keys(password)
 
-        # Submit button xpath fetch and click on button
-        login_button = "//button[@type='submit']"
+        # Step 3: Click login button
         login_button = WebDriverWait(driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, login_button))
+            EC.element_to_be_clickable((By.XPATH, "//button[@type='submit']"))
         )
         login_button.click()
-        
+
+        # Step 4: Wait for compass dashboard to load and become clickable
         compass_dashboard_audio_xpath = '/html/body/app-root/app-main-layout/main/app-home/section/div[1]/div/div[1]/div/div[1]/i[2]'
-        compass_dashboard_element = WebDriverWait(driver, 20).until(
+        WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, compass_dashboard_audio_xpath))
         )
-        
-        logging.info("Performing login...")
-        # Code for login
-        logging.info(f"Login state: {context.driver.current_url}")
 
-        # Wait for login process to complete
+        # Log successful login
+        logging.info(f"Login successful, current URL: {driver.current_url}")
+
+        # Optional: Wait for any additional asynchronous loading or actions after login
         time.sleep(5)
+
     except Exception as e:
+        logging.error(f"Error during login: {e}")
         print(f"Error during login: {e}")

@@ -1,4 +1,3 @@
-
 import random
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
@@ -18,7 +17,9 @@ AUDIO_BUTTON_XPATHS = {
 # Function to move the slider and click the audio button
 def move_slider_and_click_audio(driver, slider_xpath, audio_button_xpath):
     # Find the slider element
-    slider_element = driver.find_element(By.XPATH, slider_xpath)
+    slider_element = WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located((By.XPATH, slider_xpath))
+    )
 
     # Create ActionChains object to drag the slider
     actions = ActionChains(driver)
@@ -36,10 +37,8 @@ def move_slider_and_click_audio(driver, slider_xpath, audio_button_xpath):
     actions.click_and_hold(slider_element).move_by_offset(move_by, 0).release().perform()
 
     # Click the audio button
-    audio_button = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, audio_button_xpath)))
+    audio_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, audio_button_xpath)))
     audio_button.click()
-
-    # Sleep for a brief moment to ensure the actions are completed
     time.sleep(2)
 
 def relationship_skills(driver):
@@ -78,4 +77,3 @@ def relationship_skills(driver):
 
     # Perform actions for 'ignore_peer_pressure'
     move_slider_and_click_audio(driver, random_ignore_peer_pressure_xpath, AUDIO_BUTTON_XPATHS["ignore_peer_pressure"])
-

@@ -24,17 +24,22 @@ def select_responsible_decision_making(driver):
     responsible_decision_making_element = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, random_responsible_decision_making)))
     responsible_decision_making_element.click()
 
-    time.sleep(2)
+    # Explicit time wait added before the next action
+    WebDriverWait(driver, 2)
 
     # Check which option was selected and trigger the corresponding audio
     if random_responsible_decision_making == responsible_decision_making["1"]:
-        audio_element = driver.find_element(By.XPATH, responsible_decision_making_audio["audio1"])
+        audio_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, responsible_decision_making_audio["audio1"])))
         audio_element.click()
+        time.sleep(5)
     elif random_responsible_decision_making == responsible_decision_making["2"]:
-        audio_element = driver.find_element(By.XPATH, responsible_decision_making_audio["audio2"])
+        audio_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, responsible_decision_making_audio["audio2"])))
         audio_element.click()
+        time.sleep(5)
     elif random_responsible_decision_making == responsible_decision_making["3"]:
-        audio_element = driver.find_element(By.XPATH, responsible_decision_making_audio["audio3"])
+        audio_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, responsible_decision_making_audio["audio3"])))
         audio_element.click()
+        time.sleep(5)
 
-    time.sleep(9)
+    # Explicit time wait added before the next action
+    WebDriverWait(driver, 9)
