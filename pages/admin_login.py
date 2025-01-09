@@ -7,6 +7,7 @@ from selenium import webdriver
 from dotenv import load_dotenv
 import os
 import time
+import logging
 
 def login_to_application_admin(driver):
     """
@@ -50,7 +51,14 @@ def login_to_application_admin(driver):
         admin_submit_button_element = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, admin_submit_button_xpath))
         )
-        admin_submit_button_element.click()
+        admin_submit_button_element.click() 
+        
+        time.sleep(2)
+        
+        # Log successful login
+        logging.info(f"Login successful, current URL: {driver.current_url}")
+        
+        
            
     except Exception as e:
         print(f"Error during login: {e}")
