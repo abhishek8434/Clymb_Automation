@@ -55,27 +55,3 @@ steps:
     BASE_URL: $(BASE_URL)
     EMAIL: $(EMAIL)
     PASSWORD: $(PASSWORD)
-
-
-# Package and Save Artifact
-- script: |
-    python setup.py sdist bdist_wheel
-    mkdir -p $(Build.ArtifactStagingDirectory)
-    cp -r dist/* $(Build.ArtifactStagingDirectory)
-  displayName: 'Build and Package'
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: $(Build.ArtifactStagingDirectory)
-    artifactName: 'PythonPackage'
-    publishLocation: 'Container'
-
-# (Optional) Publish to PyPI
-# Uncomment and configure if needed
-# - script: |
-#     pip install twine
-#     twine upload dist/*
-#   displayName: 'Publish to PyPI'
-#   env:
-#     TWINE_USERNAME: $(TWINE_USERNAME)
-#     TWINE_PASSWORD: $(TWINE_PASSWORD)
