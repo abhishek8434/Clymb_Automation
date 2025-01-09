@@ -31,7 +31,7 @@ def get_driver():
     return driver
 
 
-@given("the user logs into the main application")
+@given("the user logs into the student application")
 def step_login_main_application(context):
     """
     Log into the main application using the provided WebDriver context.
