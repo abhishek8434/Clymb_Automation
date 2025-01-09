@@ -35,6 +35,8 @@ def get_driver():
     chrome_options.add_argument('--disable-software-rasterizer')
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--use-gl=swiftshader')
+    chrome_options.add_argument('--mute-audio')
+
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     
