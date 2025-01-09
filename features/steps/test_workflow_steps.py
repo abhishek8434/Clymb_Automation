@@ -37,6 +37,7 @@ def step_login_main_application(context):
     Log into the main application using the provided WebDriver context.
     """
     context.driver = get_driver()
+    context.driver.maximize_window()
     login_to_application(context.driver)
     print("Main application login completed.")
     WebDriverWait(context.driver, 10).until(EC.url_changes, "Login did not result in URL change.")
