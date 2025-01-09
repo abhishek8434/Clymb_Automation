@@ -10,11 +10,11 @@ on:
 
 jobs:
   selenium-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04 # Explicitly use Ubuntu 20.04 to ensure compatibility with libasound2
 
     strategy:
       matrix:
-        browser: [chrome]  # Only Chrome is specified here
+        browser: [chrome]  # Currently testing only on Chrome
 
     steps:
       - name: Checkout code
@@ -25,20 +25,19 @@ jobs:
         with:
           python-version: "3.9"
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install pytest selenium webdriver-manager
           pip install behave
-          
 
-      - name: Install Chrome dependencies
+      - name: Install Chrome and dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y \
             libnss3 libxss1 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxtst6 \
             libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libgbm1 libgtk-3-0 \
-            libasound2t64 ttf-mscorefonts-installer
+            libasound2 libasound2-data ttf-mscorefonts-installer
           # Install Google Chrome (latest stable version)
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
           sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get install -f
@@ -55,9 +54,6 @@ jobs:
           BASE_URL: ${{ secrets.BASE_URL }} # Securely fetch the URL from GitHub Secrets
           EMAIL: ${{ secrets.EMAIL }} # Securely fetch the email from GitHub Secrets
           PASSWORD: ${{ secrets.PASSWORD }} # Securely fetch the password from GitHub Secrets
-
-
-
         run: |
           echo "Running tests on URL: $BASE_URL with browser: $BROWSER"
           if [ "$BROWSER" == "chrome" ]; then
