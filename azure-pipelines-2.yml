@@ -1,8 +1,3 @@
-# Python package
-# Create and test a Python package on multiple Python versions.
-# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/python
-
 trigger:
   branches:
     include:
@@ -11,49 +6,85 @@ trigger:
 pool:
   vmImage: 'ubuntu-20.04'
 
+strategy:
+  matrix:
+    Python_3.8:
+      python.version: '3.8'
+    Python_3.9:
+      python.version: '3.9'
+    Python_3.10:
+      python.version: '3.10'
+
 steps:
-  # Checkout the code from the repository
-  - task: Checkout@1
+# Checkout the code from the repository
+- checkout: self
+  clean: true
+
+# Install Python and dependencies
+- task: UsePythonVersion@0
   inputs:
-    clean: true
+    versionSpec: '$(python.version)'
+    addToPath: true
 
-  # Install Python and dependencies
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.9'
-      addToPath: true
+- script: |
+    python -m pip install --upgrade pip
+    pip install pytest selenium webdriver-manager behave
+  displayName: 'Install Python dependencies'
 
-  - script: |
-      python -m pip install --upgrade pip
-      pip install pytest selenium webdriver-manager
-      pip install behave
-    displayName: 'Install Python dependencies'
+# Install Chrome and dependencies
+- script: |
+    sudo apt-get update
+    sudo apt-get install -y \
+      libnss3 libxss1 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxtst6 \
+      libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libgbm1 libgtk-3-0 \
+      libasound2 libasound2-data ttf-mscorefonts-installer
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get install -f -y
+  displayName: 'Install Chrome and dependencies'
 
-  # Install Chrome and dependencies
-  - script: |
-      sudo apt-get update
-      sudo apt-get install -y \
-        libnss3 libxss1 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxtst6 \
-        libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libgbm1 libgtk-3-0 \
-        libasound2 libasound2-data ttf-mscorefonts-installer
-      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get install -f
-    displayName: 'Install Chrome and dependencies'
+# Verify installation
+- script: |
+    python --version
+    pip list
+    google-chrome --version || echo "Chrome not found"
+  displayName: 'Verify installation'
 
-  # Verify installation
-  - script: |
-      python --version
-      pip list
-      google-chrome --version || echo "Chrome not found"
-    displayName: 'Verify installation'
+# Run Selenium tests using Behave
+- script: |
+    echo "Running tests with browser: Google Chrome"
+    google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
+    behave --no-capture --no-capture-stderr --format=pretty
+  displayName: 'Run Selenium tests'
+  env:
+    BASE_URL: $(BASE_URL)
+    EMAIL: $(EMAIL)
+    PASSWORD: $(PASSWORD)
 
-  # Run Selenium tests
-  - script: |
-      echo "Running tests with browser: $(BROWSER)"
-      google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
-      behave --no-capture --no-capture-stderr --format=pretty
-    displayName: 'Run Selenium tests'
-    env:
-      BASE_URL: $(BASE_URL)
-      EMAIL: $(EMAIL)
-      PASSWORD: $(PASSWORD)
+# Publish Test Results
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/test-results.xml'
+    testRunTitle: 'Selenium Tests'
+
+# Package and Save Artifact
+- script: |
+    python setup.py sdist bdist_wheel
+    mkdir -p $(Build.ArtifactStagingDirectory)
+    cp -r dist/* $(Build.ArtifactStagingDirectory)
+  displayName: 'Build and Package'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: 'PythonPackage'
+    publishLocation: 'Container'
+
+# (Optional) Publish to PyPI
+# Uncomment and configure if needed
+# - script: |
+#     pip install twine
+#     twine upload dist/*
+#   displayName: 'Publish to PyPI'
+#   env:
+#     TWINE_USERNAME: $(TWINE_USERNAME)
+#     TWINE_PASSWORD: $(TWINE_PASSWORD)
