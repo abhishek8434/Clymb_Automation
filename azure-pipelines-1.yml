@@ -1,0 +1,58 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-20.04'
+
+steps:
+  # Checkout the code from the repository
+  - task: Checkout@1
+    displayName: 'Checkout code'
+
+  # Install Python and dependencies
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.9'
+      addToPath: true
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install pytest selenium webdriver-manager
+      pip install behave
+    displayName: 'Install Python dependencies'
+
+  # Install Chrome and dependencies
+  - script: |
+      sudo apt-get update
+      sudo apt-get install -y \
+        libnss3 libxss1 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxtst6 \
+        libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libgbm1 libgtk-3-0 \
+        libasound2 libasound2-data ttf-mscorefonts-installer
+      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get install -f
+    displayName: 'Install Chrome and dependencies'
+
+  # Verify installation
+  - script: |
+      python --version
+      pip list
+      google-chrome --version || echo "Chrome not found"
+    displayName: 'Verify installation'
+
+  # Run Selenium tests
+  - script: |
+      echo "Running tests with browser: $(BROWSER)"
+      google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
+      behave --no-capture --no-capture-stderr --format=pretty
+    displayName: 'Run Selenium tests'
+    env:
+      BASE_URL: $(BASE_URL)
+      EMAIL: $(EMAIL)
+      PASSWORD: $(PASSWORD)
