@@ -50,6 +50,7 @@ def step_open_admin_tab(context):
     """
     context.driver.execute_script("window.open('');")
     context.tabs = context.driver.window_handles
+    time.sleep(5)
     context.driver.switch_to.window(context.tabs[1])
     print("Opened and switched to admin login tab.")
 
