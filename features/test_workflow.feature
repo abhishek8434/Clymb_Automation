@@ -5,8 +5,8 @@ Feature: Test Workflow with Multiple Tabs
 
   Scenario: Execute the full workflow with tabs
     Given the user logs into the student application
-    And the user opens a new tab for admin login
-    When the user logs into the admin application
+    When the user opens a new tab for admin login
+    And the user logs into the admin application
     And the user switches back to the main application
     And the user extracts a name and performs "Ask For Help" actions
     Then the user verifies the extracted name in the admin tab

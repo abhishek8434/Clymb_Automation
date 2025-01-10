@@ -43,14 +43,13 @@ def step_login_main_application(context):
     WebDriverWait(context.driver, 10).until(EC.url_changes, "Login did not result in URL change.")
 
 
-@given("the user opens a new tab for admin login")
+@when("the user opens a new tab for admin login")
 def step_open_admin_tab(context):
     """
     Open a new browser tab for admin login and switch to it.
     """
     context.driver.execute_script("window.open('');")
     context.tabs = context.driver.window_handles
-    time.sleep(5)
     context.driver.switch_to.window(context.tabs[1])
     print("Opened and switched to admin login tab.")
 
