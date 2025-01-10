@@ -60,11 +60,10 @@ def step_open_admin_tab(context):
     logging.info(f"Window handles before switching: {context.driver.window_handles}")
     
     # Wait for the new tab to be available with a small delay before checking window handles
-    time.sleep(2)  # Additional sleep to allow the tab to open
-    WebDriverWait(context.driver, 30).until(
-        lambda driver: len(driver.window_handles) > 1, "New tab did not open in time."
+    WebDriverWait(context.driver, 60).until(
+    lambda driver: len(driver.window_handles) > 1
     )
-    
+    assert len(context.driver.window_handles) > 1
     # Store the window handles and switch to the second tab
     context.tabs = context.driver.window_handles
     logging.info(f"Tabs available: {context.tabs}")
