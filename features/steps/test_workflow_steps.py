@@ -51,18 +51,25 @@ def step_open_admin_tab(context):
     """
     time.sleep(2)
     logging.info("Opened")
+    
+    # Open a new blank tab
     context.driver.execute_script("window.open('');")
     time.sleep(2)
+    
+    # Log current window handles
     logging.info(f"Window handles before switching: {context.driver.window_handles}")
-    # Ensure the window handles list has more than 1 item before switching
+    
+    # Wait for the new tab to be opened
     WebDriverWait(context.driver, 30).until(
         lambda driver: len(driver.window_handles) > 1, "New tab did not open in time."
     )
-    context.tabs = context.driver.window_handles
-    logging.info("Tabs available:", context.tabs)
-    context.driver.switch_to.window(context.tabs[1])
-    logging.info("Opened and switched to admin login tab.")
     
+    # Store the window handles and switch to the second tab
+    context.tabs = context.driver.window_handles
+    logging.info(f"Tabs available: {context.tabs}")
+    context.driver.switch_to.window(context.tabs[1])
+    
+    logging.info("Opened and switched to admin login tab.")
 
 
 @when("the user logs into the admin application")
@@ -70,9 +77,16 @@ def step_login_admin_application(context):
     """
     Log into the admin application in the new tab.
     """
-    login_to_application_admin(context.driver)
-    logging.info("Admin application login completed.")
-    WebDriverWait(context.driver, 10).until(EC.url_changes, "Admin login did not result in URL change.")
+    try:
+        login_to_application_admin(context.driver)
+        logging.info("Admin application login completed.")
+        
+        # Wait for the URL to change, indicating successful login or redirection
+        WebDriverWait(context.driver, 10).until(EC.url_changes, "Admin login did not result in URL change.")
+        logging.info("Admin login URL change detected.")
+    except Exception as e:
+        logging.error(f"An error occurred during admin login: {e}")
+        raise
 
 
 @when("the user switches back to the main application")
