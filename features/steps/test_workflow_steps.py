@@ -46,30 +46,28 @@ def step_login_main_application(context):
 
 @given("the user opens a new tab for admin login")
 def step_open_admin_tab(context):
-    """
-    Open a new browser tab for admin login and switch to it.
-    """
-    time.sleep(2)
-    logging.info("Opened")
-    
+    logging.info("Opening new admin tab...")
+
     # Open a new blank tab
     context.driver.execute_script("window.open('');")
-    time.sleep(2)
-    
-    # Log current window handles
-    logging.info(f"Window handles before switching: {context.driver.window_handles}")
-    
-    # Wait for the new tab to be available with a small delay before checking window handles
+
+    # Wait for the new tab to be available
     WebDriverWait(context.driver, 60).until(
-    lambda driver: len(driver.window_handles) > 1
+        lambda driver: len(driver.window_handles) > 1
     )
-    assert len(context.driver.window_handles) > 1
-    # Store the window handles and switch to the second tab
+
+    # Log current window handles before switching
+    logging.info(f"Window handles before switching: {context.driver.window_handles}")
+
+    # Store the window handles and switch to the new tab
     context.tabs = context.driver.window_handles
     logging.info(f"Tabs available: {context.tabs}")
-    context.driver.switch_to.window(context.tabs[1])
     
-    logging.info("Opened and switched to admin login tab.")
+    # Switch to the second tab (admin login)
+    context.driver.switch_to.window(context.tabs[1])
+
+    # Log after switching
+    logging.info("Switched to admin login tab."))
 
 
 @when("the user logs into the admin application")
