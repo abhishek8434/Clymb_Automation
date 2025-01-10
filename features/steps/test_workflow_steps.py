@@ -42,6 +42,11 @@ def step_impl_main_app_login(context):
     WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after login
     logger.info("Main application login completed.")
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 @given('I log in to the admin application')
 def step_impl_admin_app_login(context):
     """Log in to the admin application in the second tab."""
@@ -60,18 +65,22 @@ def step_impl_admin_app_login(context):
     else:
         raise Exception("Admin application tab did not open")
     
-    # Wait for the admin login page to load by checking for an element that is present in the admin tab
-    # You can replace 'admin_login_element' with a locator specific to the admin page
-    WebDriverWait(context.driver, 10).until(
-        EC.presence_of_element_located((By.ID, "admin_login_element"))  # Replace with a valid locator
-    )
+    # Set options to disable GPU acceleration in CI/CD or headless mode (optional)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--disable-gpu")
+    context.driver = webdriver.Chrome(options=chrome_options)
     
-    login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
+    # Wait for the admin page to load (you can adjust the condition as necessary)
+    WebDriverWait(context.driver, 30).until(EC.url_contains("admin_dashboard_url"))  # Use actual admin page URL part
+
+    # Proceed with admin login process
+    login_to_application_admin(context.driver)  # Assuming this function handles the admin login steps
     
-    # Wait for the URL to change (indicating successful login)
-    WebDriverWait(context.driver, 10).until(EC.url_changes)
-    
+    # Ensure successful login by checking for a specific element or URL change
+    WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.ID, "admin_dashboard_id")))  # Replace with a real ID for admin page element
+
     logger.info("Admin application login completed.")
+
 
 @when('I switch back to the main application')
 def step_impl_switch_back_to_main_app(context):
