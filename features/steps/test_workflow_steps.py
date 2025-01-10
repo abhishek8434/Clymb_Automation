@@ -63,7 +63,7 @@ def step_impl_admin_app_login(context):
     # Wait for the admin login page to load by checking for an element that is present in the admin tab
     # You can replace 'admin_login_element' with a locator specific to the admin page
     WebDriverWait(context.driver, 10).until(
-        EC.presence_of_element_located((By.ID, "admin_login_element"))  # Replace with a valid locator
+        EC.presence_of_element_located((By.XPATH, '//*[@id="mat-input-0"]'))  # Replace with a valid locator
     )
     
     login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
