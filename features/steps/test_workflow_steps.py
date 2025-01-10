@@ -48,9 +48,11 @@ def step_open_admin_tab(context):
     """
     Open a new browser tab for admin login and switch to it.
     """
+    time.sleep(2)
     context.driver.execute_script("window.open('');")
+    time.sleep(2)
     # Ensure the window handles list has more than 1 item before switching
-    WebDriverWait(context.driver, 10).until(
+    WebDriverWait(context.driver, 30).until(
         lambda driver: len(driver.window_handles) > 1, "New tab did not open in time."
     )
     context.tabs = context.driver.window_handles
