@@ -48,18 +48,22 @@ def step_impl_admin_app_login(context):
     # Open a new tab using JavaScript
     context.driver.execute_script("window.open('');")
     
-    # Get all window handles and print them for debugging
-    windows = context.driver.window_handles
-    logger.info(f"Windows before switch: {windows}")
-    
-    # Check if the new tab has opened and wait for it
+    # Wait until the window handles list has more than one entry
     WebDriverWait(context.driver, 30).until(lambda driver: len(driver.window_handles) > 1)
-    windows = context.driver.window_handles
-    context.driver.switch_to.window(windows[1])  # Switch to the new tab
     
-    # Wait for the admin login page to load (you can adjust the locator to your actual case)
+    # Get all window handles after the new tab is opened
+    windows = context.driver.window_handles
+    print(f"Windows before switch: {windows}")
+    
+    if len(windows) > 1:
+        context.driver.switch_to.window(windows[1])  # Switch to the new tab
+    else:
+        raise Exception("Admin application tab did not open")
+    
+    # Wait for the admin login page to load by checking for an element that is present in the admin tab
+    # You can replace 'admin_login_element' with a locator specific to the admin page
     WebDriverWait(context.driver, 10).until(
-        EC.presence_of_element_located((By.ID, "admin_login_element"))  # Replace with an actual admin element
+        EC.presence_of_element_located((By.ID, "admin_login_element"))  # Replace with a valid locator
     )
     
     login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
