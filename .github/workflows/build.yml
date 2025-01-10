@@ -64,4 +64,4 @@ jobs:
             export DISPLAY=:99.0
             google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
           fi
-          behave features/test_workflow.feature --no-capture --no-capture-stderr --format=pretty
+          behave --no-capture --no-capture-stderr --format=pretty
