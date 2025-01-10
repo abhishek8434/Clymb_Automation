@@ -51,13 +51,9 @@ def step_impl_admin_app_login(context):
     # Wait until the window handles list has more than one entry
     
     original_window = context.driver.current_window_handle
-    WebDriverWait(context.driver, 60).until(lambda driver: len(driver.window_handles) > 1)
-
-   # Get all window handles
-    windows = context.driver.window_handles
-
-    # Switch to the new window (assume the second window handle is the new one)
-    context.driver.switch_to.window(windows[1])
+    WebDriverWait(context.driver, 30).until(lambda driver: len(driver.window_handles) > 1)
+    new_window = [window for window in context.driver.window_handles if window != original_window][0]
+    context.driver.switch_to.window(new_window)
 
     login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
     
