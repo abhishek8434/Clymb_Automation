@@ -50,10 +50,9 @@ def step_impl_main_app_login(context):
 def step_impl_admin_app_login(context):
     """Log in to the admin application in the second tab."""
     context.driver.execute_script("window.open('');")  # Open a new tab
-    windows = context.driver.window_handles
-    print(f"Windows before switch: {windows}")  # Log window handles
-    if len(windows) > 1:
-        context.driver.switch_to.window(windows[1])
+    tabs = context.driver.window_handles
+    if len(tabs) > 1:
+        context.driver.switch_to.window(tabs[1])
     else:
         raise Exception("Admin application tab did not open")
     login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
