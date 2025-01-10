@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from pages.login import login_to_application
 from pages.admin_login import login_to_application_admin
-from utils.locators import ask_for_help
+from utils.locators import ask_for_help_1
 from utils.verify_ask_for_help_locator import verify_names, verify_name_admin_notification
 from behave import given, when, then
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -32,103 +32,66 @@ def get_driver():
     return driver
 
 
-@given("the user logs into the student application")
-def step_login_main_application(context):
-    """
-    Log into the main application using the provided WebDriver context.
-    """
-    context.driver = get_driver()
+@given('I log in to the main application')
+def step_impl_main_app_login(context):
+    """Log in to the main application in the first tab."""
+    context.driver = webdriver.Chrome()
     context.driver.maximize_window()
-    login_to_application(context.driver)
-    logging.info("Main application login completed.")
-    WebDriverWait(context.driver, 10).until(EC.url_changes, "Login did not result in URL change.")
+    login_to_application(context.driver)  # Executes all actions for login on the first tab
+    WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after login
+    print("Main application login completed.")
 
 
-@given("the user opens a new tab for admin login")
-def step_open_admin_tab(context):
-    logging.info("Opening new admin tab...")
-
-    # Open a new blank tab
-    context.driver.execute_script("window.open('');")
-
-    # Wait for the new tab to be available
-    WebDriverWait(context.driver, 60).until(
-        lambda driver: len(driver.window_handles) > 1
-    )
-
-    # Log current window handles before switching
-    logging.info(f"Window handles before switching: {context.driver.window_handles}")
-
-    # Store the window handles and switch to the new tab
-    context.tabs = context.driver.window_handles
-    logging.info(f"Tabs available: {context.tabs}")
-    
-    # Switch to the second tab (admin login)
-    context.driver.switch_to.window(context.tabs[1])
-
-    # Log after switching
-    logging.info("Switched to admin login tab.")
+@given('I log in to the admin application')
+def step_impl_admin_app_login(context):
+    """Log in to the admin application in the second tab."""
+    context.driver.execute_script("window.open('');")  # Open a new tab
+    tabs = context.driver.window_handles
+    context.driver.switch_to.window(tabs[1])
+    login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
+    WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after admin login
+    print("Admin application login completed.")
+    time.sleep(2)
 
 
-@when("the user logs into the admin application")
-def step_login_admin_application(context):
-    """
-    Log into the admin application in the new tab.
-    """
-    try:
-        login_to_application_admin(context.driver)
-        logging.info("Admin application login completed.")
-        
-        # Wait for the URL to change after login
-        WebDriverWait(context.driver, 10).until(EC.url_changes, "Admin login did not result in URL change.")
-        logging.info("Admin login URL change detected.")
-    except Exception as e:
-        logging.error(f"An error occurred during admin login: {e}")
-        raise
+@when('I switch back to the main application')
+def step_impl_switch_back_to_main_app(context):
+    """Switch back to the main application tab."""
+    tabs = context.driver.window_handles
+    context.driver.switch_to.window(tabs[0])
+    print("Switched back to the main application tab.")
 
 
-@when("the user switches back to the main application")
-def step_switch_to_main_tab(context):
-    """
-    Switch back to the main application's browser tab.
-    """
-    context.driver.switch_to.window(context.tabs[0])
-    logging.info("Switched back to the main tab.")
-
-
-@when("the user extracts a name and performs \"Ask For Help\" actions")
-def step_extract_name_and_ask_help(context):
-    """
-    Extract a name from the main application and perform 'Ask For Help' actions.
-    """
-    context.extracted_name = verify_names(context.driver)
-    logging.info(f"Extracted name: {context.extracted_name}")
-
+@when('I click "Ask For Help"')
+def step_impl_click_ask_for_help(context):
+    """Click the 'Ask For Help' link and perform related actions."""
     ask_for_help_xpath = "//a[normalize-space()='Ask For Help']"
     ask_for_help_selected = WebDriverWait(context.driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, ask_for_help_xpath)),
-        "Ask For Help button not clickable."
+        EC.element_to_be_clickable((By.XPATH, ask_for_help_xpath))
     )
     ask_for_help_selected.click()
-    ask_for_help(context.driver)
-    logging.info("Completed 'Ask For Help' actions.")
+    ask_for_help_1(context.driver)  # Perform the "Ask For Help" actions
+    print("Completed actions in the main application.")
 
 
-@then("the user verifies the extracted name in the admin tab")
-def step_verify_name_in_admin_tab(context):
-    """
-    Verify the extracted name in the admin application's browser tab.
-    """
-    context.driver.switch_to.window(context.tabs[1])
-    logging.info("Switched to the admin tab.")
+@then('I should be able to extract the name from the main application')
+def step_impl_extract_name(context):
+    """Extract the name from the main application."""
+    extracted_name = verify_names(context.driver)
+    context.extracted_name = extracted_name  # Save the extracted name for later verification
+    print(f"Extracted name: {extracted_name}")
+
+
+@when('I switch to the admin application')
+def step_impl_switch_to_admin_app(context):
+    """Switch to the admin application tab."""
+    tabs = context.driver.window_handles
+    context.driver.switch_to.window(tabs[1])
+    print("Switched to the admin application tab.")
+
+
+@then('I should verify the extracted name in the admin application')
+def step_impl_verify_name_in_admin(context):
+    """Verify the extracted name in the admin application."""
     verify_name_admin_notification(context.driver, context.extracted_name)
-    logging.info("Name verification completed in the admin tab.")
-
-
-@then("the workflow execution is completed")
-def step_workflow_completed(context):
-    """
-    Complete the workflow execution and quit the browser.
-    """
-    logging.info("Workflow execution completed.")
-    context.driver.quit()
+    print("Name verification completed in the admin tab.")
