@@ -51,7 +51,10 @@ def step_impl_admin_app_login(context):
     """Log in to the admin application in the second tab."""
     context.driver.execute_script("window.open('');")  # Open a new tab
     tabs = context.driver.window_handles
-    context.driver.switch_to.window(tabs[1])
+    if len(tabs) > 1:
+        context.driver.switch_to.window(tabs[1])
+    else:
+        raise Exception("Admin application tab did not open")
     login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
     WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after admin login
     logger.info("Admin application login completed.")
