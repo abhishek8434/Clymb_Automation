@@ -11,6 +11,7 @@ from behave import given, when, then
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+import logging
 
 
 def get_driver():
@@ -26,7 +27,7 @@ def get_driver():
     chrome_options.add_argument('--mute-audio')  # Mute audio for automated testing
     chrome_options.add_argument('--use-gl=swiftshader')  # Use SwiftShader for rendering
     chrome_options.add_argument('--disable-software-rasterizer')  # Disable software rasterization
-
+ 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
@@ -39,7 +40,7 @@ def step_login_main_application(context):
     context.driver = get_driver()
     context.driver.maximize_window()
     login_to_application(context.driver)
-    print("Main application login completed.")
+    logging.info("Main application login completed.")
     WebDriverWait(context.driver, 10).until(EC.url_changes, "Login did not result in URL change.")
 
 
@@ -49,16 +50,19 @@ def step_open_admin_tab(context):
     Open a new browser tab for admin login and switch to it.
     """
     time.sleep(2)
+    logging.info("Before opening new tab:", context.driver.window_handles)
     context.driver.execute_script("window.open('');")
+    time.sleep(5)
+    logging.info("After opening new tab:", context.driver.window_handles)
     time.sleep(2)
     # Ensure the window handles list has more than 1 item before switching
     WebDriverWait(context.driver, 30).until(
         lambda driver: len(driver.window_handles) > 1, "New tab did not open in time."
     )
     context.tabs = context.driver.window_handles
-    print("Tabs available:", context.tabs)
+    logging.info("Tabs available:", context.tabs)
     context.driver.switch_to.window(context.tabs[1])
-    print("Opened and switched to admin login tab.")
+    logging.info("Opened and switched to admin login tab.")
     
 
 
@@ -68,7 +72,7 @@ def step_login_admin_application(context):
     Log into the admin application in the new tab.
     """
     login_to_application_admin(context.driver)
-    print("Admin application login completed.")
+    logging.info("Admin application login completed.")
     WebDriverWait(context.driver, 10).until(EC.url_changes, "Admin login did not result in URL change.")
 
 
@@ -78,7 +82,7 @@ def step_switch_to_main_tab(context):
     Switch back to the main application's browser tab.
     """
     context.driver.switch_to.window(context.tabs[0])
-    print("Switched back to the main tab.")
+    logging.info("Switched back to the main tab.")
 
 
 @when("the user extracts a name and performs \"Ask For Help\" actions")
@@ -87,7 +91,7 @@ def step_extract_name_and_ask_help(context):
     Extract a name from the main application and perform 'Ask For Help' actions.
     """
     context.extracted_name = verify_names(context.driver)
-    print(f"Extracted name: {context.extracted_name}")
+    logging.info(f"Extracted name: {context.extracted_name}")
 
     ask_for_help_xpath = "//a[normalize-space()='Ask For Help']"
     ask_for_help_selected = WebDriverWait(context.driver, 10).until(
@@ -96,7 +100,7 @@ def step_extract_name_and_ask_help(context):
     )
     ask_for_help_selected.click()
     ask_for_help(context.driver)
-    print("Completed 'Ask For Help' actions.")
+    logging.info("Completed 'Ask For Help' actions.")
 
 
 @then("the user verifies the extracted name in the admin tab")
@@ -105,9 +109,9 @@ def step_verify_name_in_admin_tab(context):
     Verify the extracted name in the admin application's browser tab.
     """
     context.driver.switch_to.window(context.tabs[1])
-    print("Switched to the admin tab.")
+    logging.info("Switched to the admin tab.")
     verify_name_admin_notification(context.driver, context.extracted_name)
-    print("Name verification completed in the admin tab.")
+    logging.info("Name verification completed in the admin tab.")
 
 
 @then("the workflow execution is completed")
@@ -115,5 +119,5 @@ def step_workflow_completed(context):
     """
     Complete the workflow execution and quit the browser.
     """
-    print("Workflow execution completed.")
+    logging.info("Workflow execution completed.")
     context.driver.quit()
