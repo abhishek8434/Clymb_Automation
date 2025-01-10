@@ -13,7 +13,6 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 import logging
 
-
 def get_driver():
     """
     Initializes and returns a Chrome WebDriver instance with predefined options.
@@ -27,7 +26,7 @@ def get_driver():
     chrome_options.add_argument('--mute-audio')  # Mute audio for automated testing
     chrome_options.add_argument('--use-gl=swiftshader')  # Use SwiftShader for rendering
     chrome_options.add_argument('--disable-software-rasterizer')  # Disable software rasterization
- 
+
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
@@ -50,11 +49,10 @@ def step_open_admin_tab(context):
     Open a new browser tab for admin login and switch to it.
     """
     time.sleep(2)
-    logging.info("Before opening new tab:", context.driver.window_handles)
+    logging.info("Print this before opening new tab")
     context.driver.execute_script("window.open('');")
-    time.sleep(5)
-    logging.info("After opening new tab:", context.driver.window_handles)
     time.sleep(2)
+    logging.info("new tab")
     # Ensure the window handles list has more than 1 item before switching
     WebDriverWait(context.driver, 30).until(
         lambda driver: len(driver.window_handles) > 1, "New tab did not open in time."
