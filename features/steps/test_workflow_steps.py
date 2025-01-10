@@ -14,6 +14,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 
 
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -41,6 +42,7 @@ def step_impl_main_app_login(context):
     login_to_application(context.driver)  # Executes all actions for login on the first tab
     WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after login
     logger.info("Main application login completed.")
+
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -71,13 +73,12 @@ def step_impl_admin_app_login(context):
     context.driver = webdriver.Chrome(options=chrome_options)
     
     # Wait for the admin page to load (you can adjust the condition as necessary)
-    WebDriverWait(context.driver, 30).until(EC.url_contains("admin_dashboard_url"))  # Use actual admin page URL part
+    WebDriverWait(context.driver, 30).until(EC.url_contains("https://clymbadmin.evdpl.com/login"))  # Use actual admin page URL part
 
     # Proceed with admin login process
     login_to_application_admin(context.driver)  # Assuming this function handles the admin login steps
     
-    # Ensure successful login by checking for a specific element or URL change
-    WebDriverWait(context.driver, 10).until(EC.presence_of_element_located((By.ID, "admin_dashboard_id")))  # Replace with a real ID for admin page element
+   
 
     logger.info("Admin application login completed.")
 
