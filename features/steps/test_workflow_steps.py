@@ -67,7 +67,7 @@ def step_open_admin_tab(context):
     context.driver.switch_to.window(context.tabs[1])
 
     # Log after switching
-    logging.info("Switched to admin login tab."))
+    logging.info("Switched to admin login tab.")
 
 
 @when("the user logs into the admin application")
