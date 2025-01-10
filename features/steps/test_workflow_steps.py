@@ -59,7 +59,8 @@ def step_open_admin_tab(context):
     # Log current window handles
     logging.info(f"Window handles before switching: {context.driver.window_handles}")
     
-    # Wait for the new tab to be opened
+    # Wait for the new tab to be available with a small delay before checking window handles
+    time.sleep(2)  # Additional sleep to allow the tab to open
     WebDriverWait(context.driver, 30).until(
         lambda driver: len(driver.window_handles) > 1, "New tab did not open in time."
     )
@@ -81,7 +82,7 @@ def step_login_admin_application(context):
         login_to_application_admin(context.driver)
         logging.info("Admin application login completed.")
         
-        # Wait for the URL to change, indicating successful login or redirection
+        # Wait for the URL to change after login
         WebDriverWait(context.driver, 10).until(EC.url_changes, "Admin login did not result in URL change.")
         logging.info("Admin login URL change detected.")
     except Exception as e:
