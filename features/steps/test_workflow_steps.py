@@ -18,11 +18,8 @@ from selenium import webdriver
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-
 def get_driver():
-    """
-    Initializes and returns a Chrome WebDriver instance with predefined options.
-    """
+    """ Initializes and returns a Chrome WebDriver instance with predefined options. """
     chrome_options = ChromeOptions()
     chrome_options.add_argument('--headless')  # Run in headless mode for CI/CD environments
     chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
@@ -36,7 +33,6 @@ def get_driver():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
-
 @given('I log in to the main application')
 def step_impl_main_app_login(context):
     """Log in to the main application in the first tab."""
@@ -46,7 +42,6 @@ def step_impl_main_app_login(context):
     WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after login
     logger.info("Main application login completed.")
 
-
 @given('I log in to the admin application')
 def step_impl_admin_app_login(context):
     """Log in to the admin application in the second tab."""
@@ -55,18 +50,16 @@ def step_impl_admin_app_login(context):
     
     # Get all window handles and print them for debugging
     windows = context.driver.window_handles
-    print(f"Windows before switch: {windows}")
+    logger.info(f"Windows before switch: {windows}")
     
-    # Check if the new tab has opened
-    if len(windows) > 1:
-        context.driver.switch_to.window(windows[1])  # Switch to the new tab
-    else:
-        raise Exception("Admin application tab did not open")
+    # Check if the new tab has opened and wait for it
+    WebDriverWait(context.driver, 30).until(lambda driver: len(driver.window_handles) > 1)
+    windows = context.driver.window_handles
+    context.driver.switch_to.window(windows[1])  # Switch to the new tab
     
-    # Wait for the admin login page to load by checking for an element that is present in the admin tab
-    # You can replace 'admin_login_element' with a locator specific to the admin page
+    # Wait for the admin login page to load (you can adjust the locator to your actual case)
     WebDriverWait(context.driver, 10).until(
-        EC.presence_of_element_located((By.ID, "admin_login_element"))  # Replace with a valid locator
+        EC.presence_of_element_located((By.ID, "admin_login_element"))  # Replace with an actual admin element
     )
     
     login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
@@ -76,14 +69,13 @@ def step_impl_admin_app_login(context):
     
     logger.info("Admin application login completed.")
 
-
 @when('I switch back to the main application')
 def step_impl_switch_back_to_main_app(context):
     """Switch back to the main application tab."""
     tabs = context.driver.window_handles
+    WebDriverWait(context.driver, 10).until(lambda driver: len(driver.window_handles) > 0)  # Ensure windows are open
     context.driver.switch_to.window(tabs[0])
     logger.info("Switched back to the main application tab.")
-
 
 @when('I click "Ask For Help"')
 def step_impl_click_ask_for_help(context):
@@ -96,7 +88,6 @@ def step_impl_click_ask_for_help(context):
     ask_for_help_1(context.driver)  # Perform the "Ask For Help" actions
     logger.info("Completed actions in the main application.")
 
-
 @then('I should be able to extract the name from the main application')
 def step_impl_extract_name(context):
     """Extract the name from the main application."""
@@ -104,14 +95,13 @@ def step_impl_extract_name(context):
     context.extracted_name = extracted_name  # Save the extracted name for later verification
     logger.info(f"Extracted name: {extracted_name}")
 
-
 @when('I switch to the admin application')
 def step_impl_switch_to_admin_app(context):
     """Switch to the admin application tab."""
     tabs = context.driver.window_handles
+    WebDriverWait(context.driver, 10).until(lambda driver: len(driver.window_handles) > 1)  # Ensure the tab exists
     context.driver.switch_to.window(tabs[1])
     logger.info("Switched to the admin application tab.")
-
 
 @then('I should verify the extracted name in the admin application')
 def step_impl_verify_name_in_admin(context):
