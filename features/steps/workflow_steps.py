@@ -1,160 +1,101 @@
-from selenium import webdriver
+import time
+import logging
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from behave import given, when, then
+from pages.login import login_to_application
+from pages.admin_login import login_to_application_admin
+from utils.locators import ask_for_help_1
+from utils.verify_ask_for_help_locator import verify_names, verify_name_admin_notification
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
-import time
-import logging
-from behave import given, when, then
-from utils.locators import (
-    click_random_emotion, click_random_slider, select_random_mood, compass_dashboard_audio,
-    first_next_button, second_next_button, third_next_button, fourth_next_button, fifth_next_button, submit_button,
-    ask_for_help
-)
-from utils.audio import select_audio_emotions, first_audio_homepage
-from utils.responsible_decison_making import select_responsible_decision_making
-from utils.self_management import handle_self_management
-from utils.social_awareness import select_social_awareness_option
-from utils.emotions_function import relationship_skills
-from utils.aftermood import aftermood
-from pages.login import login_to_application
 
+# Configure logging
 logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 def get_driver():
     """
-    Returns a WebDriver instance for Chrome.
+    Initializes and returns a Chrome WebDriver instance with predefined options.
     """
     chrome_options = ChromeOptions()
-    chrome_options.add_argument('--headless')  # Run in headless mode
+    chrome_options.add_argument('--headless')  # Run in headless mode for CI/CD environments
     chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
-    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
-    chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
-    chrome_options.add_argument('--remote-debugging-port=9222')  # Fix DevToolsActivePort issue
-    chrome_options.add_argument('--disable-software-rasterizer')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--use-gl=swiftshader')
-    chrome_options.add_argument('--mute-audio')
-
+    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for Docker environments
+    chrome_options.add_argument('--disable-dev-shm-usage')  # Handle limited resource issues
+    chrome_options.add_argument('--remote-debugging-port=9222')  # Debugging support
+    chrome_options.add_argument('--mute-audio')  # Mute audio for automated testing
+    chrome_options.add_argument('--use-gl=swiftshader')  # Use SwiftShader for rendering
+    chrome_options.add_argument('--disable-software-rasterizer')  # Disable software rasterization
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    
     return driver
 
 
-@given('the user logs into the application')
-def step_login_to_application(context):
-    logging.info("Initializing the driver and logging into the application...")
-    context.driver = get_driver()
+@given('I log in to the main application')
+def step_impl_main_app_login(context):
+    """Log in to the main application in the first tab."""
+    context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
     context.driver.maximize_window()
-    login_to_application(context.driver)
-    time.sleep(5)
-    logging.info("Login successful.")
+    login_to_application(context.driver)  # Executes all actions for login on the first tab
+    WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after login
+    logger.info("Main application login completed.")
 
 
-@when('the user interacts with the Compass Dashboard Audio')
-def step_compass_dashboard_audio(context):
-    compass_dashboard_audio(context.driver)
-
-
-@when('the user clicks on the audio button')
-def step_first_audio_homepage(context):
-    first_audio_homepage(context.driver)
-
-
-@when('the user selects a random emotion')
-def step_click_random_emotion(context):
-    click_random_emotion(context.driver)
-
-
-@when('the user interacts with a random slider')
-def step_click_random_slider(context):
-    click_random_slider(context.driver)
-
-
-@when('the user clicks the first \'Next\' button')
-def step_first_next_button(context):
-    first_next_button(context.driver)
-
-
-@when('the user selects a random mood')
-def step_select_random_mood(context):
-    select_random_mood(context.driver)
-
-
-@when('the user selects audio emotions')
-def step_select_audio_emotions(context):
-    select_audio_emotions(context.driver)
-
-
-@when('the user clicks the second \'Next\' button')
-def step_second_next_button(context):
-    second_next_button(context.driver)
-
-
-@when('the user checks for the \'Ask For Help\' popup')
-def step_ask_for_help(context):
-    ask_for_help(context.driver)
-
-
-@when('the user selects responsible decision making')
-def step_select_responsible_decision_making(context):
-    select_responsible_decision_making(context.driver)
-
-
-@when('the user clicks the third \'Next\' button')
-def step_third_next_button(context):
-    third_next_button(context.driver)
-
-
-@when('the user handles self-management actions')
-def step_handle_self_management(context):
-    handle_self_management(context.driver)
-
-
-@when('the user clicks the fourth \'Next\' button')
-def step_fourth_next_button(context):
-    fourth_next_button(context.driver)
-
-
-@when('the user selects a social awareness option')
-def step_select_social_awareness_option(context):
-    select_social_awareness_option(context.driver)
-
-
-@when('the user clicks the fifth \'Next\' button')
-def step_fifth_next_button(context):
-    fifth_next_button(context.driver)
-
-
-@when('the user selects relationship skills options')
-def step_relationship_skills(context):
-    relationship_skills(context.driver)
-
-
-@then('the user submits the form')
-def step_submit_button(context):
-    submit_button(context.driver)
-
-
-@then('the user interacts with the final modal or resource popup')
-def step_aftermood(context):
-    aftermood(context.driver)
+@given('I log in to the admin application')
+def step_impl_admin_app_login(context):
+    """Log in to the admin application in the second tab."""
+    context.driver.execute_script("window.open('');")  # Open a new tab
+    tabs = context.driver.window_handles
+    context.driver.switch_to.window(tabs[1])
+    login_to_application_admin(context.driver)  # Executes all actions for admin login on the second tab
+    WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after admin login
+    logger.info("Admin application login completed.")
     time.sleep(2)
 
 
-def before_all(context):
-    """
-    Set up context variables or configurations before all tests.
-    """
-    context.browser = 'chrome'  # Default browser
+@when('I switch back to the main application')
+def step_impl_switch_back_to_main_app(context):
+    """Switch back to the main application tab."""
+    tabs = context.driver.window_handles
+    context.driver.switch_to.window(tabs[0])
+    logger.info("Switched back to the main application tab.")
 
 
-def after_all(context):
-    """
-    Tear down the WebDriver instance after all tests are complete.
-    """
-    if hasattr(context, 'driver'):
-        logging.info("Quitting the browser...")
-        context.driver.quit()
+@when('I click "Ask For Help"')
+def step_impl_click_ask_for_help(context):
+    """Click the 'Ask For Help' link and perform related actions."""
+    ask_for_help_xpath = "//a[normalize-space()='Ask For Help']"
+    ask_for_help_selected = WebDriverWait(context.driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, ask_for_help_xpath))
+    )
+    ask_for_help_selected.click()
+    ask_for_help_1(context.driver)  # Perform the "Ask For Help" actions
+    logger.info("Completed actions in the main application.")
+
+
+@then('I should be able to extract the name from the main application')
+def step_impl_extract_name(context):
+    """Extract the name from the main application."""
+    extracted_name = verify_names(context.driver)
+    context.extracted_name = extracted_name  # Save the extracted name for later verification
+    logger.info(f"Extracted name: {extracted_name}")
+
+
+@when('I switch to the admin application')
+def step_impl_switch_to_admin_app(context):
+    """Switch to the admin application tab."""
+    tabs = context.driver.window_handles
+    context.driver.switch_to.window(tabs[1])
+    logger.info("Switched to the admin application tab.")
+
+
+@then('I should verify the extracted name in the admin application')
+def step_impl_verify_name_in_admin(context):
+    """Verify the extracted name in the admin application."""
+    verify_name_admin_notification(context.driver, context.extracted_name)
+    logger.info("Name verification completed in the admin tab.")

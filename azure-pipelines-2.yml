@@ -49,7 +49,7 @@ steps:
 - script: |
     echo "Running tests with browser: Google Chrome"
     google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
-    behave --no-capture --no-capture-stderr --format=pretty
+    behave features/steps/workflow_steps.py  --no-capture --no-capture-stderr --format=pretty
   displayName: 'Run Selenium tests'
   env:
     BASE_URL: $(BASE_URL)
