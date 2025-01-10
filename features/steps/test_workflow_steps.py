@@ -53,7 +53,7 @@ def step_open_admin_tab(context):
     logging.info("Opened")
     context.driver.execute_script("window.open('');")
     time.sleep(2)
-    logging.info("switched to tab.")
+    logging.info(f"Window handles before switching: {context.driver.window_handles}")
     # Ensure the window handles list has more than 1 item before switching
     WebDriverWait(context.driver, 30).until(
         lambda driver: len(driver.window_handles) > 1, "New tab did not open in time."
