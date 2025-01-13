@@ -39,7 +39,7 @@ def get_driver():
 
 @given('I am logged into the application')
 def step_login(context):
-    context.driver = webdriver.Chrome()
+   
     context.driver = get_driver()
     context.driver.maximize_window()
     login_to_application(context.driver)
@@ -76,7 +76,7 @@ def step_submit_appreciation(context):
 
 @given('I try to log into the application with invalid credentials')
 def step_invalid_login(context):
-    context.driver = webdriver.Chrome()
+
     context.driver = get_driver()
     context.driver.maximize_window()
     login_with_invalid_credentials(context.driver)  # A function where incorrect credentials are used

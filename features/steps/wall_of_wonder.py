@@ -32,7 +32,7 @@ def get_driver():
 @given('the student is logged into the application')
 def step_impl(context):
     """Step for logging in to the application."""
-    context.driver = webdriver.Chrome()
+    
     context.driver = get_driver()
     context.driver.maximize_window()
     login_to_application(context.driver)
