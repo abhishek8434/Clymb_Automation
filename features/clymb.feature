@@ -23,3 +23,10 @@ Feature: Full Workflow Execution
     And the user selects relationship skills options
     Then the user submits the form
     And the user interacts with the final modal or resource popup
+
+
+  # Negative Scenarios
+
+  Scenario: Login failure due to invalid credentials
+    Given I try to log into the application with invalid credentials
+    Then I should see a login failure message

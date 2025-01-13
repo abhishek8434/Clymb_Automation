@@ -8,3 +8,10 @@ Feature: Test the login and workflow across multiple tabs
     Then I should be able to extract the name from the main application
     When I switch to the admin application
     Then I should verify the extracted name in the admin application
+
+
+  # Negative Scenarios
+
+  Scenario: Login failure due to invalid credentials
+    Given I try to log into the application with invalid credentials
+    Then I should see a login failure message

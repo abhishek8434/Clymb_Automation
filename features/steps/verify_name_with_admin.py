@@ -12,6 +12,7 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
+from pages.invalid_login import login_with_invalid_credentials    
 
 
 # Configure logging
@@ -105,3 +106,26 @@ def step_impl_verify_name_in_admin(context):
     """Verify the extracted name in the admin application."""
     verify_name_admin_notification(context.driver, context.extracted_name)
     logger.info("Name verification completed in the admin tab.")
+
+
+# Negative Flow
+
+@given('I try to log into the application with invalid credentials')
+def step_invalid_login(context):
+    context.driver = webdriver.Chrome()
+    context.driver.maximize_window()
+    login_with_invalid_credentials(context.driver)  # A function where incorrect credentials are used
+    time.sleep(5)
+
+@then('I should see a login failure message')
+def step_check_login_failure(context):
+    
+    # Use the correct XPath expression to find the error message
+    error_message_element = context.driver.find_element(By.XPATH, "//div[normalize-space()='Invalid username or password please try again.']")
+    # Get the text from the error message element
+    error_message = error_message_element.text
+    # Assert that the error message is as expected
+    assert "Invalid username or password" in error_message
+    
+    logging.info(error_message)
+    context.driver.quit()
