@@ -49,7 +49,7 @@ steps:
 - script: |
     echo "Running tests with browser: Google Chrome"
     google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
-    behave features/appreciation_check.feature --no-capture --no-capture-stderr --format=pretty
+    python run_behave_with_lock.py --no-capture --no-capture-stderr --format=pretty
   displayName: 'Run Selenium tests'
   env:
     BASE_URL: $(BASE_URL)
