@@ -36,10 +36,6 @@ steps:
       libasound2 libasound2-data ttf-mscorefonts-installer
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get install -f -y
-    sudo apt-get install dbus upower
-    sudo systemctl start dbus
-    sudo systemctl start upower
-
   displayName: 'Install Chrome and dependencies'
 
 # Verify installation
