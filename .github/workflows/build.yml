@@ -71,4 +71,4 @@ jobs:
             export DISPLAY=:99.0
             google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
           fi
-          python run_behave_with_lock.py --no-capture --no-capture-stderr --format=pretty
+          behave -f html -o report.html --no-capture --no-capture-stderr --format=pretty
