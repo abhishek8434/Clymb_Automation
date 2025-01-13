@@ -6,3 +6,4 @@
 /pages/__pycache__
 /.pytest_cache
 /features/steps/__pycache__
+/behave-env

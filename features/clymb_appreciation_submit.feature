@@ -1,6 +1,6 @@
 Feature: Test Workflow
-  As a user
-  I want to test the full workflow
+  As a student
+  I want to test the full workflow to submit appreciation
   So that I can ensure all steps are executed correctly
 
   # Positive Scenario

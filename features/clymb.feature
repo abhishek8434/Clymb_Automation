@@ -1,28 +1,28 @@
 Feature: Full Workflow Execution
-  As a user
+  As a student
   I want to execute the workflow steps sequentially
   So that I can validate the complete flow
 
   Scenario: Execute the full workflow
-    Given the user logs into the application
-    When the user interacts with the Compass Dashboard Audio
-    And the user clicks on the audio button
-    And the user selects a random emotion
-    And the user interacts with a random slider
-    And the user clicks the first 'Next' button
-    And the user selects a random mood
-    And the user selects audio emotions
-    And the user clicks the second 'Next' button
-    And the user checks for the 'Ask For Help' popup
-    And the user selects responsible decision making
-    And the user clicks the third 'Next' button
-    And the user handles self-management actions
-    And the user clicks the fourth 'Next' button
-    And the user selects a social awareness option
-    And the user clicks the fifth 'Next' button
-    And the user selects relationship skills options
-    Then the user submits the form
-    And the user interacts with the final modal or resource popup
+    Given the student logs into the application
+    When the student interacts with the Compass Dashboard Audio
+    And the student clicks on the audio button
+    And the student selects a random emotion
+    And the student interacts with a random slider
+    And the student clicks the first 'Next' button
+    And the student selects a random mood
+    And the student selects audio emotions
+    And the student clicks the second 'Next' button
+    And the student checks for the 'Ask For Help' popup
+    And the student selects responsible decision making
+    And the student clicks the third 'Next' button
+    And the student handles self-management actions
+    And the student clicks the fourth 'Next' button
+    And the student selects a social awareness option
+    And the student clicks the fifth 'Next' button
+    And the student selects relationship skills options
+    Then the student submits the form
+    And the student interacts with the final modal or resource popup
 
 
   # Negative Scenarios

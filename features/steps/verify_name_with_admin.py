@@ -34,7 +34,7 @@ def get_driver():
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
-@given('I log in to the main application')
+@given('I log in to the main application as student')
 def step_impl_main_app_login(context):
     """Log in to the main application in the first tab."""
     context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
