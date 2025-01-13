@@ -13,5 +13,5 @@ Feature: Test the login and workflow across multiple tabs
   # Negative Scenarios
 
   Scenario: Login failure due to invalid credentials
-    Given I try to log into the application with invalid credentials
-    Then I should see a login failure message
+    Given When try to log into the application with invalid credentials
+    Then Student should see a login failure message

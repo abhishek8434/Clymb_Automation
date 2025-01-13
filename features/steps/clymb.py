@@ -163,14 +163,14 @@ def after_all(context):
         
 # Negative Flow
 
-@given('I try to log into the application with invalid credentials')
+@given('Student try to log into the application with invalid credentials')
 def step_invalid_login(context):
     context.driver = webdriver.Chrome()
     context.driver.maximize_window()
     login_with_invalid_credentials(context.driver)  # A function where incorrect credentials are used
     time.sleep(5)
 
-@then('I should see a login failure message')
+@then('Student should see a login failure message on screen')
 def step_check_login_failure(context):
     
     # Use the correct XPath expression to find the error message

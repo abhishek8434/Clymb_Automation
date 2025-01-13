@@ -1,4 +1,7 @@
 import time
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 from behave import given, when, then
 from selenium import webdriver
 from pages.login import login_to_application
@@ -8,6 +11,28 @@ from utils.audio import second_audio_homepage
 from selenium.webdriver.common.by import By
 import logging
 
+logging.basicConfig(level=logging.INFO)
+
+
+def get_driver():
+    """
+    Returns a WebDriver instance for Chrome.
+    """
+    chrome_options = ChromeOptions()
+    chrome_options.add_argument('--headless')  # Run in headless mode
+    chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
+    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
+    chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
+    chrome_options.add_argument('--remote-debugging-port=9222')  # Fix DevToolsActivePort issue
+    chrome_options.add_argument('--disable-software-rasterizer')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--use-gl=swiftshader')
+    chrome_options.add_argument('--mute-audio')
+
+
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    
+    return driver
 
 # Positive Flow
 

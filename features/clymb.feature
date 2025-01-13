@@ -28,5 +28,5 @@ Feature: Full Workflow Execution
   # Negative Scenarios
 
   Scenario: Login failure due to invalid credentials
-    Given I try to log into the application with invalid credentials
-    Then I should see a login failure message
+    Given Student try to log into the application with invalid credentials
+    Then Student should see a login failure message on screen
