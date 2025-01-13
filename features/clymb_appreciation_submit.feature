@@ -1,4 +1,4 @@
-Feature: Test Workflow
+Feature: Workflow to submit appreciation log
   As a student
   I want to test the full workflow to submit appreciation
   So that I can ensure all steps are executed correctly

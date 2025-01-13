@@ -1,4 +1,4 @@
-Feature: Test workflow for appreciation station
+Feature: Workflow for appreciation station to check correct appreciation is logged or not
   As a student
   I want to test the full workflow of appreciation
   So that I can ensure correct appreciation is getting logged

@@ -1,4 +1,4 @@
-Feature: Full Workflow Execution
+Feature: Workflow for mood reporting of student with all 5 steps 
   As a student
   I want to execute the workflow steps sequentially
   So that I can validate the complete flow

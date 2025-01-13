@@ -1,4 +1,4 @@
-Feature: Test the login and workflow across multiple tabs
+Feature: Workflow to check when student submits ask for help form it will reflect on admin panel or not 
   As a admin
   I want to execute the workflow for ask for help functionality
   So that admin will verify when student submit ask for help then it is getting displayed to admin correctly

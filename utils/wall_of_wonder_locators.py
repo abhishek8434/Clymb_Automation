@@ -17,14 +17,8 @@ def wall_of_wonder_create(driver):
     click_on_wall_of_wonder = select_wall_of_wonder.click()
     
     
-    click_on_wall_xpath = "//textarea[@id='textarea-editor']"
-    select_click_on_wall = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, click_on_wall_xpath))
-    )   
-    enter_text_on_wall = select_click_on_wall.send_keys("Hello Had a Great Morning Ahead!")
     
-    
-def click_on_submit_wall(driver):
+def click_on_wall_to_enter_text(driver):
     
     click_on_wall_submit_xpath = "//textarea[@id='textarea-editor']"
     
@@ -34,6 +28,8 @@ def click_on_submit_wall(driver):
     )
     
     click_on_wall_submit = select_click_on_wall_submit.click()
+    enter_text_on_wall = select_click_on_wall_submit.send_keys("Hello Had a Great Morning Ahead!")
+    time.sleep(2)
     
 def click_on_add_photo(driver):
     
@@ -119,3 +115,21 @@ def make_post(driver):
     
     click_on_post_button = select_make_post_image.click()
     
+def success_message(driver):
+    success_message_xpath = "//h2[@id='swal2-title']"
+    
+    success_message_fetch = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, success_message_xpath))
+    )
+    
+    # Get the text of the success message
+    success_message_text = success_message_fetch.text
+    
+    # Expected success message value
+    success_message_value = "Post submitted! Check back later to see it on the Wall."
+    
+    # Compare the text and print the result
+    if success_message_text == success_message_value:
+        print("Post submitted! Check back later to see it on the Wall.")
+    else:
+        print(f"Extracted message: '{success_message_text}'")
