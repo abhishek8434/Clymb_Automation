@@ -59,6 +59,7 @@ CLYMB_AUTOMATION/
 |-- requirements.txt                        # Python dependencies
 |-- azure-pipelines.yml                     # Azure DevOps pipeline configuration
 |-- behave.ini                              # Behave configuration file
+|-- run_behave_with_lock.py                 # The script that runs Behave feature file sequentially
 |-- Report.html                             # Test execution report (generated dynamically)
 ```
 
