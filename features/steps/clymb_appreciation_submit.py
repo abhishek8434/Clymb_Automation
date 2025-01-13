@@ -28,6 +28,7 @@ def get_driver():
     chrome_options.add_argument('--disable-dev-shm-usage')
     chrome_options.add_argument('--use-gl=swiftshader')
     chrome_options.add_argument('--mute-audio')
+    chrome_options.add_argument("--disable-setuid-sandbox")
 
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)

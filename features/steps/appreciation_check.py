@@ -21,6 +21,7 @@ def get_driver():
     chrome_options.add_argument('--mute-audio')  # Mute audio for automated testing
     chrome_options.add_argument('--use-gl=swiftshader')  # Use SwiftShader for rendering
     chrome_options.add_argument('--disable-software-rasterizer')  # Disable software rasterization
+    chrome_options.add_argument("--disable-setuid-sandbox")
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
