@@ -42,9 +42,9 @@ CLYMB_AUTOMATION/
 |   |-- ...                                 # Other page-specific files
 |
 |-- pages/                                  # Page Object Model files
-|   |-- aftermood.py                        # Handles "after mood" functionality
-|   |-- emotions_function.py                # Helper functions for emotions-related logic
-|   |-- self_management.py                  # Utilities for self-management flows
+|   |-- login.py                            # Handles "login" functionality
+|   |-- logout.py                           # Handles "logout" functionality
+|   |-- admin_login.py                      # Handles "admin-login" functionality
 |   |-- ...                                 # Other page-specific files
 |
 |-- utils/                                  # Utility functions and shared logic
