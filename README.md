@@ -58,6 +58,7 @@ CLYMB_AUTOMATION/
 |-- README.md                               # Project documentation and usage instructions
 |-- requirements.txt                        # Python dependencies
 |-- azure-pipelines.yml                     # Azure DevOps pipeline configuration
+|-- behave.ini                              # Behave configuration file
 |-- Report.html                             # Test execution report (generated dynamically)
 ```
 
