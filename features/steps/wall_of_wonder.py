@@ -33,7 +33,7 @@ def get_driver():
 def step_impl(context):
     """Step for logging in to the application."""
     context.driver = webdriver.Chrome()
-    context.driver = get_driver()
+    context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
     context.driver.maximize_window()
     login_to_application(context.driver)
 

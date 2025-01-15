@@ -41,8 +41,8 @@ def step_impl_main_app_login(context):
     context.driver = webdriver.Chrome()
     context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
     context.driver.maximize_window()
-    login_to_application(context.drivr)  # Executes all actions for login on the first tab
-    WebDriverWait(context.driver, 10).euntil(EC.url_changes)  # Wait for URL change after login
+    login_to_application(context.driver)  # Executes all actions for login on the first tab
+    WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after login
     logger.info("Main application login completed.")
 
 @given('I log in to the admin application')
@@ -115,7 +115,7 @@ def step_impl_verify_name_in_admin(context):
 @given('When try to log into the application with invalid credentials')
 def step_invalid_login(context):
     context.driver = webdriver.Chrome()
-    context.driver = get_driver()
+    context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
     context.driver.maximize_window()
     login_with_invalid_credentials(context.driver)  # A function where incorrect credentials are used
     time.sleep(5)
