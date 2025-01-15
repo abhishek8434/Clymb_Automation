@@ -30,6 +30,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest selenium webdriver-manager
           pip install behave
+          pip install behave-html-formatter
 
       - name: Install Chrome and dependencies
         run: |
@@ -38,6 +39,11 @@ jobs:
             libnss3 libxss1 libx11-xcb1 libxcomposite1 libxcursor1 libxi6 libxtst6 \
             libpangocairo-1.0-0 libxrandr2 libatk-bridge2.0-0 libgbm1 libgtk-3-0 \
             libasound2 libasound2-data ttf-mscorefonts-installer
+            sudo apt-get install dbus-x11
+            sudo apt-get install upower
+            sudo apt-get install xvfb
+
+
             
           # Install Google Chrome (latest stable version)
           wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -65,4 +71,4 @@ jobs:
             export DISPLAY=:99.0
             google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
           fi
-          python run_behave_with_lock.py --no-capture --no-capture-stderr --format=pretty
+          behave -f html -o report.html --no-capture --no-capture-stderr --format=pretty

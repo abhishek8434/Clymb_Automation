@@ -38,7 +38,7 @@ def get_driver():
 @given('I log in to the main application as student')
 def step_impl_main_app_login(context):
     """Log in to the main application in the first tab."""
-    context.driver = webdriver.Chrome()
+   
     context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
     context.driver.maximize_window()
     login_to_application(context.driver)  # Executes all actions for login on the first tab
