@@ -167,7 +167,7 @@ def after_all(context):
 
 @given('Student try to log into the application with invalid credentials')
 def step_invalid_login(context):
-    context.driver = webdriver.Chrome()
+    
     context.driver = get_driver()
     context.driver.maximize_window()
     login_with_invalid_credentials(context.driver)  # A function where incorrect credentials are used

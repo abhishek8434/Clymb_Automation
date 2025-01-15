@@ -114,7 +114,7 @@ def step_impl_verify_name_in_admin(context):
 
 @given('When try to log into the application with invalid credentials')
 def step_invalid_login(context):
-    context.driver = webdriver.Chrome()
+    
     context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
     context.driver.maximize_window()
     login_with_invalid_credentials(context.driver)  # A function where incorrect credentials are used
