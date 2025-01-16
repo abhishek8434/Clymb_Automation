@@ -71,6 +71,11 @@
             display: block;
             margin: 0 auto;
         }
+        .no-data-message {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -115,12 +120,23 @@
             </table>
         </div>
 
+        <!-- Test Execution Graph Section -->
         <div class="section graph">
             <h2>Test Execution Graph</h2>
-            <img src="{{ graph_image }}" alt="Execution Graph">
+            <div style="text-align: center; padding: 20px;">
+                <img src="{{ test_execution_graph_image }}" alt="Execution Graph">
+            </div>
         </div>
-        
-    
+
+        <!-- Test Summary Pie Chart Section -->
+        <div class="section">
+            <h2>Test Summary Pie Chart</h2>
+            <div class="graph">
+                <img src="{{ test_summary_pie_chart_image }}" alt="Test Summary Pie Chart">
+            </div>
+        </div>
+
+
     </div>
 </body>
 </html>
