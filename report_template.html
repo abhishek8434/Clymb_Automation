@@ -66,15 +66,22 @@
         .result-skipped {
             background-color: #fff3cd;
         }
+        .status-passed {
+            color: green;
+            font-weight: bold;
+        }
+        .status-failed {
+            color: red;
+            font-weight: bold;
+        }
+        .status-skipped {
+            color: orange;
+            font-weight: bold;
+        }
         .graph img {
             max-width: 100%;
             display: block;
             margin: 0 auto;
-        }
-        .no-data-message {
-            text-align: center;
-            color: #999;
-            font-style: italic;
         }
     </style>
 </head>
@@ -112,6 +119,10 @@
                         <th>Scenario Name</th>
                         <th>Status</th>
                         <th>Duration</th>
+                        <th>Total Steps</th>
+                        <th>Passed Steps</th>
+                        <th>Failed Steps</th>
+                        <th>Skipped Steps</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -120,7 +131,6 @@
             </table>
         </div>
 
-        <!-- Test Execution Graph Section -->
         <div class="section graph">
             <h2>Test Execution Graph</h2>
             <div style="text-align: center; padding: 20px;">
@@ -128,15 +138,12 @@
             </div>
         </div>
 
-        <!-- Test Summary Pie Chart Section -->
         <div class="section">
             <h2>Test Summary Pie Chart</h2>
             <div class="graph">
                 <img src="{{ test_summary_pie_chart_image }}" alt="Test Summary Pie Chart">
             </div>
         </div>
-
-
     </div>
 </body>
 </html>

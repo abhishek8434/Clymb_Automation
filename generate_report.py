@@ -12,14 +12,8 @@ def create_sample_results_file():
                 {
                     "name": "Test Scenario 1",
                     "steps": [
-                        {
-                            "name": "Step 1",
-                            "result": {"status": "passed", "duration": 120}
-                        },
-                        {
-                            "name": "Step 2",
-                            "result": {"status": "failed", "duration": 100}
-                        }
+                        {"name": "Step 1", "result": {"status": "passed", "duration": 120}},
+                        {"name": "Step 2", "result": {"status": "failed", "duration": 100}}
                     ],
                     "duration": 250
                 }
@@ -30,14 +24,8 @@ def create_sample_results_file():
                 {
                     "name": "Test Scenario 2",
                     "steps": [
-                        {
-                            "name": "Step 1",
-                            "result": {"status": "skipped", "duration": 0}
-                        },
-                        {
-                            "name": "Step 2",
-                            "result": {"status": "passed", "duration": 150}
-                        }
+                        {"name": "Step 1", "result": {"status": "skipped", "duration": 0}},
+                        {"name": "Step 2", "result": {"status": "passed", "duration": 150}}
                     ],
                     "duration": 200
                 }
@@ -60,93 +48,83 @@ with open("results.json", "r") as json_file:
 
 # Function to generate the pie chart for Test Summary
 def generate_pie_chart(passed, failed, skipped):
-    # Ensure the total count is not zero to avoid division by zero
-    total = passed + failed
-    if total == 0:
-        return ""  # Return an empty string if no tests are available to display in the pie chart
-    
-    labels = ['Passed', 'Failed']  # Only include 'Passed' and 'Failed'
-    sizes = [passed, failed]  # Only use 'passed' and 'failed' values
-    colors = ['#4CAF50', '#F44336']  # Colors for passed and failed
+    labels = ['Passed', 'Failed']
+    sizes = [passed, failed]
+    colors = ['#4CAF50', '#F44336']
 
     fig, ax = plt.subplots()
-    wedges, texts = ax.pie(sizes, labels=labels, colors=colors, startangle=90, wedgeprops={'edgecolor': 'black'})
+    ax.pie(sizes, labels=labels, colors=colors, startangle=90, wedgeprops={'edgecolor': 'black'})
+    ax.axis('equal')
 
-    # Adjust text properties
-    for text in texts:
-        text.set_fontsize(10)
-        text.set_color('black')
-        
-    ax.axis('equal')  # Equal aspect ratio ensures that pie chart is drawn as a circle.
-
-    # Encode the figure into a base64 string (for embedding in HTML)
     img_buf = BytesIO()
     plt.savefig(img_buf, format='png')
     img_buf.seek(0)
     img_base64 = base64.b64encode(img_buf.read()).decode('utf-8')
+    plt.close(fig)
 
     return f"data:image/png;base64,{img_base64}"
 
-# New function to generate the Pass/Fail/Skipped Distribution chart (stacked bar chart) for Test Execution Graph
-def generate_pass_fail_skipped_distribution_chart(results):
-    passed = sum(1 for feature in results for scenario in feature['elements'] if any(step['result']['status'] == 'passed' for step in scenario.get('steps', [])))
-    failed = sum(1 for feature in results for scenario in feature['elements'] if any(step['result']['status'] == 'failed' for step in scenario.get('steps', [])))
-    skipped = sum(1 for feature in results for scenario in feature['elements'] if any(step['result']['status'] == 'skipped' for step in scenario.get('steps', [])))
-    
+# Function to generate the Test Execution Graph (Bar Chart)
+def generate_execution_graph(passed, failed, skipped):
+    labels = ['Passed', 'Failed', 'Skipped']
+    counts = [passed, failed, skipped]
+    colors = ['#4CAF50', '#F44336', '#FFC107']
+
     fig, ax = plt.subplots()
-    ax.bar(['Passed', 'Failed', 'Skipped'], [passed, failed, skipped], color=['green', 'red', 'yellow'])
+    ax.bar(labels, counts, color=colors)
     ax.set_ylabel('Count')
-    ax.set_title('Test Execution Graph: Pass/Fail/Skipped Distribution')
+    ax.set_title('Test Execution Distribution')
 
     img_buf = BytesIO()
     plt.savefig(img_buf, format='png')
     img_buf.seek(0)
     img_base64 = base64.b64encode(img_buf.read()).decode('utf-8')
-    
+    plt.close(fig)
+
     return f"data:image/png;base64,{img_base64}"
 
 # Function to generate the report
 def generate_report():
-    # Initialize counters for passed, failed, and skipped tests
     passed = 0
     failed = 0
     skipped = 0
     scenarios = []
-    
-    # Loop through the results to update passed, failed, and skipped
+
     for feature in results:
         for scenario in feature['elements']:
             scenario_name = scenario['name']
-            status = 'passed'  # Default to 'passed' initially
             duration = scenario.get('duration', 0)
-
             if duration == 0:
                 duration = sum(step['result']['duration'] for step in scenario.get('steps', []) if 'result' in step and 'duration' in step['result'])
 
-            scenario_failed = False
-            scenario_skipped = False
+            total_steps = 0
+            passed_steps = 0
+            failed_steps = 0
+            skipped_steps = 0
+            status = 'passed'
 
             for step in scenario.get('steps', []):
-                step_status = 'undefined'
+                total_steps += 1
                 if 'result' in step:
-                    if step['result']['status'] == 'passed':
-                        step_status = 'passed'
-                    elif step['result']['status'] == 'failed':
-                        step_status = 'failed'
-                        scenario_failed = True
-                    elif step['result']['status'] == 'skipped':
-                        step_status = 'skipped'
-                        scenario_skipped = True
-
-            if scenario_failed:
-                status = 'failed'
-            elif scenario_skipped:
-                status = 'skipped'
+                    step_status = step['result']['status']
+                    if step_status == 'passed':
+                        passed_steps += 1
+                    elif step_status == 'failed':
+                        failed_steps += 1
+                        status = 'failed'
+                    elif step_status == 'skipped':
+                        skipped_steps += 1
+                        if status != 'failed':
+                            status = 'skipped'
 
             scenarios.append({
                 "name": scenario_name,
                 "status": status.capitalize(),
                 "duration": f"{duration} ms" if duration > 0 else "No Duration",
+                "total_steps": total_steps,
+                "passed_steps": passed_steps,
+                "failed_steps": failed_steps,
+                "skipped_steps": skipped_steps,
             })
 
             if status == 'passed':
@@ -156,13 +134,9 @@ def generate_report():
             elif status == 'skipped':
                 skipped += 1
 
-    # Generate the test summary pie chart (Test Summary Pie Chart)
     pie_chart_image = generate_pie_chart(passed, failed, skipped)
-    
-    # Generate the pass/fail/skipped distribution chart for Test Execution Graph only
-    test_execution_graph_image = generate_pass_fail_skipped_distribution_chart(results)
+    execution_graph_image = generate_execution_graph(passed, failed, skipped)
 
-    # Generate the HTML report using a template
     try:
         with open("report_template.html", "r") as template_file:
             template_content = template_file.read()
@@ -170,34 +144,27 @@ def generate_report():
         print("Error: 'report_template.html' file is missing.")
         return
 
-    # Prepare report data
-    report_data = {
-        "total_scenarios": passed + failed + skipped,
-        "passed": passed,
-        "failed": failed,
-        "skipped": skipped,
-        "scenarios": scenarios,
-        "test_execution_graph_image": test_execution_graph_image,  # Both Pass/Fail/Skipped distribution for Test Execution Graph
-        "test_summary_pie_chart_image": pie_chart_image,  # Image for the Test Summary Pie Chart
-    }
-
-    # Replace placeholders with actual data
-    html_report = template_content.replace("{{ total_scenarios }}", str(report_data["total_scenarios"])) \
-                                   .replace("{{ passed }}", str(report_data["passed"])) \
-                                   .replace("{{ failed }}", str(report_data["failed"])) \
-                                   .replace("{{ skipped }}", str(report_data["skipped"]))
+    html_report = template_content.replace("{{ total_scenarios }}", str(passed + failed + skipped)) \
+                                   .replace("{{ passed }}", str(passed)) \
+                                   .replace("{{ failed }}", str(failed)) \
+                                   .replace("{{ skipped }}", str(skipped))
 
     scenarios_html = ""
-    for scenario in report_data["scenarios"]:
+    for scenario in scenarios:
+        status_class = f"status-{scenario['status'].lower()}"  # Dynamic CSS class for status
         scenarios_html += f'<tr class="result-{scenario["status"].lower()}">' \
                           f'<td>{scenario["name"]}</td>' \
-                          f'<td>{scenario["status"]}</td>' \
+                          f'<td class="{status_class}">{scenario["status"]}</td>' \
                           f'<td>{scenario["duration"]}</td>' \
+                          f'<td>{scenario["total_steps"]}</td>' \
+                          f'<td>{scenario["passed_steps"]}</td>' \
+                          f'<td>{scenario["failed_steps"]}</td>' \
+                          f'<td>{scenario["skipped_steps"]}</td>' \
                           '</tr>'
 
-    html_report = html_report.replace("{{ content }}", scenarios_html)
-    html_report = html_report.replace("{{ test_execution_graph_image }}", report_data["test_execution_graph_image"])  # Image for Test Execution Graph
-    html_report = html_report.replace("{{ test_summary_pie_chart_image }}", report_data["test_summary_pie_chart_image"])  # Image for Test Summary Pie Chart
+    html_report = html_report.replace("{{ content }}", scenarios_html) \
+                             .replace("{{ test_execution_graph_image }}", execution_graph_image) \
+                             .replace("{{ test_summary_pie_chart_image }}", pie_chart_image)
 
     with open("report.html", "w") as report_file:
         report_file.write(html_report)
