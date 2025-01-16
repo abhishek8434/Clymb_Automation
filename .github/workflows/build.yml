@@ -71,4 +71,7 @@ jobs:
             export DISPLAY=:99.0
             google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 &
           fi
-          behave -f html -o report.html --no-capture --no-capture-stderr --format=pretty
+          behave --format=json --outfile=results.json --no-capture --no-capture-stderr --format=pretty
+          python generate_report.py
+          start report.html   
+
