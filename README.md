@@ -124,13 +124,13 @@ To run tests with customize html report generation:
 ```bash
 behave --format=json --outfile=results.json
 python generate_report.py
-start report.html
+
 ```
 
 To run tests with run_behave_with_lock.py file:
 ```bash
 python run_behave_with_lock.py
-start report.html
+
 ```
 
 ## Reporting
