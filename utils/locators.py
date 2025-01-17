@@ -301,6 +301,21 @@ def ask_for_help_1(driver):
 
     except Exception as e:
         print(f"Error: {str(e)}")
+        
+        
+def change_language(driver):
+    change_language_dropdown_xpath = "/html/body/app-root/app-main-layout/main/app-header/header/div[1]/ul/li[1]/app-language-select/div/ng-select/div/span[2]"
+    change_language_dropdown_fetch = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, change_language_dropdown_xpath))
+    )
+    change_language_dropdown_fetch.click()
+    
+    select_language_xpath = "//span[normalize-space()='Español']"
+    select_language_fetch = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, select_language_xpath))
+    )
+    select_language_fetch.click()
+    time.sleep(2)
 
 
 
