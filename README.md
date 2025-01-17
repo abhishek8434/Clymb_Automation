@@ -87,6 +87,7 @@ CLYMB_AUTOMATION/
 3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
+   pip install matplotlib
    ```
 
 4. **Set up environment variables:**
@@ -117,6 +118,19 @@ behave --tags=@tag_name
 To run tests in a headless browser mode:
 ```bash
 behave --define browser=headless
+```
+
+To run tests with customize html report generation:
+```bash
+behave --format=json --outfile=results.json
+python generate_report.py
+start report.html
+```
+
+To run tests with run_behave_with_lock.py file:
+```bash
+python run_behave_with_lock.py
+start report.html
 ```
 
 ## Reporting
