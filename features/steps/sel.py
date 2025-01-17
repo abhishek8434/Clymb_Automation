@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from pages.login import login_to_application
-from utils.sel_checkpoint import select_sel, first_question, next_button, submit_button, verify_message_after_submit
+from utils.sel_checkpoint import select_sel, first_question, next_button, submit_button, verify_message_after_submit, extract_question_count
 import logging
 
 
@@ -41,13 +41,18 @@ def step_impl(context):
 
 @when('Student completes all questions and navigates through them')
 def step_impl(context):
-    # Loop through the 12 questions
-     for question_number in range(1, 13):
+    # Extract the dynamic question count
+    total_questions = extract_question_count(context.driver)
+    logging.info(f"Extracted question count is: '{total_questions}'")
+    if total_questions == 0:
+        raise Exception("Unable to determine the total number of questions.")
+    
+    # Loop through the dynamic number of questions
+    for question_number in range(1, total_questions + 1):
         first_question(context.driver)  # Select a random option for the current question
-        if question_number < 12:
-            next_button(context.driver)  # Click next for questions 1-11iver)  # Click next for questions 1-11    
-        time.sleep(1)  # Optional: Adjust delay if needed for UI transitions
-        
+        if question_number < total_questions:
+            next_button(context.driver)  # Click next for all but the last question
+        time.sleep(1)
 
 @then('Student successfully submits the SEL form')
 def step_impl(context):

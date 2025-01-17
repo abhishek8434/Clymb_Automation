@@ -67,3 +67,24 @@ def verify_message_after_submit(driver):
         logging.info("SEL Checkpoint submitted successfully.")
     else:
         logging.info(f"Extracted message: '{success_message_text}'")
+    
+    
+def extract_question_count(driver):
+    """
+    Extracts the total number of questions from the web page.
+    """
+    question_count_xpath = "//sub[normalize-space()='/12']"  # Adjust XPath as needed
+    try:
+        # Wait for the element to be present and extract the text
+        question_count_element = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, question_count_xpath))
+        )
+        question_count_text = question_count_element.text.strip()
+        
+        # Extract the number part from the text
+        question_count_value = question_count_text.split("/")[-1]  # Assuming format like '/12'
+        logging.info(f"Extracted question count: '{question_count_value}'")
+        return int(question_count_value)
+    except Exception as e:
+        logging.error(f"Error extracting question count: {e}")
+        return 0 
