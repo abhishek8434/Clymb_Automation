@@ -73,7 +73,7 @@ def extract_question_count(driver):
     """
     Extracts the total number of questions from the web page.
     """
-    question_count_xpath = "//sub[normalize-space()='/12']"  # Adjust XPath as needed
+    question_count_xpath = "/html/body/ngb-modal-window/div/div/app-socio-competancy/div/div/div/div[1]/div/div[1]/div[1]/div/div/h2/sub"  # Adjust XPath as needed
     try:
         # Wait for the element to be present and extract the text
         question_count_element = WebDriverWait(driver, 10).until(
