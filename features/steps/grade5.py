@@ -15,15 +15,15 @@ from utils.locators import ask_for_help
 def get_driver():
     """ Initializes and returns a Chrome WebDriver instance with predefined options. """
     chrome_options = ChromeOptions()
-    # chrome_options.add_argument('--headless')  # Run in headless mode for CI/CD environments
-    # chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
-    # chrome_options.add_argument('--no-sandbox')  # Disable sandbox for Docker environments
-    # chrome_options.add_argument('--disable-dev-shm-usage')  # Handle limited resource issues
-    # chrome_options.add_argument('--remote-debugging-port=9222')  # Debugging support
-    # chrome_options.add_argument('--mute-audio')  # Mute audio for automated testing
-    # chrome_options.add_argument('--use-gl=swiftshader')  # Use SwiftShader for rendering
-    # chrome_options.add_argument('--disable-software-rasterizer')  # Disable software rasterization
-    # chrome_options.add_argument("--disable-setuid-sandbox")
+    chrome_options.add_argument('--headless')  # Run in headless mode for CI/CD environments
+    chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
+    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for Docker environments
+    chrome_options.add_argument('--disable-dev-shm-usage')  # Handle limited resource issues
+    chrome_options.add_argument('--remote-debugging-port=9222')  # Debugging support
+    chrome_options.add_argument('--mute-audio')  # Mute audio for automated testing
+    chrome_options.add_argument('--use-gl=swiftshader')  # Use SwiftShader for rendering
+    chrome_options.add_argument('--disable-software-rasterizer')  # Disable software rasterization
+    chrome_options.add_argument("--disable-setuid-sandbox")
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
@@ -84,6 +84,5 @@ def step_impl(context):
 def step_impl(context):
     # Step 10: Aftermood and resources
     execute_random_action(context.driver)
-    
     time.sleep(4)
     
