@@ -8,10 +8,7 @@ from pages.login import login_to_application
 from pages.admin_login import login_to_application_admin
 from utils.locators import ask_for_help_1
 from utils.verify_ask_for_help_locator import verify_names, verify_name_admin_notification
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium import webdriver
+from utils.drivers import setup_driver
 from pages.invalid_login import login_with_invalid_credentials    
 
 
@@ -19,27 +16,11 @@ from pages.invalid_login import login_with_invalid_credentials
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def get_driver():
-    """ Initializes and returns a Chrome WebDriver instance with predefined options. """
-    chrome_options = ChromeOptions()
-    chrome_options.add_argument('--headless')  # Run in headless mode for CI/CD environments
-    chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
-    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for Docker environments
-    chrome_options.add_argument('--disable-dev-shm-usage')  # Handle limited resource issues
-    chrome_options.add_argument('--remote-debugging-port=9222')  # Debugging support
-    chrome_options.add_argument('--mute-audio')  # Mute audio for automated testing
-    chrome_options.add_argument('--use-gl=swiftshader')  # Use SwiftShader for rendering
-    chrome_options.add_argument('--disable-software-rasterizer')  # Disable software rasterization
-    chrome_options.add_argument("--disable-setuid-sandbox")
-
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    return driver
-
 @given('I log in to the main application as student')
 def step_impl_main_app_login(context):
     """Log in to the main application in the first tab."""
-   
-    context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
+     # Use the setup_driver function for Chrome WebDriver instance
+    context.driver = setup_driver()
     context.driver.maximize_window()
     login_to_application(context.driver)  # Executes all actions for login on the first tab
     WebDriverWait(context.driver, 10).until(EC.url_changes)  # Wait for URL change after login
@@ -115,7 +96,7 @@ def step_impl_verify_name_in_admin(context):
 @given('When try to log into the application with invalid credentials')
 def step_invalid_login(context):
     
-    context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
+    context.driver = setup_driver()  # Use the get_driver function for Chrome WebDriver instance
     context.driver.maximize_window()
     login_with_invalid_credentials(context.driver)  # A function where incorrect credentials are used
     time.sleep(5)

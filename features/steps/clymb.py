@@ -20,37 +20,15 @@ from utils.emotions_function import relationship_skills
 from utils.aftermood import aftermood
 from pages.login import login_to_application
 from pages.invalid_login import login_with_invalid_credentials    
+from utils.drivers import setup_driver
 
 logging.basicConfig(level=logging.INFO)
-
-
-def get_driver():
-    """
-    Returns a WebDriver instance for Chrome.
-    """
-    chrome_options = ChromeOptions()
-    chrome_options.add_argument('--headless')  # Run in headless mode
-    chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
-    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
-    chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
-    chrome_options.add_argument('--remote-debugging-port=9222')  # Fix DevToolsActivePort issue
-    chrome_options.add_argument('--disable-software-rasterizer')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--use-gl=swiftshader')
-    chrome_options.add_argument('--mute-audio')
-    chrome_options.add_argument("--disable-setuid-sandbox")
-
-
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    
-    return driver
-
 
 @given('the student logs into the application')
 def step_login_to_application(context):
     logging.info("Initializing the driver and logging into the application...")
     
-    context.driver = get_driver()
+    context.driver = setup_driver()
     context.driver.maximize_window()
     login_to_application(context.driver)
     time.sleep(5)
@@ -168,7 +146,7 @@ def after_all(context):
 @given('Student try to log into the application with invalid credentials')
 def step_invalid_login(context):
     
-    context.driver = get_driver()
+    context.driver = setup_driver()
     context.driver.maximize_window()
     login_with_invalid_credentials(context.driver)  # A function where incorrect credentials are used
     time.sleep(5)

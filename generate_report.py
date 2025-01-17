@@ -100,7 +100,6 @@ def generate_report():
             total_steps = 0
             passed_steps = 0
             failed_steps = 0
-            skipped_steps = 0
             status = 'passed'
 
             for step in scenario.get('steps', []):
@@ -112,10 +111,8 @@ def generate_report():
                     elif step_status == 'failed':
                         failed_steps += 1
                         status = 'failed'
-                    elif step_status == 'skipped':
-                        skipped_steps += 1
-                        if status != 'failed':
-                            status = 'skipped'
+                    # No need to track skipped steps explicitly, calculate it later
+            skipped_steps = total_steps - (passed_steps + failed_steps)  # Calculate skipped steps
 
             scenarios.append({
                 "name": scenario_name,
@@ -170,6 +167,8 @@ def generate_report():
         report_file.write(html_report)
 
     print("Report generated successfully: report.html")
+
+
 
 if __name__ == "__main__":
     generate_report()

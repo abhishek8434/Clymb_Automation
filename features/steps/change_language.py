@@ -13,38 +13,17 @@ import logging
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-
+from utils.drivers import setup_driver
 
 logging.basicConfig(level=logging.INFO)
 
-
-def get_driver():
-    """
-    Returns a WebDriver instance for Chrome.
-    """
-    chrome_options = ChromeOptions()
-    chrome_options.add_argument('--headless')  # Run in headless mode
-    chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
-    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
-    chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
-    chrome_options.add_argument('--remote-debugging-port=9222')  # Fix DevToolsActivePort issue
-    chrome_options.add_argument('--disable-software-rasterizer')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--use-gl=swiftshader')
-    chrome_options.add_argument('--mute-audio')
-    chrome_options.add_argument("--disable-setuid-sandbox")
-
-
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    
-    return driver
 
 # Positive Flow
 
 @given('I am logged into the application1')
 def step_login(context):
    
-    context.driver = get_driver()
+    context.driver = setup_driver()
     context.driver.maximize_window()
     login_to_application(context.driver)
     time.sleep(5)

@@ -6,34 +6,14 @@ from behave import given, when, then
 from selenium import webdriver
 from pages.login import login_to_application
 from utils.wall_of_wonder_locators import wall_of_wonder_create, click_on_add_photo, random_photo_select, click_on_wall_to_enter_text, make_post, success_message
-
-def get_driver():
-    """
-    Returns a WebDriver instance for Chrome.
-    """
-    chrome_options = ChromeOptions()
-    chrome_options.add_argument('--headless')  # Run in headless mode
-    chrome_options.add_argument('--disable-gpu')  # Disable GPU hardware acceleration
-    chrome_options.add_argument('--no-sandbox')  # Disable sandbox for running in Docker
-    chrome_options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource issues
-    chrome_options.add_argument('--remote-debugging-port=9222')  # Fix DevToolsActivePort issue
-    chrome_options.add_argument('--disable-software-rasterizer')
-    chrome_options.add_argument('--disable-dev-shm-usage')
-    chrome_options.add_argument('--use-gl=swiftshader')
-    chrome_options.add_argument('--mute-audio')
-    chrome_options.add_argument("--disable-setuid-sandbox")
-
-
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-    
-    return driver
+from utils.drivers import setup_driver
 
 
 @given('the student is logged into the application')
 def step_impl(context):
     """Step for logging in to the application."""
     
-    context.driver = get_driver()  # Use the get_driver function for Chrome WebDriver instance
+    context.driver = setup_driver()  # Use the get_driver function for Chrome WebDriver instance
     context.driver.maximize_window()
     login_to_application(context.driver)
 
