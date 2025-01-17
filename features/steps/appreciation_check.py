@@ -1,9 +1,5 @@
 import time
 from behave import given, when, then
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from pages.login import login_to_application
 from utils.appreciation import randomly_select_appreciation, submit, appreciation_audio, scrollPage, your_journey, check_appreciation_log
 from utils.condition_for_negative_flow import reload_check_self_awareness

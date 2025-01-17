@@ -1,9 +1,5 @@
 import time
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from behave import given, when, then
-from selenium import webdriver
 from pages.login import login_to_application
 from utils.wall_of_wonder_locators import wall_of_wonder_create, click_on_add_photo, random_photo_select, click_on_wall_to_enter_text, make_post, success_message
 from utils.drivers import setup_driver

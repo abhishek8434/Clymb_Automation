@@ -1,24 +1,18 @@
 import time
 from behave import given, when, then
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
-from pages.login import login_to_application   
 from utils.locators import click_random_emotion, click_random_slider, compass_dashboard_audio
-from pages.login import login_to_application   
+from pages.login import login_to_application_grade5   
 from utils.audio import first_audio_homepage   
 from utils.locators_for_grade_5 import select_audio_emotions, select_random_mood, grade_5_submit, sub_mood_submit, execute_random_action
 from utils.locators import ask_for_help
 from utils.drivers import setup_driver
-
 
 @given('Student is on login page for grade 5 student')
 def step_impl(context):
     context.driver = setup_driver()
     context.driver.maximize_window()
     # Step 1: Login
-    login_to_application(context.driver)
+    login_to_application_grade5(context.driver)
     time.sleep(5)
     
 @when('Student clicks on compass dashboard audio button')

@@ -55,6 +55,7 @@ steps:
   env:
     BASE_URL: $(BASE_URL)
     EMAIL: $(EMAIL)
+    EMAIL1: $(EMAIL1)
     PASSWORD: $(PASSWORD)
     ADMIN_URL: $(ADMIN_URL)
     ADMIN_EMAIL: $(ADMIN_EMAIL)

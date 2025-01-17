@@ -1,18 +1,10 @@
 import time
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from behave import given, when, then
-from selenium import webdriver
 from pages.login import login_to_application
 from utils.locators import change_language    
 from utils.appreciation import randomly_select_appreciation, submit, appreciation_audio, scrollPage
 from utils.audio import second_audio_homepage
-from selenium.webdriver.common.by import By
 import logging
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from utils.drivers import setup_driver
 
 logging.basicConfig(level=logging.INFO)

@@ -1,9 +1,5 @@
 import time
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from behave import given, when, then
-from selenium import webdriver
 from pages.login import login_to_application
 from pages.invalid_login import login_with_invalid_credentials        
 from utils.appreciation import randomly_select_appreciation, submit, appreciation_audio, scrollPage

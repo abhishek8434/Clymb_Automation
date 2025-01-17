@@ -1,9 +1,5 @@
 import time
 from behave import given, when, then
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from pages.forget_password import navigate_to_login_page, click_on_forget_password, enter_details_on_field, click_on_reset_button, verify_message_after_reset
 from utils.drivers import setup_driver
 

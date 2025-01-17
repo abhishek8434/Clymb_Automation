@@ -1,9 +1,5 @@
 import time
 from behave import given, when, then
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from pages.login import login_to_application
 from utils.sel_checkpoint import select_sel, first_question, next_button, submit_button, verify_message_after_submit, extract_question_count
 import logging
