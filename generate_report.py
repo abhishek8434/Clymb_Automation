@@ -88,6 +88,7 @@ def generate_report():
     passed = 0
     failed = 0
     skipped = 0
+    total_duration = 0  # To hold the total execution time of all scenarios
     scenarios = []
 
     for feature in results:
@@ -96,6 +97,11 @@ def generate_report():
             duration = scenario.get('duration', 0)
             if duration == 0:
                 duration = sum(step['result']['duration'] for step in scenario.get('steps', []) if 'result' in step and 'duration' in step['result'])
+
+            # Round the duration to 3 decimal places
+            duration = round(duration, 3)
+
+            total_duration += duration  # Add to the total execution time
 
             total_steps = 0
             passed_steps = 0
@@ -111,7 +117,6 @@ def generate_report():
                     elif step_status == 'failed':
                         failed_steps += 1
                         status = 'failed'
-                    # No need to track skipped steps explicitly, calculate it later
             skipped_steps = total_steps - (passed_steps + failed_steps)  # Calculate skipped steps
 
             scenarios.append({
@@ -144,7 +149,8 @@ def generate_report():
     html_report = template_content.replace("{{ total_scenarios }}", str(passed + failed + skipped)) \
                                    .replace("{{ passed }}", str(passed)) \
                                    .replace("{{ failed }}", str(failed)) \
-                                   .replace("{{ skipped }}", str(skipped))
+                                   .replace("{{ skipped }}", str(skipped)) \
+                                   .replace("{{ total_execution_time }}", f"{round(total_duration, 3)} ms")  # Round total execution time
 
     scenarios_html = ""
     for scenario in scenarios:
@@ -167,8 +173,6 @@ def generate_report():
         report_file.write(html_report)
 
     print("Report generated successfully: report.html")
-
-
 
 if __name__ == "__main__":
     generate_report()
