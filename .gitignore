@@ -8,3 +8,4 @@
 /features/steps/__pycache__
 /behave-env
 /results.json
+/report.html
