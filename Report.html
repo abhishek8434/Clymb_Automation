@@ -83,6 +83,10 @@
             max-width: 100%;
             display: block;
             margin: 0 auto;
+            background-color: #fff; /* Set background color */
+            padding: 20px; /* Add padding to the image */
+            border: 1px solid #ddd; /* Optional: Add a border to the image */
+            border-radius: 8px; /* Optional: Rounded corners for the image */
         }
     </style>
 </head>
@@ -92,100 +96,121 @@
             <img src="https://i0.wp.com/clymbup.io/wp-content/uploads/2023/02/logo.png?fit=324%2C84&ssl=1" alt="Clymb" style="max-width: 100%; height: auto;">
         </div>
     
-        <!-- Test Summary Section -->
-        <div class="section">
-
-            <h2>Feature Summary</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Total Features</th>
-                        <td>9</td>
-                    </tr>
-                    <tr>
-                        <th>Passed Features</th>
-                        <td>6</td>
-                    </tr>
-                    <tr>
-                        <th>Failed Features</th>
-                        <td>3</td>
-                    </tr>
-                    <tr>
-                        <th>Skipped Features</th>
-                        <td>0</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>Test Summary</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Total Scenarios</th>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <th>Passed</th>
-                        <td>8</td>
-                    </tr>
-                    <tr>
-                        <th>Failed</th>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <th>Skipped</th>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <th>Total Execution Time</th>
-                        <td>468.734 ms</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            
-
-            <h2>Step Summary</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Total Steps</th>
-                        <td>78</td>
-                    </tr>
-                    <tr>
-                        <th>Passed Steps</th>
-                        <td>58</td>
-                    </tr>
-                    <tr>
-                        <th>Failed Steps</th>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <th>Skipped Steps</th>
-                        <td>16</td>
-                    </tr>
-                </tbody>
-            </table>
+        <style>
+            /* Add custom CSS for consistent column width */
+            table {
+                width: 100%;
+                table-layout: fixed; /* Ensures consistent column width */
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+                word-wrap: break-word; /* Ensures text wraps properly */
+            }
+            th {
+                width: 50%; /* Equal width for header */
+            }
+            td {
+                width: 50%; /* Equal width for data cells */
+            }
+        </style>
+        
+        <!-- Test Execution Summary -->
+        <div class="section" style="margin-top: 40px;">
+            <h1>Test Execution Summary</h1>
+        
+            <!-- Feature Summary Section -->
+            <div class="summary-section" style="margin-top: 20px;">
+                <h2>Feature Summary</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total Features</th>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <th>Passed Features</th>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <th>Failed Features</th>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th>Skipped Features</th>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Scenario Summary Section -->
+            <div class="summary-section">
+                <h2>Scenario Summary</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total Scenarios</th>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <th>Passed Scenarios</th>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <th>Failed Scenarios</th>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th>Skipped Scenarios</th>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <th>Total Execution Time</th>
+                            <td>468.734 ms</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Step Summary Section -->
+            <div class="summary-section">
+                <h2>Step Summary</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total Steps</th>
+                            <td>78</td>
+                        </tr>
+                        <tr>
+                            <th>Passed Steps</th>
+                            <td>58</td>
+                        </tr>
+                        <tr>
+                            <th>Failed Steps</th>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <th>Skipped Steps</th>
+                            <td>16</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-
-        <div class="section">
-            <h2>Scenario Results</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Scenario Name</th>
-                        <th>Status</th>
-                        <th>Duration</th>
-                        <th>Total Steps</th>
-                        <th>Passed Steps</th>
-                        <th>Failed Steps</th>
-                        <th>Skipped Steps</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="result-passed"><td>Student logs in and completes the appreciation workflow</td><td class="status-passed">Passed</td><td>32.885 ms</td><td>6</td><td>6</td><td>0</td><td>0</td></tr><tr class="result-passed"><td>Execute the full workflow in sequence (Positive Flow)</td><td class="status-passed">Passed</td><td>33.646 ms</td><td>6</td><td>6</td><td>0</td><td>0</td></tr><tr class="result-passed"><td>Execute the full workflow</td><td class="status-passed">Passed</td><td>140.534 ms</td><td>19</td><td>19</td><td>0</td><td>0</td></tr><tr class="result-passed"><td>Login failure due to invalid credentials</td><td class="status-passed">Passed</td><td>21.795 ms</td><td>2</td><td>2</td><td>0</td><td>0</td></tr><tr class="result-passed"><td>Execute the full workflow in sequence (Positive Flow)</td><td class="status-passed">Passed</td><td>34.617 ms</td><td>6</td><td>6</td><td>0</td><td>0</td></tr><tr class="result-passed"><td>Login failure due to invalid credentials</td><td class="status-passed">Passed</td><td>25.769 ms</td><td>2</td><td>2</td><td>0</td><td>0</td></tr><tr class="result-passed"><td>Student reset password successfully</td><td class="status-passed">Passed</td><td>21.713 ms</td><td>5</td><td>5</td><td>0</td><td>0</td></tr><tr class="result-passed"><td>Grade 5 student mood selection and submission flow</td><td class="status-passed">Passed</td><td>103.642 ms</td><td>11</td><td>11</td><td>0</td><td>0</td></tr><tr class="result-failed"><td>Student can fill SEL Form</td><td class="status-failed">Failed</td><td>41.957 ms</td><td>5</td><td>1</td><td>1</td><td>3</td></tr><tr class="result-failed"><td>Perform workflow in both main application and admin application</td><td class="status-failed">Failed</td><td>4.029 ms</td><td>7</td><td>0</td><td>1</td><td>6</td></tr><tr class="result-failed"><td>Login failure due to invalid credentials</td><td class="status-failed">Failed</td><td>4.049 ms</td><td>2</td><td>0</td><td>1</td><td>1</td></tr><tr class="result-failed"><td>Student logs in and creates a post on the Wall of Wonder</td><td class="status-failed">Failed</td><td>4.098 ms</td><td>7</td><td>0</td><td>1</td><td>6</td></tr>
-                </tbody>
-            </table>
+        <!-- Overall Test Execution Details -->
+        <div class="test-execution-details">
+            <h2>Overall Test Execution</h2>
+            <p>
+                The following summarizes the overall execution status of the test suite, with insights into the feature performance, scenario execution, and step-level results.
+            </p>
+            <ul>
+                <li><strong>Total Features:</strong> 9</li>
+                <li><strong>Total Scenarios:</strong> 12</li>
+                <li><strong>Total Steps:</strong> 78</li>
+                <li><strong>Total Execution Time:</strong> 468.734 ms</li>
+            </ul>
         </div>
 
         <div class="section graph">

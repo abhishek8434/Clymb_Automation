@@ -83,6 +83,10 @@
             max-width: 100%;
             display: block;
             margin: 0 auto;
+            background-color: #fff; /* Set background color */
+            padding: 20px; /* Add padding to the image */
+            border: 1px solid #ddd; /* Optional: Add a border to the image */
+            border-radius: 8px; /* Optional: Rounded corners for the image */
         }
     </style>
 </head>
@@ -92,100 +96,121 @@
             <img src="https://i0.wp.com/clymbup.io/wp-content/uploads/2023/02/logo.png?fit=324%2C84&ssl=1" alt="Clymb" style="max-width: 100%; height: auto;">
         </div>
     
-        <!-- Test Summary Section -->
-        <div class="section">
-
-            <h2>Feature Summary</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Total Features</th>
-                        <td>{{ total_features }}</td>
-                    </tr>
-                    <tr>
-                        <th>Passed Features</th>
-                        <td>{{ total_passed_features }}</td>
-                    </tr>
-                    <tr>
-                        <th>Failed Features</th>
-                        <td>{{ total_failed_features }}</td>
-                    </tr>
-                    <tr>
-                        <th>Skipped Features</th>
-                        <td>{{ total_skipped_features }}</td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2>Test Summary</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Total Scenarios</th>
-                        <td>{{ total_scenarios }}</td>
-                    </tr>
-                    <tr>
-                        <th>Passed</th>
-                        <td>{{ passed }}</td>
-                    </tr>
-                    <tr>
-                        <th>Failed</th>
-                        <td>{{ failed }}</td>
-                    </tr>
-                    <tr>
-                        <th>Skipped</th>
-                        <td>{{ skipped }}</td>
-                    </tr>
-                    <tr>
-                        <th>Total Execution Time</th>
-                        <td>{{ total_execution_time }}</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            
-
-            <h2>Step Summary</h2>
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Total Steps</th>
-                        <td>{{ total_steps }}</td>
-                    </tr>
-                    <tr>
-                        <th>Passed Steps</th>
-                        <td>{{ total_passed_steps }}</td>
-                    </tr>
-                    <tr>
-                        <th>Failed Steps</th>
-                        <td>{{ total_failed_steps }}</td>
-                    </tr>
-                    <tr>
-                        <th>Skipped Steps</th>
-                        <td>{{ total_skipped_steps }}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <style>
+            /* Add custom CSS for consistent column width */
+            table {
+                width: 100%;
+                table-layout: fixed; /* Ensures consistent column width */
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+                word-wrap: break-word; /* Ensures text wraps properly */
+            }
+            th {
+                width: 50%; /* Equal width for header */
+            }
+            td {
+                width: 50%; /* Equal width for data cells */
+            }
+        </style>
+        
+        <!-- Test Execution Summary -->
+        <div class="section" style="margin-top: 40px;">
+            <h1>Test Execution Summary</h1>
+        
+            <!-- Feature Summary Section -->
+            <div class="summary-section" style="margin-top: 20px;">
+                <h2>Feature Summary</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total Features</th>
+                            <td>{{ total_features }}</td>
+                        </tr>
+                        <tr>
+                            <th>Passed Features</th>
+                            <td>{{ total_passed_features }}</td>
+                        </tr>
+                        <tr>
+                            <th>Failed Features</th>
+                            <td>{{ total_failed_features }}</td>
+                        </tr>
+                        <tr>
+                            <th>Skipped Features</th>
+                            <td>{{ total_skipped_features }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Scenario Summary Section -->
+            <div class="summary-section">
+                <h2>Scenario Summary</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total Scenarios</th>
+                            <td>{{ total_scenarios }}</td>
+                        </tr>
+                        <tr>
+                            <th>Passed Scenarios</th>
+                            <td>{{ passed }}</td>
+                        </tr>
+                        <tr>
+                            <th>Failed Scenarios</th>
+                            <td>{{ failed }}</td>
+                        </tr>
+                        <tr>
+                            <th>Skipped Scenarios</th>
+                            <td>{{ skipped }}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Execution Time</th>
+                            <td>{{ total_execution_time }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+            <!-- Step Summary Section -->
+            <div class="summary-section">
+                <h2>Step Summary</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Total Steps</th>
+                            <td>{{ total_steps }}</td>
+                        </tr>
+                        <tr>
+                            <th>Passed Steps</th>
+                            <td>{{ total_passed_steps }}</td>
+                        </tr>
+                        <tr>
+                            <th>Failed Steps</th>
+                            <td>{{ total_failed_steps }}</td>
+                        </tr>
+                        <tr>
+                            <th>Skipped Steps</th>
+                            <td>{{ total_skipped_steps }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-
-        <div class="section">
-            <h2>Scenario Results</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Scenario Name</th>
-                        <th>Status</th>
-                        <th>Duration</th>
-                        <th>Total Steps</th>
-                        <th>Passed Steps</th>
-                        <th>Failed Steps</th>
-                        <th>Skipped Steps</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{ content }}
-                </tbody>
-            </table>
+        <!-- Overall Test Execution Details -->
+        <div class="test-execution-details">
+            <h2>Overall Test Execution</h2>
+            <p>
+                The following summarizes the overall execution status of the test suite, with insights into the feature performance, scenario execution, and step-level results.
+            </p>
+            <ul>
+                <li><strong>Total Features:</strong> {{ total_features }}</li>
+                <li><strong>Total Scenarios:</strong> {{ total_scenarios }}</li>
+                <li><strong>Total Steps:</strong> {{ total_steps }}</li>
+                <li><strong>Total Execution Time:</strong> {{ total_execution_time }}</li>
+            </ul>
         </div>
 
         <div class="section graph">
