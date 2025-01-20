@@ -92,32 +92,81 @@
             <img src="https://i0.wp.com/clymbup.io/wp-content/uploads/2023/02/logo.png?fit=324%2C84&ssl=1" alt="Clymb" style="max-width: 100%; height: auto;">
         </div>
     
-
+        <!-- Test Summary Section -->
         <div class="section">
+
+            <h2>Feature Summary</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Total Features</th>
+                        <td>{{ total_features }}</td>
+                    </tr>
+                    <tr>
+                        <th>Passed Features</th>
+                        <td>{{ total_passed_features }}</td>
+                    </tr>
+                    <tr>
+                        <th>Failed Features</th>
+                        <td>{{ total_failed_features }}</td>
+                    </tr>
+                    <tr>
+                        <th>Skipped Features</th>
+                        <td>{{ total_skipped_features }}</td>
+                    </tr>
+                </tbody>
+            </table>
             <h2>Test Summary</h2>
             <table>
-                <tr>
-                    <th>Total Scenarios</th>
-                    <td>{{ total_scenarios }}</td>
-                </tr>
-                <tr>
-                    <th>Passed</th>
-                    <td>{{ passed }}</td>
-                </tr>
-                <tr>
-                    <th>Failed</th>
-                    <td>{{ failed }}</td>
-                </tr>
-                <tr>
-                    <th>Skipped</th>
-                    <td>{{ skipped }}</td>
-                </tr>
-                <tr>
-                    <th>Total Execution Time</th>
-                    <td>{{ total_execution_time }}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <th>Total Scenarios</th>
+                        <td>{{ total_scenarios }}</td>
+                    </tr>
+                    <tr>
+                        <th>Passed</th>
+                        <td>{{ passed }}</td>
+                    </tr>
+                    <tr>
+                        <th>Failed</th>
+                        <td>{{ failed }}</td>
+                    </tr>
+                    <tr>
+                        <th>Skipped</th>
+                        <td>{{ skipped }}</td>
+                    </tr>
+                    <tr>
+                        <th>Total Execution Time</th>
+                        <td>{{ total_execution_time }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            
+
+            <h2>Step Summary</h2>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Total Steps</th>
+                        <td>{{ total_steps }}</td>
+                    </tr>
+                    <tr>
+                        <th>Passed Steps</th>
+                        <td>{{ total_passed_steps }}</td>
+                    </tr>
+                    <tr>
+                        <th>Failed Steps</th>
+                        <td>{{ total_failed_steps }}</td>
+                    </tr>
+                    <tr>
+                        <th>Skipped Steps</th>
+                        <td>{{ total_skipped_steps }}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
+
 
         <div class="section">
             <h2>Scenario Results</h2>
