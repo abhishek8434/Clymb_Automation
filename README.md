@@ -96,6 +96,8 @@ CLYMB_AUTOMATION/
    ```bash
    pip install -r requirements.txt
    pip install matplotlib
+   pip install selenium pillow  
+   pip install scikit-image 
    ```
 
 4. **Set up environment variables:**
