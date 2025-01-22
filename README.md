@@ -30,7 +30,7 @@ CLYMB_AUTOMATION/
 |   |-- build.yml                           # GitHub Actions workflow file
 |
 |-- assets/                                 # Additional assets for the project
-|   |-- style.css                           # Stylesheets for reports
+|   |-- all_screenshot_and other files      # Additional assets
 |
 |-- features/                               # Behave features and steps
 |   |-- steps/                              # Step definitions for Behave
@@ -47,6 +47,16 @@ CLYMB_AUTOMATION/
 |   |-- admin_login.py                      # Handles "admin-login" functionality
 |   |-- ...                                 # Other page-specific files
 |
+|-- report_generation/                      # File for creates reports
+|   |-- generate_report.py                  # It will generate the HTML report
+|   |-- ...                                 # Other files for report generation
+|
+|-- reports/                                 # Test execution reports
+|   |-- ...                                  # Test execution report (generated dynamically)
+|
+|-- tests/                                  # Page Object Model files
+|   |-- ui_test.py                          # Verifies the ui by comparing screenshot of dev and live site
+|
 |-- utils/                                  # Utility functions and shared logic
 |   |-- locators.py                         # Shared locators across pages
 |   |-- audio.py                            # Utility for audio-related operations
@@ -58,9 +68,7 @@ CLYMB_AUTOMATION/
 |-- README.md                               # Project documentation and usage instructions
 |-- requirements.txt                        # Python dependencies
 |-- azure-pipelines.yml                     # Azure DevOps pipeline configuration
-|-- behave.ini                              # Behave configuration file
-|-- run_behave_with_lock.py                 # The script that runs Behave feature file sequentially
-|-- Report.html                             # Test execution report (generated dynamically)
+|-- behave.ini                              # Behave configuration file                      
 ```
 
 ## Prerequisites
