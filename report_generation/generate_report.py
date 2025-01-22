@@ -4,6 +4,9 @@ import base64
 import matplotlib.pyplot as plt
 from io import BytesIO
 
+# Define the path for the report_generation folder
+report_folder = 'report_generation'
+
 # Sample results creation function (if 'results.json' is missing)
 def create_sample_results_file():
     sample_data = [
@@ -33,17 +36,17 @@ def create_sample_results_file():
         }
     ]
 
-    with open("results.json", "w") as json_file:
+    with open(os.path.join(report_folder, "results.json"), "w") as json_file:
         json.dump(sample_data, json_file)
     print("Sample 'results.json' file created.")
 
 # Ensure 'results.json' exists
-if not os.path.exists("results.json"):
+if not os.path.exists(os.path.join(report_folder, "results.json")):
     print("Error: 'results.json' file is missing. Creating a sample results file.")
     create_sample_results_file()
 
 # Load the JSON results
-with open("results.json", "r") as json_file:
+with open(os.path.join(report_folder, "results.json"), "r") as json_file:
     results = json.load(json_file)
 
 # Function to generate the pie chart for Test Summary
@@ -52,7 +55,6 @@ def generate_pie_chart(passed, failed, skipped):
     sizes = []
     colors = ['#4CAF50', '#F44336', '#FFC107']
 
-    # Conditionally add data to avoid overlap when counts are 0
     if passed > 0:
         labels.append('Passed')
         sizes.append(passed)
@@ -63,45 +65,37 @@ def generate_pie_chart(passed, failed, skipped):
         labels.append('Skipped')
         sizes.append(skipped)
     
-    # Handle case when all counts are zero
     if not labels:
         labels = ['No Data']
         sizes = [1]
         colors = ['#CCCCCC']
 
-    fig, ax = plt.subplots(figsize=(7, 7))  # Adjust the size of the pie chart
+    fig, ax = plt.subplots(figsize=(7, 7))
     wedges, texts, autotexts = ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90,
-                                      wedgeprops={'edgecolor': 'black'}, labeldistance=1.2)  # Moved labels outward
+                                      wedgeprops={'edgecolor': 'black'}, labeldistance=1.2)
 
-    # Adjust font size and alignment to improve readability
     for text in texts + autotexts:
         text.set_fontsize(10)
         text.set_horizontalalignment('center')
 
-    # Equal aspect ratio ensures the pie chart is circular.
     ax.axis('equal')
 
-    # Add a legend to help understand the colors
-    ax.legend(wedges, labels, title="Test Status", loc="center left", bbox_to_anchor=(1.1, 0, 0.5, 1))  # Legend outside the pie chart
+    ax.legend(wedges, labels, title="Test Status", loc="center left", bbox_to_anchor=(1.1, 0, 0.5, 1))
 
     img_buf = BytesIO()
-    plt.savefig(img_buf, format='png', bbox_inches='tight')  # 'tight' to avoid clipping
+    plt.savefig(img_buf, format='png', bbox_inches='tight')
     img_buf.seek(0)
     img_base64 = base64.b64encode(img_buf.read()).decode('utf-8')
     plt.close(fig)
 
     return f"data:image/png;base64,{img_base64}"
 
-
-# Function to generate the Test Execution Graph (Bar Chart)
 def generate_execution_graph(passed, failed, skipped):
     labels = ['Passed', 'Failed', 'Skipped']
     counts = [passed, failed, skipped]
     colors = ['#4CAF50', '#F44336', '#FFC107']
 
-    # Increase the size of the figure
-    fig, ax = plt.subplots(figsize=(8, 6))  # Adjusted figure size (width, height)
-    
+    fig, ax = plt.subplots(figsize=(8, 6))
     ax.bar(labels, counts, color=colors)
     ax.set_ylabel('Count')
     ax.set_title('Test Execution Distribution')
@@ -114,57 +108,43 @@ def generate_execution_graph(passed, failed, skipped):
 
     return f"data:image/png;base64,{img_base64}"
 
-# Function to generate the report with correct feature, scenario, and step-level counters
 def generate_report():
-    # Overall counters
     passed = 0
     failed = 0
     skipped = 0
     total_duration = 0
-
-    # Feature-level counters
     total_features = 0
     total_passed_features = 0
     total_failed_features = 0
     total_skipped_features = 0
-
-    # Step-level counters (for Step Summary)
     total_steps = 0
     total_passed_steps = 0
     total_failed_steps = 0
     total_skipped_steps = 0
-
     scenarios = []
 
-    # Loop through features and scenarios
     for feature in results:
         feature_passed_count = 0
         feature_failed_count = 0
         feature_skipped_count = 0
 
-        total_features += 1  # Increment total features count
+        total_features += 1
 
-        # Go through scenarios of this feature
         for scenario in feature['elements']:
             scenario_name = scenario['name']
             duration = scenario.get('duration', 0)
-
-            # If duration is zero, calculate based on step durations
             if duration == 0:
                 duration = sum(step['result']['duration'] for step in scenario.get('steps', []) if 'result' in step and 'duration' in step['result'])
 
-            # Round the duration to 3 decimal places
             duration = round(duration, 3)
             total_duration += duration
 
-            # Step-level counters for this scenario
             total_steps_in_scenario = 0
             passed_steps = 0
             failed_steps = 0
             skipped_steps = 0
-            scenario_status = "passed"  # Default scenario status
+            scenario_status = "passed"
 
-            # Process all steps of the scenario
             for step in scenario.get('steps', []):
                 total_steps_in_scenario += 1
                 if 'result' in step:
@@ -173,15 +153,13 @@ def generate_report():
                         passed_steps += 1
                     elif step_status == 'failed':
                         failed_steps += 1
-                        scenario_status = 'failed'  # If any step fails, mark the scenario as failed
+                        scenario_status = 'failed'
                     elif step_status == 'skipped':
                         skipped_steps += 1
-                        scenario_status = 'skipped'  # If any step is skipped, mark the scenario as skipped
+                        scenario_status = 'skipped'
 
-            # Calculate skipped steps explicitly
             skipped_steps = total_steps_in_scenario - (passed_steps + failed_steps)
 
-            # Update counters based on scenario status
             if scenario_status == 'passed':
                 passed += 1
             elif scenario_status == 'failed':
@@ -189,7 +167,6 @@ def generate_report():
             elif scenario_status == 'skipped':
                 skipped += 1
 
-            # Append the scenario data
             scenarios.append({
                 "name": scenario_name,
                 "status": scenario_status.capitalize(),
@@ -200,7 +177,6 @@ def generate_report():
                 "skipped_steps": skipped_steps,
             })
 
-            # Feature-level scenario status aggregation
             if scenario_status == 'passed':
                 feature_passed_count += 1
             elif scenario_status == 'failed':
@@ -208,13 +184,11 @@ def generate_report():
             elif scenario_status == 'skipped':
                 feature_skipped_count += 1
 
-            # Add step data to the total step summary
             total_steps += total_steps_in_scenario
             total_passed_steps += passed_steps
             total_failed_steps += failed_steps
             total_skipped_steps += skipped_steps
 
-        # After processing all scenarios of the feature, update feature status and counters
         if feature_passed_count == len(feature['elements']):
             total_passed_features += 1
         elif feature_skipped_count == len(feature['elements']):
@@ -222,19 +196,16 @@ def generate_report():
         else:
             total_failed_features += 1
 
-    # Generate the pie chart and execution graph
     pie_chart_image = generate_pie_chart(passed, failed, skipped)
     execution_graph_image = generate_execution_graph(passed, failed, skipped)
 
-    # Load HTML template
     try:
-        with open("report_template.html", "r") as template_file:
+        with open(os.path.join(report_folder, "report_template.html"), "r") as template_file:
             template_content = template_file.read()
     except FileNotFoundError:
         print("Error: 'report_template.html' file is missing.")
         return
 
-    # Replace placeholders in template with calculated values
     html_report = template_content.replace("{{ total_scenarios }}", str(passed + failed + skipped)) \
                                    .replace("{{ passed }}", str(passed)) \
                                    .replace("{{ failed }}", str(failed)) \
@@ -250,7 +221,6 @@ def generate_report():
                              .replace("{{ total_failed_steps }}", str(total_failed_steps)) \
                              .replace("{{ total_skipped_steps }}", str(total_skipped_steps))
 
-    # Generate HTML content for the scenarios
     scenarios_html = ""
     for scenario in scenarios:
         status_class = f"status-{scenario['status'].lower()}"
@@ -268,12 +238,13 @@ def generate_report():
                              .replace("{{ test_execution_graph_image }}", execution_graph_image) \
                              .replace("{{ test_summary_pie_chart_image }}", pie_chart_image)
 
-    # Write the final HTML report to a file
-    with open("report.html", "w") as report_file:
+    os.makedirs('reports', exist_ok=True)
+    
+    report_path = os.path.join('reports', 'report.html')
+    with open(report_path, "w") as report_file:
         report_file.write(html_report)
 
-    print("Report generated successfully: report.html")
+    print(f"Report generated successfully: {report_path}")
 
-# Run the report generation
 if __name__ == "__main__":
     generate_report()

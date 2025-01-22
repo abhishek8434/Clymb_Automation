@@ -118,7 +118,19 @@
         <!-- Test Execution Summary -->
         <div class="section" style="margin-top: 40px;">
             <h1>Test Execution Summary</h1>
-        
+                <!-- Overall Test Execution Details -->
+                <div class="test-execution-details">
+                    
+                    <p>
+                        The following summarizes the overall execution status of the test suite, with insights into the feature performance, scenario execution, and step-level results.
+                    </p>
+                    <ul>
+                        <li><strong>Total Features:</strong> {{ total_features }}</li>
+                        <li><strong>Total Scenarios:</strong> {{ total_scenarios }}</li>
+                        <li><strong>Total Steps:</strong> {{ total_steps }}</li>
+                        <li><strong>Total Execution Time:</strong> {{ total_execution_time }}</li>
+                    </ul>
+                </div>
             <!-- Feature Summary Section -->
             <div class="summary-section" style="margin-top: 20px;">
                 <h2>Feature Summary</h2>
@@ -165,10 +177,10 @@
                             <th>Skipped Scenarios</th>
                             <td>{{ skipped }}</td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>Total Execution Time</th>
                             <td>{{ total_execution_time }}</td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -199,18 +211,24 @@
             </div>
         </div>
 
-        <!-- Overall Test Execution Details -->
-        <div class="test-execution-details">
-            <h2>Overall Test Execution</h2>
-            <p>
-                The following summarizes the overall execution status of the test suite, with insights into the feature performance, scenario execution, and step-level results.
-            </p>
-            <ul>
-                <li><strong>Total Features:</strong> {{ total_features }}</li>
-                <li><strong>Total Scenarios:</strong> {{ total_scenarios }}</li>
-                <li><strong>Total Steps:</strong> {{ total_steps }}</li>
-                <li><strong>Total Execution Time:</strong> {{ total_execution_time }}</li>
-            </ul>
+        <div class="section">
+            <h2>Scenario Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scenario Name</th>
+                        <th>Status</th>
+                        <th>Duration</th>
+                        <th>Total Steps</th>
+                        <th>Passed Steps</th>
+                        <th>Failed Steps</th>
+                        <th>Skipped Steps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ content }}
+                </tbody>
+            </table>
         </div>
 
         <div class="section graph">
