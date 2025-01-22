@@ -10,4 +10,6 @@
 /results.json
 /report.html
 /assets
+/.venv
+/__pycache__
 
