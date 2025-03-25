@@ -12,7 +12,9 @@ import numpy as np
 from datetime import datetime
 import base64
 from dotenv import load_dotenv
+
 load_dotenv()
+
 
 
 ASSETS_DIR = "assets"
@@ -49,25 +51,29 @@ def capture_screenshot(url, save_path, driver, login_required=False, username=No
         print("Logging in...")
         try:
             username_field = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.NAME, 'email'))
+                EC.presence_of_element_located((By.XPATH, "//input[@id='email']"))
             )
-            password_field = WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.NAME, 'password'))
-            )
-            login_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable(
-                    (By.XPATH, "//button[@aria-label='LOGIN']//span[@class='mat-mdc-button-touch-target']")
-                )
-            )
-            time.sleep(2)
+            time.sleep(1)
+            username_field.click()
             username_field.send_keys(username)
+            
+            password_field = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//input[@id='password']"))
+            )
+            time.sleep(1)
+            password_field.click()
             password_field.send_keys(password)
+            
+            login_button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//button[normalize-space()='Sign In']"))
+            )
             driver.execute_script("arguments[0].scrollIntoView(true);", login_button)
             actions = ActionChains(driver)
             actions.move_to_element(login_button).click().perform()
             time.sleep(2)
             WebDriverWait(driver, 10).until(EC.url_changes(url))
             print("Login successful.")
+            
         except Exception as e:
             print(f"Login failed: {e}")
             with open(os.path.join(ASSETS_DIR, 'login_error_page.html'), 'w') as file:
@@ -372,14 +378,17 @@ def get_color_for_percentage(percentage):
         return "orange"
     else:
         return "red"
-    
-    
+
+
 # Get login details from environment variables
-dev_url = os.getenv("ADMIN_URL")    
-live_url = os.getenv("ADMIN_URL_LIVE")        
+dev_url = os.getenv("BASE_URL")    
+live_url = os.getenv("LIVE_URL")    
+
+
     
 def main():
     with driver() as browser:
+        
         # Navigate to the URL
         browser.get(dev_url)
         browser.get(live_url)
@@ -389,14 +398,14 @@ def main():
         live_screenshot = os.path.join(ASSETS_DIR, "live_screenshot.png")
 
         diff_image = os.path.join(ASSETS_DIR, "difference.png")
-        comparison_report = os.path.join(REPORTS_DIR, "comparison_report.html")
+        comparison_report = os.path.join(REPORTS_DIR, "comparison_report1.html")
 
         # Path to "no significant difference" image in assets folder
         correct_image_path = os.path.join(ASSETS_DIR, "no-difference.png")
-
-        # Static username and password
-        username = "your_username"  
-        password = "your_password"  
+        
+        load_dotenv()
+        username = os.getenv("EMAIL")
+        password = os.getenv("PASSWORD")
 
         print("Capturing screenshots for Dev and Live environments...")
         capture_screenshot(dev_url, dev_screenshot, browser, login_required=True, username=username, password=password)
