@@ -1,0 +1,4708 @@
+{
+	"id": "ecb7a231-606b-48b4-b9bd-135ebf5290e6",
+	"name": "Magento_API_Collection",
+	"timestamp": "2025-04-14T13:31:09.108Z",
+	"collection_id": "36464846-b550c394-ed5a-431f-a874-e016ef6c7d10",
+	"folder_id": 0,
+	"environment_id": "36464846-84423fdd-e933-48bc-b086-15c448bec278",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-04-14T13:30:39.344Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "ca02fb57-2c9d-4769-bfa5-2846b57154a0",
+			"name": "/V1/store/storeViews",
+			"url": "https://www.replacebase.co.uk/V1/store/storeViews",
+			"time": 141,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				141
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "56f14107-33df-47a2-9390-9736fc00091c",
+			"name": "/V1/store/storeGroups",
+			"url": "https://www.replacebase.co.uk/V1/store/storeGroups",
+			"time": 41,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				41
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "aba4d9a3-84f6-458f-a30e-8ecf1a5c40e3",
+			"name": "/V1/store/websites",
+			"url": "https://www.replacebase.co.uk/V1/store/websites",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4fac49e1-f5bd-409b-a661-9a512817f885",
+			"name": "/V1/store/storeConfigs",
+			"url": "https://www.replacebase.co.uk/V1/store/storeConfigs",
+			"time": 73,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				73
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6bb3905b-eeae-4f88-a414-4a020836e294",
+			"name": "/V1/orders/:id",
+			"url": "https://www.replacebase.co.uk/V1/orders/:id",
+			"time": 47,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				47
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f1110a14-bcaa-473b-95c3-bb24131090b7",
+			"name": "/V1/orders",
+			"url": "https://www.replacebase.co.uk/V1/orders",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d68fca23-3f98-4f86-9d64-54201f018aae",
+			"name": "/V1/orders/:id/statuses",
+			"url": "https://www.replacebase.co.uk/V1/orders/:id/statuses",
+			"time": 49,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				49
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3d62199e-a6bf-4541-b08c-4719de2d29d1",
+			"name": "/V1/orders/:id/cancel",
+			"url": "https://www.replacebase.co.uk/V1/orders/:id/cancel",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "466f3890-d591-4bcb-9d75-3756c0e35e15",
+			"name": "/V1/orders/:id/emails",
+			"url": "https://www.replacebase.co.uk/V1/orders/:id/emails",
+			"time": 41,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				41
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9604877a-e1a6-4c5e-a4b2-e7b997d90e89",
+			"name": "/V1/orders/:id/hold",
+			"url": "https://www.replacebase.co.uk/V1/orders/:id/hold",
+			"time": 51,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				51
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5f7bfe5a-dba1-4bbc-bb56-c470081679d9",
+			"name": "/V1/orders/:id/unhold",
+			"url": "https://www.replacebase.co.uk/V1/orders/:id/unhold",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cef58be4-429c-4c88-9b89-0eb4763d51d1",
+			"name": "/V1/orders/:id/comments",
+			"url": "https://www.replacebase.co.uk/V1/orders/:id/comments",
+			"time": 47,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				47
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e2edef98-28cd-4ad2-969f-ef9adafe2d03",
+			"name": "/V1/orders/create",
+			"url": "https://www.replacebase.co.uk/V1/orders/create",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "246a3704-4287-4953-a691-7df56490e4b6",
+			"name": "/V1/orders/:parent_id",
+			"url": "https://www.replacebase.co.uk/V1/orders/:parent_id",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cdea5588-4438-434a-b7a3-c9f6a0913dbd",
+			"name": "/V1/orders/items/:id",
+			"url": "https://www.replacebase.co.uk/V1/orders/items/:id",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0ded5a56-4c3e-424c-a33a-e67a146d3830",
+			"name": "/V1/orders/items",
+			"url": "https://www.replacebase.co.uk/V1/orders/items",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8062e7d3-1e69-4d0f-aca9-3bc5da2cff15",
+			"name": "/V1/invoices/:id",
+			"url": "https://www.replacebase.co.uk/V1/invoices/:id",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c584c55f-bc7e-4d50-ae5e-acdf2f496150",
+			"name": "/V1/invoices",
+			"url": "https://www.replacebase.co.uk/V1/invoices",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0db2c885-c3cb-4458-b225-f72cdab6adbb",
+			"name": "/V1/invoices/:id/comments",
+			"url": "https://www.replacebase.co.uk/V1/invoices/:id/comments",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "70b1ebe1-7794-43b1-9959-3b0b1dcaa532",
+			"name": "/V1/invoices/:id/emails",
+			"url": "https://www.replacebase.co.uk/V1/invoices/:id/emails",
+			"time": 52,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				52
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1a178baa-2e9f-47d8-a317-6410527cf649",
+			"name": "/V1/invoices/:id/void",
+			"url": "https://www.replacebase.co.uk/V1/invoices/:id/void",
+			"time": 62,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				62
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "db47236e-ae9f-4ba4-b2e7-873c8449f548",
+			"name": "/V1/invoices/:id/capture",
+			"url": "https://www.replacebase.co.uk/V1/invoices/:id/capture",
+			"time": 48,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				48
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "43c07f78-394a-4138-b1e6-7210d52d3fab",
+			"name": "/V1/invoices/comments",
+			"url": "https://www.replacebase.co.uk/V1/invoices/comments",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "da62d193-5237-42fe-a7f9-384a456bc1a5",
+			"name": "/V1/invoice/:invoiceId/refund",
+			"url": "https://www.replacebase.co.uk/V1/invoice/:invoiceId/refund",
+			"time": 1764,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1764
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3eb252ef-163f-4e0c-b379-a43d5b7611de",
+			"name": "/V1/creditmemo/:id/comments",
+			"url": "https://www.replacebase.co.uk/V1/creditmemo/:id/comments",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "85f6f0be-9095-40e9-881e-0b5f824fa33c",
+			"name": "/V1/creditmemos",
+			"url": "https://www.replacebase.co.uk/V1/creditmemos",
+			"time": 44,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				44
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "133de68f-e81b-4955-8f79-586be5d46eca",
+			"name": "/V1/creditmemo/:id",
+			"url": "https://www.replacebase.co.uk/V1/creditmemo/:id",
+			"time": 46,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				46
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "faa66dcd-baf3-49a0-93a5-e7351a436332",
+			"name": "/V1/creditmemo/:id/emails",
+			"url": "https://www.replacebase.co.uk/V1/creditmemo/:id/emails",
+			"time": 45,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				45
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "89094e48-30e0-4c0a-ae29-056d51dd2022",
+			"name": "/V1/creditmemo/refund",
+			"url": "https://www.replacebase.co.uk/V1/creditmemo/refund",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "29ffb6b9-0539-4003-8140-87ba0f03c5a0",
+			"name": "/V1/order/:orderId/refund",
+			"url": "https://www.replacebase.co.uk/V1/order/:orderId/refund",
+			"time": 1288,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1288
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5ee526dd-ff63-4c49-bcb9-50755389bc00",
+			"name": "/V1/shipment/:id",
+			"url": "https://www.replacebase.co.uk/V1/shipment/:id",
+			"time": 32,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "28b21148-8714-4c40-b206-78205792488a",
+			"name": "/V1/shipments",
+			"url": "https://www.replacebase.co.uk/V1/shipments",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "01a1a5ad-ad51-468e-9c61-3bc6c6d51fcd",
+			"name": "/V1/shipment/:id/comments",
+			"url": "https://www.replacebase.co.uk/V1/shipment/:id/comments",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c9b2441e-3142-4151-bafb-28875ea9f214",
+			"name": "/V1/shipment/:id/emails",
+			"url": "https://www.replacebase.co.uk/V1/shipment/:id/emails",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ab12a9df-b034-4e31-99b0-5c8d0b04ee60",
+			"name": "/V1/shipment/track",
+			"url": "https://www.replacebase.co.uk/V1/shipment/track",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "841560c4-2df5-4242-a0e1-f2c955b410df",
+			"name": "/V1/shipment/track/:id",
+			"url": "https://www.replacebase.co.uk/V1/shipment/track/:id",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6f467bd0-1674-423a-be7e-6444f3597397",
+			"name": "/V1/shipment/:id/label",
+			"url": "https://www.replacebase.co.uk/V1/shipment/:id/label",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4098f515-5d85-4242-ac9d-29428c498e9d",
+			"name": "/V1/order/:orderId/ship",
+			"url": "https://www.replacebase.co.uk/V1/order/:orderId/ship",
+			"time": 1655,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1655
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9968f426-4482-4f90-8833-57a2aee6541d",
+			"name": "/V1/transactions/:id",
+			"url": "https://www.replacebase.co.uk/V1/transactions/:id",
+			"time": 45,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				45
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "68ab95cb-c2a1-482c-97af-c9ed6daf93f2",
+			"name": "/V1/transactions",
+			"url": "https://www.replacebase.co.uk/V1/transactions",
+			"time": 47,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				47
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f4d450f0-68f1-4b9a-aa3a-5bd31227cf8e",
+			"name": "/V1/order/:orderId/invoice",
+			"url": "https://www.replacebase.co.uk/V1/order/:orderId/invoice",
+			"time": 1791,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				1791
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b8969860-ef32-4b71-b77f-f50ef3b8eb49",
+			"name": "/V1/taxRates",
+			"url": "https://www.replacebase.co.uk/V1/taxRates",
+			"time": 46,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				46
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ae81d8a0-6e8b-4a66-b828-0cfdd167314b",
+			"name": "/V1/taxRates/:rateId",
+			"url": "https://www.replacebase.co.uk/V1/taxRates/:rateId",
+			"time": 47,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				47
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1af7c3a7-98a7-43d7-a889-d2f8b29f5b58",
+			"name": "/V1/taxRates/search",
+			"url": "https://www.replacebase.co.uk/V1/taxRates/search",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "10d8184c-3eac-48ee-93f6-574d1ae0753f",
+			"name": "/V1/taxRules",
+			"url": "https://www.replacebase.co.uk/V1/taxRules",
+			"time": 52,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				52
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2ce3f681-ebb9-4b61-acbb-e3d321debf68",
+			"name": "/V1/taxRules/:ruleId",
+			"url": "https://www.replacebase.co.uk/V1/taxRules/:ruleId",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dbf664f0-fd29-4fdd-b45f-003f8c2feaca",
+			"name": "/V1/taxRules/search",
+			"url": "https://www.replacebase.co.uk/V1/taxRules/search",
+			"time": 100,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				100
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fe1f4bcf-8fac-4734-95da-064a03bcc305",
+			"name": "/V1/taxClasses",
+			"url": "https://www.replacebase.co.uk/V1/taxClasses",
+			"time": 53,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				53
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "73edcda0-7341-4144-98ce-0e3aaac4ba40",
+			"name": "/V1/taxClasses/:taxClassId",
+			"url": "https://www.replacebase.co.uk/V1/taxClasses/:taxClassId",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "eeed133a-74fe-4eec-b449-4fb1d93d1b24",
+			"name": "/V1/taxClasses/:classId",
+			"url": "https://www.replacebase.co.uk/V1/taxClasses/:classId",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "dd489061-e035-4a33-8378-38d1036120d3",
+			"name": "/V1/taxClasses/search",
+			"url": "https://www.replacebase.co.uk/V1/taxClasses/search",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5b28961b-392e-489f-937d-e05ed855c76f",
+			"name": "/V1/bundle-products/:sku/links/:optionId",
+			"url": "https://www.replacebase.co.uk/V1/bundle-products/:sku/links/:optionId",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d42c2927-4d7d-485d-ba4a-e3abeb789f0f",
+			"name": "/V1/bundle-products/:sku/links/:id",
+			"url": "https://www.replacebase.co.uk/V1/bundle-products/:sku/links/:id",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6c0b0189-29b3-46fc-ab1a-29347ed9e14a",
+			"name": "/V1/bundle-products/:productSku/children",
+			"url": "https://www.replacebase.co.uk/V1/bundle-products/:productSku/children",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9734e1f4-ae9d-4d4b-a545-4abed4dd7aad",
+			"name": "/V1/bundle-products/:sku/options/:optionId/children/:childSku",
+			"url": "https://www.replacebase.co.uk/V1/bundle-products/:sku/options/:optionId/children/:childSku",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "52b810ce-3ac4-4ec2-bd4e-2857bcb4d94f",
+			"name": "/V1/bundle-products/:sku/options/all",
+			"url": "https://www.replacebase.co.uk/V1/bundle-products/:sku/options/all",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a02df62a-60c8-4230-ac93-174db048ae9a",
+			"name": "/V1/bundle-products/options/types",
+			"url": "https://www.replacebase.co.uk/V1/bundle-products/options/types",
+			"time": 41,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				41
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3ca5b009-c6d1-4eec-b7ea-2bfe0f32973e",
+			"name": "/V1/bundle-products/:sku/options/:optionId",
+			"url": "https://www.replacebase.co.uk/V1/bundle-products/:sku/options/:optionId",
+			"time": 41,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				41
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c4b28092-1835-4437-9d8b-b962dfd7fe96",
+			"name": "/V1/bundle-products/options/add",
+			"url": "https://www.replacebase.co.uk/V1/bundle-products/options/add",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6b97ccfa-294d-4c16-b624-edc2f5ece88e",
+			"name": "/V1/customers/:customerId/carts",
+			"url": "https://www.replacebase.co.uk/V1/customers/:customerId/carts",
+			"time": 50,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				50
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6ed82994-356b-445a-9a9b-1d1701e803f7",
+			"name": "/V1/eav/attribute-sets/list",
+			"url": "https://www.replacebase.co.uk/V1/eav/attribute-sets/list",
+			"time": 63,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				63
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2b85614b-7ebd-4759-8bdd-bfea8c9aa4d4",
+			"name": "/V1/eav/attribute-sets/:attributeSetId",
+			"url": "https://www.replacebase.co.uk/V1/eav/attribute-sets/:attributeSetId",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4e0dd095-8645-40b6-b118-6ce405c63b8f",
+			"name": "/V1/eav/attribute-sets",
+			"url": "https://www.replacebase.co.uk/V1/eav/attribute-sets",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "44cfcf69-7764-4e29-9d55-1ce9fd6d7f6d",
+			"name": "/V1/modules",
+			"url": "https://www.replacebase.co.uk/V1/modules",
+			"time": 46,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				46
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2d2f1455-9fb3-4777-a537-7cb796df894f",
+			"name": "/V1/directory/currency",
+			"url": "https://www.replacebase.co.uk/V1/directory/currency",
+			"time": 57,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				57
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6b7aea8e-7a65-447d-ab6c-ca25e2a26349",
+			"name": "/V1/directory/countries",
+			"url": "https://www.replacebase.co.uk/V1/directory/countries",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "75590fea-41c6-437a-93d8-f2c31efd26a5",
+			"name": "/V1/directory/countries/:countryId",
+			"url": "https://www.replacebase.co.uk/V1/directory/countries/:countryId",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b72305fd-460b-46de-ab56-9352995140f3",
+			"name": "/V1/bulk/:bulkUuid/detailed-status",
+			"url": "https://www.replacebase.co.uk/V1/bulk/:bulkUuid/detailed-status",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e4b42513-9a73-4d94-9d71-0cc2d27e84ea",
+			"name": "/V1/bulk/:bulkUuid/status",
+			"url": "https://www.replacebase.co.uk/V1/bulk/:bulkUuid/status",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ffee4911-76b6-44c5-ad62-3843fb35e1f3",
+			"name": "/V1/bulk/:bulkUuid/operation-status/:status",
+			"url": "https://www.replacebase.co.uk/V1/bulk/:bulkUuid/operation-status/:status",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "aac8f5b6-7e04-426a-a034-4bf1f06d1876",
+			"name": "/V1/bulk",
+			"url": "https://www.replacebase.co.uk/V1/bulk",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9e9e4513-7930-4f9c-847f-e3f5d81f9a7b",
+			"name": "/V1/products/:sku/downloadable-links",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/downloadable-links",
+			"time": 46,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				46
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "79516798-6142-4922-9e07-a9a66463b986",
+			"name": "/V1/products/:sku/downloadable-links/samples",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/downloadable-links/samples",
+			"time": 49,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				49
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7cc35f8f-9000-4795-835a-e35feae6e571",
+			"name": "/V1/products/:sku/downloadable-links/:id",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/downloadable-links/:id",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "240a7ad9-e003-41ac-9d05-200c6fd87430",
+			"name": "/V1/products/downloadable-links/:id",
+			"url": "https://www.replacebase.co.uk/V1/products/downloadable-links/:id",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "88305e9a-6910-44e6-8c02-b45b6bdd6dc3",
+			"name": "/V1/products/:sku/downloadable-links/samples/:id",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/downloadable-links/samples/:id",
+			"time": 55,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				55
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2fbbddee-7f7c-4515-bfd9-c88c46e57ebf",
+			"name": "/V1/products/downloadable-links/samples/:id",
+			"url": "https://www.replacebase.co.uk/V1/products/downloadable-links/samples/:id",
+			"time": 57,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				57
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e3ee844d-4fb9-492f-b1e7-df11bcb9b0b0",
+			"name": "/V1/products",
+			"url": "https://www.replacebase.co.uk/V1/products",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9491e37d-d281-4c65-81b0-eacb98f0cb8a",
+			"name": "/V1/products/:sku",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "12260e3f-5088-4166-9041-1fc9e3d005ea",
+			"name": "/V1/products/attributes/types",
+			"url": "https://www.replacebase.co.uk/V1/products/attributes/types",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c222095c-1e07-485d-9e06-62ac3dbb38ed",
+			"name": "/V1/products/attributes/:attributeCode",
+			"url": "https://www.replacebase.co.uk/V1/products/attributes/:attributeCode",
+			"time": 45,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				45
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "31629733-1463-4974-964f-fb82518d1c0c",
+			"name": "/V1/products/attributes",
+			"url": "https://www.replacebase.co.uk/V1/products/attributes",
+			"time": 80,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				80
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "125e1e2e-0dca-4ddb-88a8-5318c5d62c4a",
+			"name": "/V1/categories/attributes/:attributeCode",
+			"url": "https://www.replacebase.co.uk/V1/categories/attributes/:attributeCode",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d7d2db24-4bc0-4506-b844-123a6bedb4be",
+			"name": "/V1/categories/attributes",
+			"url": "https://www.replacebase.co.uk/V1/categories/attributes",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "59ad3c1e-4b31-4080-977c-287c1a7ac57e",
+			"name": "/V1/categories/attributes/:attributeCode/options",
+			"url": "https://www.replacebase.co.uk/V1/categories/attributes/:attributeCode/options",
+			"time": 45,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				45
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bbc8ba9b-9abf-4cfd-824c-26444c63c23c",
+			"name": "/V1/products/types",
+			"url": "https://www.replacebase.co.uk/V1/products/types",
+			"time": 45,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				45
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ecdcdc2d-42d9-43a0-bec7-33af1a06cd83",
+			"name": "/V1/products/attribute-sets/sets/list",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/sets/list",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "27671d97-bca9-410a-bd28-5c6bc252f9b4",
+			"name": "/V1/products/attribute-sets/:attributeSetId",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/:attributeSetId",
+			"time": 51,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				51
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cbf65de4-7a5e-4d2f-9a6d-793cf7aabdf5",
+			"name": "/V1/products/attribute-sets",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets",
+			"time": 41,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				41
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1d919f92-c9f1-41d7-afc4-67c2a35c6a12",
+			"name": "/V1/products/attribute-sets/:attributeSetId/attributes",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/:attributeSetId/attributes",
+			"time": 49,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				49
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a1936672-9e0e-4eae-b22c-daa517e8160c",
+			"name": "/V1/products/attribute-sets/attributes",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/attributes",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1cbb61e7-26cb-47e1-b841-942154e863cb",
+			"name": "/V1/products/attribute-sets/:attributeSetId/attributes/:attributeCode",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/:attributeSetId/attributes/:attributeCode",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "28827b11-97f9-434e-af7c-81c705dec9b3",
+			"name": "/V1/products/attribute-sets/groups/list",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/groups/list",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7d4f7a9d-5794-42d1-8d25-2ba4760e700d",
+			"name": "/V1/products/attribute-sets/groups",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/groups",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "21cf82df-0264-431c-b388-cd5299d944fc",
+			"name": "/V1/products/attribute-sets/:attributeSetId/groups",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/:attributeSetId/groups",
+			"time": 41,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				41
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "165101a3-a92b-4126-b191-494f6bdab4c2",
+			"name": "/V1/products/attribute-sets/groups/:groupId",
+			"url": "https://www.replacebase.co.uk/V1/products/attribute-sets/groups/:groupId",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0b9172a7-e8a0-499f-8e4e-1cc53f7b3ec5",
+			"name": "/V1/products/attributes/:attributeCode/options",
+			"url": "https://www.replacebase.co.uk/V1/products/attributes/:attributeCode/options",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6e82a4bd-e5c2-4460-b172-27c407cbbb66",
+			"name": "/V1/products/attributes/:attributeCode/options/:optionId",
+			"url": "https://www.replacebase.co.uk/V1/products/attributes/:attributeCode/options/:optionId",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5bf3277a-a14b-49f5-9601-4a29b260a212",
+			"name": "/V1/products/media/types/:attributeSetName",
+			"url": "https://www.replacebase.co.uk/V1/products/media/types/:attributeSetName",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "54643eaf-f127-4fc0-9800-f54c572780ca",
+			"name": "/V1/products/:sku/media/:entryId",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/media/:entryId",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a0732200-20d5-4d03-bc32-a55642b8ffec",
+			"name": "/V1/products/:sku/media",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/media",
+			"time": 53,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				53
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c5bc85d3-5abb-494d-8f0a-72e64db108c4",
+			"name": "/V1/products/:sku/group-prices/:customerGroupId/tiers",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/group-prices/:customerGroupId/tiers",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "defc2870-2020-4f77-a218-2d4e60cea461",
+			"name": "/V1/products/:sku/group-prices/:customerGroupId/tiers/:qty/price/:price",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/group-prices/:customerGroupId/tiers/:qty/price/:price",
+			"time": 46,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				46
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b5bacad1-5b16-4c1e-84c5-055d08ab7cc9",
+			"name": "/V1/products/:sku/group-prices/:customerGroupId/tiers/:qty",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/group-prices/:customerGroupId/tiers/:qty",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8b21885c-4a3f-4383-b30b-71d05dd29949",
+			"name": "/V1/products/tier-prices-information",
+			"url": "https://www.replacebase.co.uk/V1/products/tier-prices-information",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f87209aa-6afc-4603-9037-26f8083dea08",
+			"name": "/V1/products/tier-prices",
+			"url": "https://www.replacebase.co.uk/V1/products/tier-prices",
+			"time": 56,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				56
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a60b54d6-29c1-448a-b631-1191cb608331",
+			"name": "/V1/products/tier-prices-delete",
+			"url": "https://www.replacebase.co.uk/V1/products/tier-prices-delete",
+			"time": 83,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				83
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "09cdab3f-306f-4f4c-9212-e90fe4e763cd",
+			"name": "/V1/products/base-prices-information",
+			"url": "https://www.replacebase.co.uk/V1/products/base-prices-information",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d5afdd35-6fd1-47ed-be73-455a270018f7",
+			"name": "/V1/products/base-prices",
+			"url": "https://www.replacebase.co.uk/V1/products/base-prices",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bd0bb213-12b3-48a8-b3e5-888c9b0d9cad",
+			"name": "/V1/products/cost-information",
+			"url": "https://www.replacebase.co.uk/V1/products/cost-information",
+			"time": 51,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				51
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3b051a7c-91a1-431e-8106-845659d968ec",
+			"name": "/V1/products/cost",
+			"url": "https://www.replacebase.co.uk/V1/products/cost",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "38ec1058-b859-4385-83be-422efb35d8ac",
+			"name": "/V1/products/cost-delete",
+			"url": "https://www.replacebase.co.uk/V1/products/cost-delete",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e1334fc9-12fd-43a6-a4ba-99e0fab3b515",
+			"name": "/V1/products/special-price-information",
+			"url": "https://www.replacebase.co.uk/V1/products/special-price-information",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b4c8ebd0-c148-4c1d-a536-378081691c99",
+			"name": "/V1/products/special-price",
+			"url": "https://www.replacebase.co.uk/V1/products/special-price",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "705e5402-a0a8-4ea3-b7b6-0d23c417d4b4",
+			"name": "/V1/products/special-price-delete",
+			"url": "https://www.replacebase.co.uk/V1/products/special-price-delete",
+			"time": 69,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				69
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6d28771e-3483-4edf-94d3-dba9e2a979e0",
+			"name": "/V1/categories/:categoryId",
+			"url": "https://www.replacebase.co.uk/V1/categories/:categoryId",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5f61bf6b-d2a8-4b49-b2db-9e3f7446fc43",
+			"name": "/V1/categories",
+			"url": "https://www.replacebase.co.uk/V1/categories",
+			"time": 32,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "28368485-f9ab-4009-87b9-74fa52a5e33c",
+			"name": "/V1/categories/:categoryId/move",
+			"url": "https://www.replacebase.co.uk/V1/categories/:categoryId/move",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f76e6b11-6bd4-4152-a832-17e08d769ca1",
+			"name": "/V1/categories/list",
+			"url": "https://www.replacebase.co.uk/V1/categories/list",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2226cfef-d5b2-4622-98d3-baf4e95f427c",
+			"name": "/V1/products/options/types",
+			"url": "https://www.replacebase.co.uk/V1/products/options/types",
+			"time": 80,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				80
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "eb03f7ae-e2b7-4c73-930d-049d01cf9745",
+			"name": "/V1/products/:sku/options",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/options",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7544c689-5331-41e4-a39d-4feb40749e04",
+			"name": "/V1/products/:sku/options/:optionId",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/options/:optionId",
+			"time": 48,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				48
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "065b32a0-2eaa-481c-a4a3-9c44cf2f43e6",
+			"name": "/V1/products/options",
+			"url": "https://www.replacebase.co.uk/V1/products/options",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "908baf41-b360-4c7a-92f2-18ac7ed96979",
+			"name": "/V1/products/options/:optionId",
+			"url": "https://www.replacebase.co.uk/V1/products/options/:optionId",
+			"time": 50,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				50
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "020dfc31-93bf-40a1-ba3e-b27127f86446",
+			"name": "/V1/products/links/types",
+			"url": "https://www.replacebase.co.uk/V1/products/links/types",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4f288a8e-28f7-4859-a892-e0f0620333a2",
+			"name": "/V1/products/links/:type/attributes",
+			"url": "https://www.replacebase.co.uk/V1/products/links/:type/attributes",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6e3f6796-991a-4abd-8677-b0df148ef23c",
+			"name": "/V1/products/:sku/links/:type",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/links/:type",
+			"time": 51,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				51
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "06a5b63c-c0c2-4f0a-af39-2640984d765c",
+			"name": "/V1/products/:sku/links",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/links",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "265626b8-2a86-4c3e-92e1-af2965ad47d8",
+			"name": "/V1/products/:sku/links/:type/:linkedProductSku",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/links/:type/:linkedProductSku",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "89d3b949-58f7-4ab0-9849-6d8b4c5a5b6e",
+			"name": "/V1/categories/:categoryId/products",
+			"url": "https://www.replacebase.co.uk/V1/categories/:categoryId/products",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2e66e09f-0e64-4920-a56b-ffebeac5fe55",
+			"name": "/V1/categories/:categoryId/products/:sku",
+			"url": "https://www.replacebase.co.uk/V1/categories/:categoryId/products/:sku",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b804ac53-296e-496f-a24d-2a3b73d391d4",
+			"name": "/V1/products/:sku/websites",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/websites",
+			"time": 48,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				48
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b11ff3a1-0948-41a9-a38a-26843c92b187",
+			"name": "/V1/products/:sku/websites/:websiteId",
+			"url": "https://www.replacebase.co.uk/V1/products/:sku/websites/:websiteId",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "30555fce-d3c9-48bb-8c71-5d60df8969dc",
+			"name": "/V1/products-render-info",
+			"url": "https://www.replacebase.co.uk/V1/products-render-info",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2128ac90-f5a8-46f6-8b42-8d425c5e155d",
+			"name": "/V1/stockItems/:productSku",
+			"url": "https://www.replacebase.co.uk/V1/stockItems/:productSku",
+			"time": 70,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				70
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cfc4d03e-d015-4d98-af8a-de7c4449161d",
+			"name": "/V1/products/:productSku/stockItems/:itemId",
+			"url": "https://www.replacebase.co.uk/V1/products/:productSku/stockItems/:itemId",
+			"time": 60,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				60
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "75c2be83-b0ca-498c-851c-8a24ee1f8e43",
+			"name": "/V1/stockItems/lowStock/",
+			"url": "https://www.replacebase.co.uk/V1/stockItems/lowStock",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ce699d44-3c82-4a11-9896-58bd071bd6d8",
+			"name": "/V1/stockStatuses/:productSku",
+			"url": "https://www.replacebase.co.uk/V1/stockStatuses/:productSku",
+			"time": 32,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e276622b-0d18-4c76-bd5e-83c6ecdc3bc9",
+			"name": "/V1/integration/admin/token",
+			"url": "https://www.replacebase.co.uk/V1/integration/admin/token",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7f40ec6e-c49e-4297-b229-1a45bf2286c8",
+			"name": "/V1/integration/customer/token",
+			"url": "https://www.replacebase.co.uk/V1/integration/customer/token",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9d67de12-c1ca-43b4-b3c4-18749d05cdff",
+			"name": "/V1/integration/customer/revoke-customer-token",
+			"url": "https://www.replacebase.co.uk/V1/integration/customer/revoke-customer-token",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "35b555aa-e845-4087-9eb1-f671467bb776",
+			"name": "/V1/cmsPage/:pageId",
+			"url": "https://www.replacebase.co.uk/V1/cmsPage/:pageId",
+			"time": 53,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				53
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a94fdd1c-ba6c-4446-85e1-9d2b206280ea",
+			"name": "/V1/cmsPage/search",
+			"url": "https://www.replacebase.co.uk/V1/cmsPage/search",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "79f3eb9a-c765-4b3c-86ac-579f221f8850",
+			"name": "/V1/cmsPage",
+			"url": "https://www.replacebase.co.uk/V1/cmsPage",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "58e7ea34-cf8d-4885-93ec-c34c0c3559ce",
+			"name": "/V1/cmsBlock/:blockId",
+			"url": "https://www.replacebase.co.uk/V1/cmsBlock/:blockId",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4ca94f8a-cd9f-4358-965c-39a7f96f4aca",
+			"name": "/V1/cmsBlock/search",
+			"url": "https://www.replacebase.co.uk/V1/cmsBlock/search",
+			"time": 50,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				50
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "64edaa4f-dc83-4789-83fc-6eeffd25046b",
+			"name": "/V1/cmsBlock",
+			"url": "https://www.replacebase.co.uk/V1/cmsBlock",
+			"time": 56,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				56
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d4cfa289-404e-4532-8639-44515592a99c",
+			"name": "/V1/adobestock/asset/:id",
+			"url": "https://www.replacebase.co.uk/V1/adobestock/asset/:id",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cc07b6cb-6cee-4737-8e97-d2919b3529e2",
+			"name": "/V1/adobestock/asset/search",
+			"url": "https://www.replacebase.co.uk/V1/adobestock/asset/search",
+			"time": 115,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				115
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "af040e65-4b8b-45b9-9a7b-7799d139faf2",
+			"name": "/V1/adobestock/asset/list",
+			"url": "https://www.replacebase.co.uk/V1/adobestock/asset/list",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "66b19a14-f7d8-4d63-9b30-6426813184bb",
+			"name": "/V1/adobestock/search",
+			"url": "https://www.replacebase.co.uk/V1/adobestock/search",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f24ac22a-b0bd-4c14-8f86-35b928bb4d3c",
+			"name": "/V1/analytics/link",
+			"url": "https://www.replacebase.co.uk/V1/analytics/link",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c66788fd-bed0-4c78-b7d0-9dfe431dc512",
+			"name": "/V1/customerGroups/:id",
+			"url": "https://www.replacebase.co.uk/V1/customerGroups/:id",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bf8c71e4-3684-418a-be84-0d7496cdc9e2",
+			"name": "/V1/customerGroups/default/:storeId",
+			"url": "https://www.replacebase.co.uk/V1/customerGroups/default/:storeId",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bec19182-8486-49ef-ac1a-9050ec3a5643",
+			"name": "/V1/customerGroups/default",
+			"url": "https://www.replacebase.co.uk/V1/customerGroups/default",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "44e813ff-9889-42c2-859e-2af0a8b9a807",
+			"name": "/V1/customerGroups/:id/permissions",
+			"url": "https://www.replacebase.co.uk/V1/customerGroups/:id/permissions",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cef91a63-2232-4576-a467-34d2be3a51d5",
+			"name": "/V1/customerGroups/search",
+			"url": "https://www.replacebase.co.uk/V1/customerGroups/search",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "18269996-3996-4e2a-a63f-7238d232a03c",
+			"name": "/V1/customerGroups",
+			"url": "https://www.replacebase.co.uk/V1/customerGroups",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "22c26cb4-2dca-489f-8175-b1784fac0947",
+			"name": "/V1/attributeMetadata/customer/attribute/:attributeCode",
+			"url": "https://www.replacebase.co.uk/V1/attributeMetadata/customer/attribute/:attributeCode",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0c05d467-2fda-4ec6-953a-3b1cbb5670cc",
+			"name": "/V1/attributeMetadata/customer/form/:formCode",
+			"url": "https://www.replacebase.co.uk/V1/attributeMetadata/customer/form/:formCode",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ffebffdf-5c84-403b-9698-e08f12e31e13",
+			"name": "/V1/attributeMetadata/customer",
+			"url": "https://www.replacebase.co.uk/V1/attributeMetadata/customer",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "627e72cf-d3bf-4012-835a-0a3b5f51794a",
+			"name": "/V1/attributeMetadata/customer/custom",
+			"url": "https://www.replacebase.co.uk/V1/attributeMetadata/customer/custom",
+			"time": 32,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "43a010ca-67c0-4fc1-af84-fa1cc59bc660",
+			"name": "/V1/attributeMetadata/customerAddress/attribute/:attributeCode",
+			"url": "https://www.replacebase.co.uk/V1/attributeMetadata/customerAddress/attribute/:attributeCode",
+			"time": 74,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				74
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b3e43f00-8d86-489e-9291-59f0d6fea332",
+			"name": "/V1/attributeMetadata/customerAddress/form/:formCode",
+			"url": "https://www.replacebase.co.uk/V1/attributeMetadata/customerAddress/form/:formCode",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "cbac3c21-dafb-4d44-a756-900e306737ef",
+			"name": "/V1/attributeMetadata/customerAddress",
+			"url": "https://www.replacebase.co.uk/V1/attributeMetadata/customerAddress",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "250e3330-b904-422f-8270-eb209f542824",
+			"name": "/V1/attributeMetadata/customerAddress/custom",
+			"url": "https://www.replacebase.co.uk/V1/attributeMetadata/customerAddress/custom",
+			"time": 48,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				48
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "717f63c7-0d85-4d59-878f-e1ed0537c115",
+			"name": "/V1/customers/:customerId",
+			"url": "https://www.replacebase.co.uk/V1/customers/:customerId",
+			"time": 43,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "c19be843-7db6-4c4d-92e8-3ab2b5baff1c",
+			"name": "/V1/customers",
+			"url": "https://www.replacebase.co.uk/V1/customers",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "078f56ee-8592-478c-a826-3354afc20ab3",
+			"name": "/V1/customers/me",
+			"url": "https://www.replacebase.co.uk/V1/customers/me",
+			"time": 45,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				45
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fad0ad6f-5595-48dc-abeb-a382f6fbec1f",
+			"name": "/V1/customers/me/activate",
+			"url": "https://www.replacebase.co.uk/V1/customers/me/activate",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e85bca05-b3e8-4401-8b8a-13de999344ca",
+			"name": "/V1/customers/search",
+			"url": "https://www.replacebase.co.uk/V1/customers/search",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a1b90d45-78b1-435f-bffd-541a6b754dbd",
+			"name": "/V1/customers/:email/activate",
+			"url": "https://www.replacebase.co.uk/V1/customers/:email/activate",
+			"time": 87,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				87
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "95d57497-2522-4ad0-ac66-18cdc7f2c147",
+			"name": "/V1/customers/me/password",
+			"url": "https://www.replacebase.co.uk/V1/customers/me/password",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a77a5b5d-f535-40c9-be24-90467350c44e",
+			"name": "/V1/customers/:customerId/password/resetLinkToken/:resetPasswordLinkToken",
+			"url": "https://www.replacebase.co.uk/V1/customers/:customerId/password/resetLinkToken/:resetPasswordLinkToken",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "47e987d6-8302-4e9a-b35f-7658b9dc4104",
+			"name": "/V1/customers/password",
+			"url": "https://www.replacebase.co.uk/V1/customers/password",
+			"time": 48,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				48
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4deda1b1-79a3-43f4-8dc1-fb984a6e534d",
+			"name": "/V1/customers/resetPassword",
+			"url": "https://www.replacebase.co.uk/V1/customers/resetPassword",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6a846c53-90db-403e-90a9-8bf0ee04da63",
+			"name": "/V1/customers/:customerId/confirm",
+			"url": "https://www.replacebase.co.uk/V1/customers/:customerId/confirm",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1b961435-f897-4741-a2fc-8161c4185244",
+			"name": "/V1/customers/confirm",
+			"url": "https://www.replacebase.co.uk/V1/customers/confirm",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "faad0806-6ec0-4977-acdf-d4e12aff7bed",
+			"name": "/V1/customers/validate",
+			"url": "https://www.replacebase.co.uk/V1/customers/validate",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "a5b55623-eeff-4d6b-bf6e-03e1a2f0fe6b",
+			"name": "/V1/customers/:customerId/permissions/readonly",
+			"url": "https://www.replacebase.co.uk/V1/customers/:customerId/permissions/readonly",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4d86bd5d-e004-4b4c-95eb-3bd3a48eafeb",
+			"name": "/V1/customers/isEmailAvailable",
+			"url": "https://www.replacebase.co.uk/V1/customers/isEmailAvailable",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5164bbcd-1c59-4231-a1d2-3cbd09ce4e0c",
+			"name": "/V1/customers/addresses/:addressId",
+			"url": "https://www.replacebase.co.uk/V1/customers/addresses/:addressId",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "839afffe-0706-40f8-9cf1-04da0e3bf8f6",
+			"name": "/V1/customers/me/billingAddress",
+			"url": "https://www.replacebase.co.uk/V1/customers/me/billingAddress",
+			"time": 46,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				46
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ded765d8-8024-4226-a5f9-3311ca887691",
+			"name": "/V1/customers/:customerId/billingAddress",
+			"url": "https://www.replacebase.co.uk/V1/customers/:customerId/billingAddress",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9e24a5dd-5db8-4e83-9c21-2cbe9f633a45",
+			"name": "/V1/customers/me/shippingAddress",
+			"url": "https://www.replacebase.co.uk/V1/customers/me/shippingAddress",
+			"time": 32,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1a53bdd8-ec64-41ad-a427-369209537200",
+			"name": "/V1/customers/:customerId/shippingAddress",
+			"url": "https://www.replacebase.co.uk/V1/customers/:customerId/shippingAddress",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "ea43810d-0483-4e2b-a6f4-9e6b9cd154af",
+			"name": "/V1/addresses/:addressId",
+			"url": "https://www.replacebase.co.uk/V1/addresses/:addressId",
+			"time": 33,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				33
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f551729e-c6f7-4684-b6b0-206a536fa22f",
+			"name": "/V1/sharedCatalog/:sharedCatalogId",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:sharedCatalogId",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8048ff7d-b437-48ec-871f-606bea1d250a",
+			"name": "/V1/sharedCatalog",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog",
+			"time": 44,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				44
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "fc755cc2-56e8-4bdc-9206-ffae379cf4c8",
+			"name": "/V1/sharedCatalog/:sharedCatalogId/companies",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:sharedCatalogId/companies",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3f1295dd-259b-414c-af03-6bb32e117906",
+			"name": "/V1/sharedCatalog/:sharedCatalogId/assignCompanies",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:sharedCatalogId/assignCompanies",
+			"time": 31,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				31
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b39681ba-bf2a-441c-9d59-091fc0edb734",
+			"name": "/V1/sharedCatalog/:sharedCatalogId/unassignCompanies",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:sharedCatalogId/unassignCompanies",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f08d4557-182a-4b9b-bea0-0704a47dd586",
+			"name": "/V1/sharedCatalog/:id/products",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:id/products",
+			"time": 46,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				46
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0c556a7e-e8ae-49d5-a91b-3f0e9437e5cb",
+			"name": "/V1/sharedCatalog/:id/assignProducts",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:id/assignProducts",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0d841541-e496-4507-9da1-f3513ab2bf39",
+			"name": "/V1/sharedCatalog/:id/unassignProducts",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:id/unassignProducts",
+			"time": 35,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				35
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d4de70eb-86f3-4f91-991a-08d1da426b8f",
+			"name": "/V1/sharedCatalog/:id/categories",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:id/categories",
+			"time": 42,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				42
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "035ed217-2f37-41af-bc32-14e19e769235",
+			"name": "/V1/sharedCatalog/:id/assignCategories",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:id/assignCategories",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4007ca4a-fa29-4e6d-a15e-12b807bfe92d",
+			"name": "/V1/sharedCatalog/:id/unassignCategories",
+			"url": "https://www.replacebase.co.uk/V1/sharedCatalog/:id/unassignCategories",
+			"time": 40,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				40
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3305f0e5-2450-492c-ade2-f5427d426bc7",
+			"name": "/V1/company/:companyId",
+			"url": "https://www.replacebase.co.uk/V1/company/:companyId",
+			"time": 56,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				56
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2b409c05-ea08-4aee-9061-0fbaf251047d",
+			"name": "/V1/team",
+			"url": "https://www.replacebase.co.uk/V1/team",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5b77d8a5-ccdb-4c24-98a3-ff13155e5a97",
+			"name": "/V1/salesRules/:ruleId",
+			"url": "https://www.replacebase.co.uk/V1/salesRules/:ruleId",
+			"time": 59,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				59
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "151b86b2-d6db-4fa2-823b-c1c4b73ca5dd",
+			"name": "/V1/salesRules/search",
+			"url": "https://www.replacebase.co.uk/V1/salesRules/search",
+			"time": 37,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				37
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "77936629-1cc0-40af-aefb-f4179320abc3",
+			"name": "/V1/salesRules",
+			"url": "https://www.replacebase.co.uk/V1/salesRules",
+			"time": 49,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				49
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1f787d73-df65-4051-9feb-2dc413255c03",
+			"name": "/V1/coupons/:couponId",
+			"url": "https://www.replacebase.co.uk/V1/coupons/:couponId",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b37ea5e6-a808-4610-a077-2bc289317c5a",
+			"name": "/V1/coupons/search",
+			"url": "https://www.replacebase.co.uk/V1/coupons/search",
+			"time": 45,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				45
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9124e043-233c-4885-a7df-37fbc9518f8f",
+			"name": "/V1/coupons",
+			"url": "https://www.replacebase.co.uk/V1/coupons",
+			"time": 47,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				47
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "838f7fa9-20d6-40db-a1a4-2d505c742847",
+			"name": "/V1/coupons/generate",
+			"url": "https://www.replacebase.co.uk/V1/coupons/generate",
+			"time": 32,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				32
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e4372a32-7718-41b3-afce-353df69a6b31",
+			"name": "/V1/coupons/deleteByIds",
+			"url": "https://www.replacebase.co.uk/V1/coupons/deleteByIds",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "26e1be95-5625-4eb4-9640-8a4c1fa01049",
+			"name": "/V1/coupons/deleteByCodes",
+			"url": "https://www.replacebase.co.uk/V1/coupons/deleteByCodes",
+			"time": 41,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				41
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6e0a66aa-cb59-4297-8c47-be2d67b0aac6",
+			"name": "/V1/configurable-products/:sku/children",
+			"url": "https://www.replacebase.co.uk/V1/configurable-products/:sku/children",
+			"time": 38,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				38
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "315cf474-ddc8-45c6-9843-130978dc0b14",
+			"name": "/V1/search",
+			"url": "https://www.replacebase.co.uk/V1/search",
+			"time": 36,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "49e769d5-b73f-4c63-8114-6974135f0d72",
+			"name": "/V1/tfa/installed-providers",
+			"url": "https://www.replacebase.co.uk/V1/tfa/installed-providers",
+			"time": 39,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				39
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "8f6d4f6b-a24f-4b36-92f5-b28a803fea7d",
+			"name": "/V1/tfa/forced-providers",
+			"url": "https://www.replacebase.co.uk/V1/tfa/forced-providers",
+			"time": 34,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				34
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 15503,
+	"collection": {
+		"requests": [
+			{
+				"id": "ca02fb57-2c9d-4769-bfa5-2846b57154a0",
+				"method": "GET"
+			},
+			{
+				"id": "56f14107-33df-47a2-9390-9736fc00091c",
+				"method": "GET"
+			},
+			{
+				"id": "aba4d9a3-84f6-458f-a30e-8ecf1a5c40e3",
+				"method": "GET"
+			},
+			{
+				"id": "4fac49e1-f5bd-409b-a661-9a512817f885",
+				"method": "GET"
+			},
+			{
+				"id": "6bb3905b-eeae-4f88-a414-4a020836e294",
+				"method": "GET"
+			},
+			{
+				"id": "f1110a14-bcaa-473b-95c3-bb24131090b7",
+				"method": "GET"
+			},
+			{
+				"id": "d68fca23-3f98-4f86-9d64-54201f018aae",
+				"method": "GET"
+			},
+			{
+				"id": "3d62199e-a6bf-4541-b08c-4719de2d29d1",
+				"method": "GET"
+			},
+			{
+				"id": "466f3890-d591-4bcb-9d75-3756c0e35e15",
+				"method": "GET"
+			},
+			{
+				"id": "9604877a-e1a6-4c5e-a4b2-e7b997d90e89",
+				"method": "GET"
+			},
+			{
+				"id": "5f7bfe5a-dba1-4bbc-bb56-c470081679d9",
+				"method": "GET"
+			},
+			{
+				"id": "cef58be4-429c-4c88-9b89-0eb4763d51d1",
+				"method": "GET"
+			},
+			{
+				"id": "e2edef98-28cd-4ad2-969f-ef9adafe2d03",
+				"method": "GET"
+			},
+			{
+				"id": "246a3704-4287-4953-a691-7df56490e4b6",
+				"method": "GET"
+			},
+			{
+				"id": "cdea5588-4438-434a-b7a3-c9f6a0913dbd",
+				"method": "GET"
+			},
+			{
+				"id": "0ded5a56-4c3e-424c-a33a-e67a146d3830",
+				"method": "GET"
+			},
+			{
+				"id": "8062e7d3-1e69-4d0f-aca9-3bc5da2cff15",
+				"method": "GET"
+			},
+			{
+				"id": "c584c55f-bc7e-4d50-ae5e-acdf2f496150",
+				"method": "GET"
+			},
+			{
+				"id": "0db2c885-c3cb-4458-b225-f72cdab6adbb",
+				"method": "GET"
+			},
+			{
+				"id": "70b1ebe1-7794-43b1-9959-3b0b1dcaa532",
+				"method": "GET"
+			},
+			{
+				"id": "1a178baa-2e9f-47d8-a317-6410527cf649",
+				"method": "GET"
+			},
+			{
+				"id": "db47236e-ae9f-4ba4-b2e7-873c8449f548",
+				"method": "GET"
+			},
+			{
+				"id": "43c07f78-394a-4138-b1e6-7210d52d3fab",
+				"method": "GET"
+			},
+			{
+				"id": "da62d193-5237-42fe-a7f9-384a456bc1a5",
+				"method": "GET"
+			},
+			{
+				"id": "3eb252ef-163f-4e0c-b379-a43d5b7611de",
+				"method": "GET"
+			},
+			{
+				"id": "85f6f0be-9095-40e9-881e-0b5f824fa33c",
+				"method": "GET"
+			},
+			{
+				"id": "133de68f-e81b-4955-8f79-586be5d46eca",
+				"method": "GET"
+			},
+			{
+				"id": "faa66dcd-baf3-49a0-93a5-e7351a436332",
+				"method": "GET"
+			},
+			{
+				"id": "89094e48-30e0-4c0a-ae29-056d51dd2022",
+				"method": "GET"
+			},
+			{
+				"id": "29ffb6b9-0539-4003-8140-87ba0f03c5a0",
+				"method": "GET"
+			},
+			{
+				"id": "5ee526dd-ff63-4c49-bcb9-50755389bc00",
+				"method": "GET"
+			},
+			{
+				"id": "28b21148-8714-4c40-b206-78205792488a",
+				"method": "GET"
+			},
+			{
+				"id": "01a1a5ad-ad51-468e-9c61-3bc6c6d51fcd",
+				"method": "GET"
+			},
+			{
+				"id": "c9b2441e-3142-4151-bafb-28875ea9f214",
+				"method": "GET"
+			},
+			{
+				"id": "ab12a9df-b034-4e31-99b0-5c8d0b04ee60",
+				"method": "GET"
+			},
+			{
+				"id": "841560c4-2df5-4242-a0e1-f2c955b410df",
+				"method": "GET"
+			},
+			{
+				"id": "6f467bd0-1674-423a-be7e-6444f3597397",
+				"method": "GET"
+			},
+			{
+				"id": "4098f515-5d85-4242-ac9d-29428c498e9d",
+				"method": "GET"
+			},
+			{
+				"id": "9968f426-4482-4f90-8833-57a2aee6541d",
+				"method": "GET"
+			},
+			{
+				"id": "68ab95cb-c2a1-482c-97af-c9ed6daf93f2",
+				"method": "GET"
+			},
+			{
+				"id": "f4d450f0-68f1-4b9a-aa3a-5bd31227cf8e",
+				"method": "GET"
+			},
+			{
+				"id": "b8969860-ef32-4b71-b77f-f50ef3b8eb49",
+				"method": "GET"
+			},
+			{
+				"id": "ae81d8a0-6e8b-4a66-b828-0cfdd167314b",
+				"method": "GET"
+			},
+			{
+				"id": "1af7c3a7-98a7-43d7-a889-d2f8b29f5b58",
+				"method": "GET"
+			},
+			{
+				"id": "10d8184c-3eac-48ee-93f6-574d1ae0753f",
+				"method": "GET"
+			},
+			{
+				"id": "2ce3f681-ebb9-4b61-acbb-e3d321debf68",
+				"method": "GET"
+			},
+			{
+				"id": "dbf664f0-fd29-4fdd-b45f-003f8c2feaca",
+				"method": "GET"
+			},
+			{
+				"id": "fe1f4bcf-8fac-4734-95da-064a03bcc305",
+				"method": "GET"
+			},
+			{
+				"id": "73edcda0-7341-4144-98ce-0e3aaac4ba40",
+				"method": "GET"
+			},
+			{
+				"id": "eeed133a-74fe-4eec-b449-4fb1d93d1b24",
+				"method": "GET"
+			},
+			{
+				"id": "dd489061-e035-4a33-8378-38d1036120d3",
+				"method": "GET"
+			},
+			{
+				"id": "5b28961b-392e-489f-937d-e05ed855c76f",
+				"method": "GET"
+			},
+			{
+				"id": "d42c2927-4d7d-485d-ba4a-e3abeb789f0f",
+				"method": "GET"
+			},
+			{
+				"id": "6c0b0189-29b3-46fc-ab1a-29347ed9e14a",
+				"method": "GET"
+			},
+			{
+				"id": "9734e1f4-ae9d-4d4b-a545-4abed4dd7aad",
+				"method": "GET"
+			},
+			{
+				"id": "52b810ce-3ac4-4ec2-bd4e-2857bcb4d94f",
+				"method": "GET"
+			},
+			{
+				"id": "a02df62a-60c8-4230-ac93-174db048ae9a",
+				"method": "GET"
+			},
+			{
+				"id": "3ca5b009-c6d1-4eec-b7ea-2bfe0f32973e",
+				"method": "GET"
+			},
+			{
+				"id": "c4b28092-1835-4437-9d8b-b962dfd7fe96",
+				"method": "GET"
+			},
+			{
+				"id": "6b97ccfa-294d-4c16-b624-edc2f5ece88e",
+				"method": "GET"
+			},
+			{
+				"id": "6ed82994-356b-445a-9a9b-1d1701e803f7",
+				"method": "GET"
+			},
+			{
+				"id": "2b85614b-7ebd-4759-8bdd-bfea8c9aa4d4",
+				"method": "GET"
+			},
+			{
+				"id": "4e0dd095-8645-40b6-b118-6ce405c63b8f",
+				"method": "GET"
+			},
+			{
+				"id": "44cfcf69-7764-4e29-9d55-1ce9fd6d7f6d",
+				"method": "GET"
+			},
+			{
+				"id": "2d2f1455-9fb3-4777-a537-7cb796df894f",
+				"method": "GET"
+			},
+			{
+				"id": "6b7aea8e-7a65-447d-ab6c-ca25e2a26349",
+				"method": "GET"
+			},
+			{
+				"id": "75590fea-41c6-437a-93d8-f2c31efd26a5",
+				"method": "GET"
+			},
+			{
+				"id": "b72305fd-460b-46de-ab56-9352995140f3",
+				"method": "GET"
+			},
+			{
+				"id": "e4b42513-9a73-4d94-9d71-0cc2d27e84ea",
+				"method": "GET"
+			},
+			{
+				"id": "ffee4911-76b6-44c5-ad62-3843fb35e1f3",
+				"method": "GET"
+			},
+			{
+				"id": "aac8f5b6-7e04-426a-a034-4bf1f06d1876",
+				"method": "GET"
+			},
+			{
+				"id": "9e9e4513-7930-4f9c-847f-e3f5d81f9a7b",
+				"method": "GET"
+			},
+			{
+				"id": "79516798-6142-4922-9e07-a9a66463b986",
+				"method": "GET"
+			},
+			{
+				"id": "7cc35f8f-9000-4795-835a-e35feae6e571",
+				"method": "GET"
+			},
+			{
+				"id": "240a7ad9-e003-41ac-9d05-200c6fd87430",
+				"method": "GET"
+			},
+			{
+				"id": "88305e9a-6910-44e6-8c02-b45b6bdd6dc3",
+				"method": "GET"
+			},
+			{
+				"id": "2fbbddee-7f7c-4515-bfd9-c88c46e57ebf",
+				"method": "GET"
+			},
+			{
+				"id": "e3ee844d-4fb9-492f-b1e7-df11bcb9b0b0",
+				"method": "GET"
+			},
+			{
+				"id": "9491e37d-d281-4c65-81b0-eacb98f0cb8a",
+				"method": "GET"
+			},
+			{
+				"id": "12260e3f-5088-4166-9041-1fc9e3d005ea",
+				"method": "GET"
+			},
+			{
+				"id": "c222095c-1e07-485d-9e06-62ac3dbb38ed",
+				"method": "GET"
+			},
+			{
+				"id": "31629733-1463-4974-964f-fb82518d1c0c",
+				"method": "GET"
+			},
+			{
+				"id": "125e1e2e-0dca-4ddb-88a8-5318c5d62c4a",
+				"method": "GET"
+			},
+			{
+				"id": "d7d2db24-4bc0-4506-b844-123a6bedb4be",
+				"method": "GET"
+			},
+			{
+				"id": "59ad3c1e-4b31-4080-977c-287c1a7ac57e",
+				"method": "GET"
+			},
+			{
+				"id": "bbc8ba9b-9abf-4cfd-824c-26444c63c23c",
+				"method": "GET"
+			},
+			{
+				"id": "ecdcdc2d-42d9-43a0-bec7-33af1a06cd83",
+				"method": "GET"
+			},
+			{
+				"id": "27671d97-bca9-410a-bd28-5c6bc252f9b4",
+				"method": "GET"
+			},
+			{
+				"id": "cbf65de4-7a5e-4d2f-9a6d-793cf7aabdf5",
+				"method": "GET"
+			},
+			{
+				"id": "1d919f92-c9f1-41d7-afc4-67c2a35c6a12",
+				"method": "GET"
+			},
+			{
+				"id": "a1936672-9e0e-4eae-b22c-daa517e8160c",
+				"method": "GET"
+			},
+			{
+				"id": "1cbb61e7-26cb-47e1-b841-942154e863cb",
+				"method": "GET"
+			},
+			{
+				"id": "28827b11-97f9-434e-af7c-81c705dec9b3",
+				"method": "GET"
+			},
+			{
+				"id": "7d4f7a9d-5794-42d1-8d25-2ba4760e700d",
+				"method": "GET"
+			},
+			{
+				"id": "21cf82df-0264-431c-b388-cd5299d944fc",
+				"method": "GET"
+			},
+			{
+				"id": "165101a3-a92b-4126-b191-494f6bdab4c2",
+				"method": "GET"
+			},
+			{
+				"id": "0b9172a7-e8a0-499f-8e4e-1cc53f7b3ec5",
+				"method": "GET"
+			},
+			{
+				"id": "6e82a4bd-e5c2-4460-b172-27c407cbbb66",
+				"method": "GET"
+			},
+			{
+				"id": "5bf3277a-a14b-49f5-9601-4a29b260a212",
+				"method": "GET"
+			},
+			{
+				"id": "54643eaf-f127-4fc0-9800-f54c572780ca",
+				"method": "GET"
+			},
+			{
+				"id": "a0732200-20d5-4d03-bc32-a55642b8ffec",
+				"method": "GET"
+			},
+			{
+				"id": "c5bc85d3-5abb-494d-8f0a-72e64db108c4",
+				"method": "GET"
+			},
+			{
+				"id": "defc2870-2020-4f77-a218-2d4e60cea461",
+				"method": "GET"
+			},
+			{
+				"id": "b5bacad1-5b16-4c1e-84c5-055d08ab7cc9",
+				"method": "GET"
+			},
+			{
+				"id": "8b21885c-4a3f-4383-b30b-71d05dd29949",
+				"method": "GET"
+			},
+			{
+				"id": "f87209aa-6afc-4603-9037-26f8083dea08",
+				"method": "GET"
+			},
+			{
+				"id": "a60b54d6-29c1-448a-b631-1191cb608331",
+				"method": "GET"
+			},
+			{
+				"id": "09cdab3f-306f-4f4c-9212-e90fe4e763cd",
+				"method": "GET"
+			},
+			{
+				"id": "d5afdd35-6fd1-47ed-be73-455a270018f7",
+				"method": "GET"
+			},
+			{
+				"id": "bd0bb213-12b3-48a8-b3e5-888c9b0d9cad",
+				"method": "GET"
+			},
+			{
+				"id": "3b051a7c-91a1-431e-8106-845659d968ec",
+				"method": "GET"
+			},
+			{
+				"id": "38ec1058-b859-4385-83be-422efb35d8ac",
+				"method": "GET"
+			},
+			{
+				"id": "e1334fc9-12fd-43a6-a4ba-99e0fab3b515",
+				"method": "GET"
+			},
+			{
+				"id": "b4c8ebd0-c148-4c1d-a536-378081691c99",
+				"method": "GET"
+			},
+			{
+				"id": "705e5402-a0a8-4ea3-b7b6-0d23c417d4b4",
+				"method": "GET"
+			},
+			{
+				"id": "6d28771e-3483-4edf-94d3-dba9e2a979e0",
+				"method": "GET"
+			},
+			{
+				"id": "5f61bf6b-d2a8-4b49-b2db-9e3f7446fc43",
+				"method": "GET"
+			},
+			{
+				"id": "28368485-f9ab-4009-87b9-74fa52a5e33c",
+				"method": "GET"
+			},
+			{
+				"id": "f76e6b11-6bd4-4152-a832-17e08d769ca1",
+				"method": "GET"
+			},
+			{
+				"id": "2226cfef-d5b2-4622-98d3-baf4e95f427c",
+				"method": "GET"
+			},
+			{
+				"id": "eb03f7ae-e2b7-4c73-930d-049d01cf9745",
+				"method": "GET"
+			},
+			{
+				"id": "7544c689-5331-41e4-a39d-4feb40749e04",
+				"method": "GET"
+			},
+			{
+				"id": "065b32a0-2eaa-481c-a4a3-9c44cf2f43e6",
+				"method": "GET"
+			},
+			{
+				"id": "908baf41-b360-4c7a-92f2-18ac7ed96979",
+				"method": "GET"
+			},
+			{
+				"id": "020dfc31-93bf-40a1-ba3e-b27127f86446",
+				"method": "GET"
+			},
+			{
+				"id": "4f288a8e-28f7-4859-a892-e0f0620333a2",
+				"method": "GET"
+			},
+			{
+				"id": "6e3f6796-991a-4abd-8677-b0df148ef23c",
+				"method": "GET"
+			},
+			{
+				"id": "06a5b63c-c0c2-4f0a-af39-2640984d765c",
+				"method": "GET"
+			},
+			{
+				"id": "265626b8-2a86-4c3e-92e1-af2965ad47d8",
+				"method": "GET"
+			},
+			{
+				"id": "89d3b949-58f7-4ab0-9849-6d8b4c5a5b6e",
+				"method": "GET"
+			},
+			{
+				"id": "2e66e09f-0e64-4920-a56b-ffebeac5fe55",
+				"method": "GET"
+			},
+			{
+				"id": "b804ac53-296e-496f-a24d-2a3b73d391d4",
+				"method": "GET"
+			},
+			{
+				"id": "b11ff3a1-0948-41a9-a38a-26843c92b187",
+				"method": "GET"
+			},
+			{
+				"id": "30555fce-d3c9-48bb-8c71-5d60df8969dc",
+				"method": "GET"
+			},
+			{
+				"id": "2128ac90-f5a8-46f6-8b42-8d425c5e155d",
+				"method": "GET"
+			},
+			{
+				"id": "cfc4d03e-d015-4d98-af8a-de7c4449161d",
+				"method": "GET"
+			},
+			{
+				"id": "75c2be83-b0ca-498c-851c-8a24ee1f8e43",
+				"method": "GET"
+			},
+			{
+				"id": "ce699d44-3c82-4a11-9896-58bd071bd6d8",
+				"method": "GET"
+			},
+			{
+				"id": "e276622b-0d18-4c76-bd5e-83c6ecdc3bc9",
+				"method": "GET"
+			},
+			{
+				"id": "7f40ec6e-c49e-4297-b229-1a45bf2286c8",
+				"method": "GET"
+			},
+			{
+				"id": "9d67de12-c1ca-43b4-b3c4-18749d05cdff",
+				"method": "GET"
+			},
+			{
+				"id": "35b555aa-e845-4087-9eb1-f671467bb776",
+				"method": "GET"
+			},
+			{
+				"id": "a94fdd1c-ba6c-4446-85e1-9d2b206280ea",
+				"method": "GET"
+			},
+			{
+				"id": "79f3eb9a-c765-4b3c-86ac-579f221f8850",
+				"method": "GET"
+			},
+			{
+				"id": "58e7ea34-cf8d-4885-93ec-c34c0c3559ce",
+				"method": "GET"
+			},
+			{
+				"id": "4ca94f8a-cd9f-4358-965c-39a7f96f4aca",
+				"method": "GET"
+			},
+			{
+				"id": "64edaa4f-dc83-4789-83fc-6eeffd25046b",
+				"method": "GET"
+			},
+			{
+				"id": "d4cfa289-404e-4532-8639-44515592a99c",
+				"method": "GET"
+			},
+			{
+				"id": "cc07b6cb-6cee-4737-8e97-d2919b3529e2",
+				"method": "GET"
+			},
+			{
+				"id": "af040e65-4b8b-45b9-9a7b-7799d139faf2",
+				"method": "GET"
+			},
+			{
+				"id": "66b19a14-f7d8-4d63-9b30-6426813184bb",
+				"method": "GET"
+			},
+			{
+				"id": "f24ac22a-b0bd-4c14-8f86-35b928bb4d3c",
+				"method": "GET"
+			},
+			{
+				"id": "c66788fd-bed0-4c78-b7d0-9dfe431dc512",
+				"method": "GET"
+			},
+			{
+				"id": "bf8c71e4-3684-418a-be84-0d7496cdc9e2",
+				"method": "GET"
+			},
+			{
+				"id": "bec19182-8486-49ef-ac1a-9050ec3a5643",
+				"method": "GET"
+			},
+			{
+				"id": "44e813ff-9889-42c2-859e-2af0a8b9a807",
+				"method": "GET"
+			},
+			{
+				"id": "cef91a63-2232-4576-a467-34d2be3a51d5",
+				"method": "GET"
+			},
+			{
+				"id": "18269996-3996-4e2a-a63f-7238d232a03c",
+				"method": "GET"
+			},
+			{
+				"id": "22c26cb4-2dca-489f-8175-b1784fac0947",
+				"method": "GET"
+			},
+			{
+				"id": "0c05d467-2fda-4ec6-953a-3b1cbb5670cc",
+				"method": "GET"
+			},
+			{
+				"id": "ffebffdf-5c84-403b-9698-e08f12e31e13",
+				"method": "GET"
+			},
+			{
+				"id": "627e72cf-d3bf-4012-835a-0a3b5f51794a",
+				"method": "GET"
+			},
+			{
+				"id": "43a010ca-67c0-4fc1-af84-fa1cc59bc660",
+				"method": "GET"
+			},
+			{
+				"id": "b3e43f00-8d86-489e-9291-59f0d6fea332",
+				"method": "GET"
+			},
+			{
+				"id": "cbac3c21-dafb-4d44-a756-900e306737ef",
+				"method": "GET"
+			},
+			{
+				"id": "250e3330-b904-422f-8270-eb209f542824",
+				"method": "GET"
+			},
+			{
+				"id": "717f63c7-0d85-4d59-878f-e1ed0537c115",
+				"method": "GET"
+			},
+			{
+				"id": "c19be843-7db6-4c4d-92e8-3ab2b5baff1c",
+				"method": "GET"
+			},
+			{
+				"id": "078f56ee-8592-478c-a826-3354afc20ab3",
+				"method": "GET"
+			},
+			{
+				"id": "fad0ad6f-5595-48dc-abeb-a382f6fbec1f",
+				"method": "GET"
+			},
+			{
+				"id": "e85bca05-b3e8-4401-8b8a-13de999344ca",
+				"method": "GET"
+			},
+			{
+				"id": "a1b90d45-78b1-435f-bffd-541a6b754dbd",
+				"method": "GET"
+			},
+			{
+				"id": "95d57497-2522-4ad0-ac66-18cdc7f2c147",
+				"method": "GET"
+			},
+			{
+				"id": "a77a5b5d-f535-40c9-be24-90467350c44e",
+				"method": "GET"
+			},
+			{
+				"id": "47e987d6-8302-4e9a-b35f-7658b9dc4104",
+				"method": "GET"
+			},
+			{
+				"id": "4deda1b1-79a3-43f4-8dc1-fb984a6e534d",
+				"method": "GET"
+			},
+			{
+				"id": "6a846c53-90db-403e-90a9-8bf0ee04da63",
+				"method": "GET"
+			},
+			{
+				"id": "1b961435-f897-4741-a2fc-8161c4185244",
+				"method": "GET"
+			},
+			{
+				"id": "faad0806-6ec0-4977-acdf-d4e12aff7bed",
+				"method": "GET"
+			},
+			{
+				"id": "a5b55623-eeff-4d6b-bf6e-03e1a2f0fe6b",
+				"method": "GET"
+			},
+			{
+				"id": "4d86bd5d-e004-4b4c-95eb-3bd3a48eafeb",
+				"method": "GET"
+			},
+			{
+				"id": "5164bbcd-1c59-4231-a1d2-3cbd09ce4e0c",
+				"method": "GET"
+			},
+			{
+				"id": "839afffe-0706-40f8-9cf1-04da0e3bf8f6",
+				"method": "GET"
+			},
+			{
+				"id": "ded765d8-8024-4226-a5f9-3311ca887691",
+				"method": "GET"
+			},
+			{
+				"id": "9e24a5dd-5db8-4e83-9c21-2cbe9f633a45",
+				"method": "GET"
+			},
+			{
+				"id": "1a53bdd8-ec64-41ad-a427-369209537200",
+				"method": "GET"
+			},
+			{
+				"id": "ea43810d-0483-4e2b-a6f4-9e6b9cd154af",
+				"method": "GET"
+			},
+			{
+				"id": "f551729e-c6f7-4684-b6b0-206a536fa22f",
+				"method": "GET"
+			},
+			{
+				"id": "8048ff7d-b437-48ec-871f-606bea1d250a",
+				"method": "GET"
+			},
+			{
+				"id": "fc755cc2-56e8-4bdc-9206-ffae379cf4c8",
+				"method": "GET"
+			},
+			{
+				"id": "3f1295dd-259b-414c-af03-6bb32e117906",
+				"method": "GET"
+			},
+			{
+				"id": "b39681ba-bf2a-441c-9d59-091fc0edb734",
+				"method": "GET"
+			},
+			{
+				"id": "f08d4557-182a-4b9b-bea0-0704a47dd586",
+				"method": "GET"
+			},
+			{
+				"id": "0c556a7e-e8ae-49d5-a91b-3f0e9437e5cb",
+				"method": "GET"
+			},
+			{
+				"id": "0d841541-e496-4507-9da1-f3513ab2bf39",
+				"method": "GET"
+			},
+			{
+				"id": "d4de70eb-86f3-4f91-991a-08d1da426b8f",
+				"method": "GET"
+			},
+			{
+				"id": "035ed217-2f37-41af-bc32-14e19e769235",
+				"method": "GET"
+			},
+			{
+				"id": "4007ca4a-fa29-4e6d-a15e-12b807bfe92d",
+				"method": "GET"
+			},
+			{
+				"id": "3305f0e5-2450-492c-ade2-f5427d426bc7",
+				"method": "GET"
+			},
+			{
+				"id": "2b409c05-ea08-4aee-9061-0fbaf251047d",
+				"method": "GET"
+			},
+			{
+				"id": "5b77d8a5-ccdb-4c24-98a3-ff13155e5a97",
+				"method": "GET"
+			},
+			{
+				"id": "151b86b2-d6db-4fa2-823b-c1c4b73ca5dd",
+				"method": "GET"
+			},
+			{
+				"id": "77936629-1cc0-40af-aefb-f4179320abc3",
+				"method": "GET"
+			},
+			{
+				"id": "1f787d73-df65-4051-9feb-2dc413255c03",
+				"method": "GET"
+			},
+			{
+				"id": "b37ea5e6-a808-4610-a077-2bc289317c5a",
+				"method": "GET"
+			},
+			{
+				"id": "9124e043-233c-4885-a7df-37fbc9518f8f",
+				"method": "GET"
+			},
+			{
+				"id": "838f7fa9-20d6-40db-a1a4-2d505c742847",
+				"method": "GET"
+			},
+			{
+				"id": "e4372a32-7718-41b3-afce-353df69a6b31",
+				"method": "GET"
+			},
+			{
+				"id": "26e1be95-5625-4eb4-9640-8a4c1fa01049",
+				"method": "GET"
+			},
+			{
+				"id": "6e0a66aa-cb59-4297-8c47-be2d67b0aac6",
+				"method": "GET"
+			},
+			{
+				"id": "315cf474-ddc8-45c6-9843-130978dc0b14",
+				"method": "GET"
+			},
+			{
+				"id": "49e769d5-b73f-4c63-8114-6974135f0d72",
+				"method": "GET"
+			},
+			{
+				"id": "8f6d4f6b-a24f-4b36-92f5-b28a803fea7d",
+				"method": "GET"
+			}
+		]
+	}
+}

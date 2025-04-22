@@ -13,4 +13,7 @@
 /selenium_env
 /.venv/
 __pycache__
-/report/
+/reports/
+/report_generation/
+/venv/
+/screenshots/
