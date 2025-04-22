@@ -9,9 +9,7 @@ import os
 from dotenv import load_dotenv  
 
 # === CONFIG ===
-openai_api_key = os.getenv("OPENAI_API_KEY")
-if not openai_api_key:
-    raise ValueError("❌ OPENAI_API_KEY is missing from environment variables!")
+openai_api_key = "enter your OpenAI API key here"
 report_file = "dummy_content_report.csv"
 DUMMY_KEYWORDS = ['lorem', 'ipsum', 'dummy']
 

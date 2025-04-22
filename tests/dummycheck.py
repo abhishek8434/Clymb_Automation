@@ -8,7 +8,7 @@ from openai import OpenAI
 import os
 
 # === CONFIG ===
-openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_api_key ="Enter your OpenAI API key here"
 DUMMY_KEYWORDS = ['lorem ipsum', 'dummy']
 # DUMMY_KEYWORDS = ['lorem ipsum', 'dummy', 'test', 'abc', 'xyz', '123', 'sample', 'testing', 'placeholder']
 
