@@ -5,9 +5,10 @@ from selenium.webdriver.chrome.options import Options
 from collections import Counter
 import openai
 from openai import OpenAI
+import os
 
 # === CONFIG ===
-openai_api_key = "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" 
+openai_api_key = os.getenv("OPENAI_API_KEY")
 DUMMY_KEYWORDS = ['lorem ipsum', 'dummy']
 # DUMMY_KEYWORDS = ['lorem ipsum', 'dummy', 'test', 'abc', 'xyz', '123', 'sample', 'testing', 'placeholder']
 
