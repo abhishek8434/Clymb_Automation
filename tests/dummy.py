@@ -9,7 +9,7 @@ import os
 from dotenv import load_dotenv  
 
 # === CONFIG ===
-openai_api_key = "enter your OpenAI API key here"
+api_key = "enter your OpenAI API key here"
 report_file = "dummy_content_report.csv"
 DUMMY_KEYWORDS = ['lorem', 'ipsum', 'dummy']
 
@@ -51,7 +51,7 @@ URLS = [
 ]
 
 # === Setup OpenAI Client ===
-client = OpenAI(api_key=openai_api_key)
+client = OpenAI(api_key=api_key)
 
 # === Setup Selenium ===
 options = Options()

@@ -8,7 +8,7 @@ from openai import OpenAI
 import os
 
 # === CONFIG ===
-openai_api_key ="Enter your OpenAI API key here"
+api_key ="Enter your OpenAI API key here"
 DUMMY_KEYWORDS = ['lorem ipsum', 'dummy']
 # DUMMY_KEYWORDS = ['lorem ipsum', 'dummy', 'test', 'abc', 'xyz', '123', 'sample', 'testing', 'placeholder']
 
@@ -50,7 +50,7 @@ URLS = [
 ]
 
 # === Setup OpenAI Client ===
-client = OpenAI(api_key=openai_api_key)
+client = OpenAI(api_key=api_key)
 
 # === Setup Selenium Driver ===
 options = Options()
