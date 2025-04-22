@@ -5,9 +5,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from collections import Counter
 from openai import OpenAI
+import os
+from dotenv import load_dotenv  
 
 # === CONFIG ===
-openai_api_key = "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" 
+openai_api_key = os.getenv("OPENAI_API_KEY")
+if not openai_api_key:
+    raise ValueError("❌ OPENAI_API_KEY is missing from environment variables!")
 report_file = "dummy_content_report.csv"
 DUMMY_KEYWORDS = ['lorem', 'ipsum', 'dummy']
 
